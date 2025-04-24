@@ -1,0 +1,177 @@
+<section class="font-medium uppercase bg-light text-center">
+    <div class="container py-20">
+        <div class="headingWrapper" data-scrub-by=".char">
+            <?php echo get_field('hp_news_title');?>
+        </div>
+        <div class="splide logos-slider mt-10 !visible">
+        <div class="splide__track">
+            <!-- <ul class="splide__list btnGroup flex justify-around gap-6 mx-auto flex-wrap"> -->
+            <ul class="splide__list btnGroup">
+            <li class="splide__slide">
+                <button
+                class="border border-secondary rounded-[8px] px-10 py-6 uppercase text-xl font-medium">
+                Logo
+                </button>
+            </li>
+            <li class="splide__slide">
+                <button
+                class="border border-secondary rounded-[8px] px-10 py-6 uppercase text-xl font-medium">
+                Logo
+                </button>
+            </li>
+            <li class="splide__slide">
+                <button
+                class="border border-secondary rounded-[8px] px-10 py-6 uppercase text-xl font-medium">
+                Logo
+                </button>
+            </li>
+            <li class="splide__slide">
+                <button
+                class="border border-secondary rounded-[8px] px-10 py-6 uppercase text-xl font-medium">
+                Logo
+                </button>
+            </li>
+            <li class="splide__slide">
+                <button
+                class="border border-secondary rounded-[8px] px-10 py-6 uppercase text-xl font-medium">
+                Logo
+                </button>
+            </li>
+            </ul>
+        </div>
+        </div>
+    </div>
+    <div class="container mt-10">
+        <div class="flex justify-between">
+        <div class="btnGroup gap-4 flex">
+            <button
+            class="rounded-full border border-primary w-12 h-12 relative group"
+            data-prev>
+            <svg
+                width="14"
+                height="22"
+                aria-hidden="true"
+                class="absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] group-hover:text-primary transition">
+                <use href="#icon-arrow-right"></use>
+            </svg>
+            </button>
+            <button
+            class="rounded-full border border-primary w-12 h-12 relative group"
+            data-next>
+            <svg
+                width="14"
+                height="22"
+                aria-hidden="true"
+                class="-scale-x-100 absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] group-hover:text-primary transition">
+                <use href="#icon-arrow-right"></use>
+            </svg>
+            </button>
+        </div>
+        <?php $link = get_field('hp_news_button');
+            if( $link ): 
+                $link_url   = $link['url'];
+                $link_title = $link['title']; ?>
+            <a href="<?php echo $link_url;?>" class="btn-primary hover:!text-primary"><?php echo $link_title;?></a>
+        <?php endif; ?>
+        </div>
+    </div>
+    <div class="splide newsSlider pt-10 pb-20">
+        <div class="splide__track">
+        <ul class="splide__list">
+            <li class="splide__slide">
+            <div class="imgWrapper">
+                <!-- <img
+                    loading="lazy"
+                    src=""
+                    alt="" /> -->
+            </div>
+            <p class="text-start text-xl">
+                La santé mentale reste taboue dans l’agenda du développement
+                humain en Afrique
+            </p>
+            </li>
+            <li class="splide__slide">
+            <div class="imgWrapper">
+                <!-- <img
+                    loading="lazy"
+                    src=""
+                    alt="" /> -->
+            </div>
+            <p class="text-start text-xl">
+                La santé mentale reste taboue dans l’agenda du développement
+                humain en Afrique
+            </p>
+            </li>
+            <li class="splide__slide">
+            <div class="imgWrapper">
+                <!-- <img
+                    loading="lazy"
+                    src=""
+                    alt="" /> -->
+            </div>
+            <p class="text-start text-xl">
+                La santé mentale reste taboue dans l’agenda du développement
+                humain en Afrique
+            </p>
+            </li>
+            <li class="splide__slide">
+            <div class="imgWrapper">
+                <!-- <img
+                    loading="lazy"
+                    src=""
+                    alt="" /> -->
+            </div>
+            <p class="text-start text-xl">
+                La santé mentale reste taboue dans l’agenda du développement
+                humain en Afrique
+            </p>
+            </li>
+            <li class="splide__slide">
+            <div class="imgWrapper">
+                <!-- <img
+                    loading="lazy"
+                    src=""
+                    alt="" /> -->
+            </div>
+            <p class="text-start text-xl">
+                La santé mentale reste taboue dans l’agenda du développement
+                humain en Afrique
+            </p>
+            </li>
+        </ul>
+        </div>
+    </div>
+</section>
+
+<!-- bp 4 success -->
+<section class="font-medium uppercase text-light pt-40 max-[800px]:pt-20">
+    <div class="relative flex flex-col">
+        <div class="splide bgImgSlider max-lg:order-1 max-lg:mt-10">
+            <div class="splide__track">
+                <ul class="splide__list">
+                <?php 
+                $images = get_field('hp_background_slider');
+                if( $images ):
+                    foreach( $images as $image ): ?>
+                    <li class="splide__slide">
+                        <img src="<?php echo $image;?>" alt="" />
+                    </li>
+                    <?php endforeach;
+                endif; ?>
+                </ul>
+            </div>
+        </div>
+
+        <div class="container lg:absolute inset-0 py-auto max-h-max flex flex-col">
+            <p class="text-3xl/relaxed" data-scrub-by=".char">
+                <?php echo get_field('hp_blog_title');?>
+            </p>
+            <?php $link = get_field('hp_blog_button');
+                if( $link ): 
+                    $link_url   = $link['url'];
+                    $link_title = $link['title']; ?>
+                <a href="<?php echo $link_url;?>" class="btn-primary mt-6 mx-auto"><?php echo $link_title;?></a>
+            <?php endif; ?>
+        </div>
+    </div>
+</section>

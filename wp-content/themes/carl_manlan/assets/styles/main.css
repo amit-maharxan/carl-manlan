@@ -1,0 +1,501 @@
+.hexBg {
+  overflow: clip;
+  display: grid;
+  /* gap: 1px; */
+  background-image: radial-gradient(
+    circle var(--size) at var(--x, 80%) var(--y, 60%),
+    rgba(160, 211, 204, 0.6) 0%,
+    rgba(160, 211, 204, 0.6) 5%,
+    transparent 60%
+  );
+  /* @media (max-width: 1024px) {
+    background-image: radial-gradient(
+      circle farthest-side at 80% 100%,
+      rgba(160, 211, 204, 0.6) 0%,
+      transparent 60%
+    );
+  } */
+  /* transition: --x 100s ease-out, --y 100s ease-out; */
+}
+
+.hexBg.pattern1 {
+  --bgOpacity: 0.05;
+  --r: 255;
+  --g: 255;
+  --b: 255;
+  --colBg: rgba(var(--r), var(--g), var(--b), var(--bgOpacity));
+  --circleDiameter: 4px;
+
+  .row:nth-child(2) {
+    .col:nth-child(4) {
+      position: relative;
+      background-color: var(--colBg);
+      &::before {
+        background-color: var(--color-light);
+        content: '';
+        position: absolute;
+        height: var(--circleDiameter);
+        width: var(--circleDiameter);
+        top: calc(var(--circleDiameter) / -2 - 1px);
+        left: calc(var(--circleDiameter) / -2 - 1px);
+        border-radius: 50%;
+      }
+    }
+    .col:nth-last-child(1) {
+      --bgOpacity: 0.1;
+      --colBg: rgba(var(--r), var(--g), var(--b), var(--bgOpacity));
+      position: relative;
+      background-color: var(--colBg);
+      &::before {
+        background-color: var(--color-light);
+        content: '';
+        position: absolute;
+        height: var(--circleDiameter);
+        width: var(--circleDiameter);
+        bottom: calc(var(--circleDiameter) / -2 - 1px);
+        left: calc(var(--circleDiameter) / -2 - 1px);
+        border-radius: 50%;
+      }
+    }
+  }
+  .row:nth-child(1) {
+    .col:nth-child(5) {
+      background-color: var(--colBg);
+      position: relative;
+      &::after {
+        background-color: var(--color-light);
+        content: '';
+        position: absolute;
+        height: var(--circleDiameter);
+        width: var(--circleDiameter);
+        bottom: calc(var(--circleDiameter) / -2 - 0.5px);
+        right: calc(var(--circleDiameter) / -2 - 0.5px);
+        border-radius: 50%;
+      }
+    }
+  }
+  .row:nth-last-child(1) {
+    .col:nth-last-child(2) {
+      --bgOpacity: 0.1;
+      --colBg: rgba(var(--r), var(--g), var(--b), var(--bgOpacity));
+      background-color: var(--colBg);
+    }
+    .col:nth-child(2) {
+      --bgOpacity: 0.05;
+      --colBg: rgba(var(--r), var(--g), var(--b), var(--bgOpacity));
+      position: relative;
+      background-color: var(--colBg);
+      &::before {
+        background-color: var(--color-light);
+        content: '';
+        position: absolute;
+        height: var(--circleDiameter);
+        width: var(--circleDiameter);
+        top: calc(var(--circleDiameter) / -2 - 1px);
+        right: calc(var(--circleDiameter) / -2 - 1px);
+        border-radius: 50%;
+      }
+      &::after {
+        background-color: var(--color-light);
+        content: '';
+        position: absolute;
+        height: var(--circleDiameter);
+        width: var(--circleDiameter);
+        bottom: calc(var(--circleDiameter) / -2 - 1px);
+        left: calc(var(--circleDiameter) / -2 - 1px);
+        border-radius: 50%;
+      }
+    }
+  }
+  .row:nth-last-child(3) {
+    .col:nth-last-child(5) {
+      --bgOpacity: 0.1;
+      --colBg: rgba(var(--r), var(--g), var(--b), var(--bgOpacity));
+      position: relative;
+      background-color: var(--colBg);
+      &::before {
+        background-color: var(--color-light);
+        content: '';
+        position: absolute;
+        height: var(--circleDiameter);
+        width: var(--circleDiameter);
+        bottom: calc(var(--circleDiameter) / -2 - 1px);
+        left: calc(var(--circleDiameter) / -2 - 1px);
+        border-radius: 50%;
+      }
+      &::after {
+        background-color: var(--color-light);
+        content: '';
+        position: absolute;
+        height: var(--circleDiameter);
+        width: var(--circleDiameter);
+        top: calc(var(--circleDiameter) / -2 - 1px);
+        right: calc(var(--circleDiameter) / -2 - 1px);
+        border-radius: 50%;
+      }
+    }
+  }
+  .row:nth-last-child(2) {
+    --bgOpacity: 0.05;
+    --colBg: rgba(var(--r), var(--g), var(--b), var(--bgOpacity));
+    .col:nth-child(1) {
+      background-color: var(--colBg);
+    }
+    .col:nth-last-child(6) {
+      --bgOpacity: 0.1;
+      --colBg: rgba(var(--r), var(--g), var(--b), var(--bgOpacity));
+      position: relative;
+      background-color: var(--colBg);
+      &::before {
+        background-color: var(--color-light);
+        content: '';
+        position: absolute;
+        height: var(--circleDiameter);
+        width: var(--circleDiameter);
+        bottom: calc(var(--circleDiameter) / -2 - 1px);
+        right: calc(var(--circleDiameter) / -2 - 1px);
+        border-radius: 50%;
+      }
+      &::after {
+        background-color: var(--color-light);
+        content: '';
+        position: absolute;
+        height: var(--circleDiameter);
+        width: var(--circleDiameter);
+        top: calc(var(--circleDiameter) / -2 - 1px);
+        left: calc(var(--circleDiameter) / -2 - 1px);
+        border-radius: 50%;
+      }
+    }
+  }
+}
+.hexBg.pattern2 {
+  --bgOpacity: 0.07;
+  --r: 255;
+  --g: 255;
+  --b: 255;
+  --colBg: rgba(var(--r), var(--g), var(--b), var(--bgOpacity));
+  --circleDiameter: 4px;
+
+  .row:nth-child(2) {
+    .col:nth-child(2) {
+      position: relative;
+      background-color: var(--colBg);
+      &::before {
+        background-color: var(--color-light);
+        content: '';
+        position: absolute;
+        height: var(--circleDiameter);
+        width: var(--circleDiameter);
+        top: calc(var(--circleDiameter) / -2 - 1px);
+        left: calc(var(--circleDiameter) / -2 - 1px);
+        border-radius: 50%;
+      }
+    }
+  }
+  .row:nth-child(1) {
+    .col:nth-child(3) {
+      background-color: var(--colBg);
+      position: relative;
+      &::after {
+        background-color: var(--color-light);
+        content: '';
+        position: absolute;
+        height: var(--circleDiameter);
+        width: var(--circleDiameter);
+        bottom: calc(var(--circleDiameter) / -2 - 0.5px);
+        right: calc(var(--circleDiameter) / -2 - 0.5px);
+        border-radius: 50%;
+      }
+    }
+  }
+}
+
+.col {
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.row {
+  display: grid;
+  grid-auto-flow: column;
+  /* gap: 1px; */
+}
+
+main > section:first-child {
+  margin-top: calc(-1 * var(--headerHeight));
+  padding-top: var(--headerHeight);
+}
+
+.dateSlider li {
+  position: relative;
+}
+
+.dateSlider li span {
+  position: relative;
+  background-color: var(--color-dark);
+  z-index: 1;
+  padding: 1rem;
+  font-size: var(--text-3xl);
+  color: rgba(255, 255, 255, 0.25);
+  transition: color 400ms ease-out;
+}
+
+.dateSlider li.is-active span {
+  color: var(--color-primary);
+}
+
+.dateSlider li::before {
+  position: absolute;
+  height: 2px;
+  width: 100%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  content: '';
+  background-color: var(--color-white);
+  opacity: 1;
+  padding: 0;
+}
+
+.dateSlider li:first-child:after {
+  content: '';
+  position: absolute;
+  height: 0.6rem;
+  width: 0.6rem;
+  top: 50%;
+  display: block;
+  left: 0%;
+  z-index: 1;
+  transform: translateY(-50%);
+  background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iOCIgaGVpZ2h0PSIxMiIgdmlld0JveD0iMCAwIDggMTIiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBvbHlnb24gcG9pbnRzPSIwLDAgOCw2IDAsMTIiIGZpbGw9IndoaXRlIi8+PC9zdmc+');
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.dateSlider li:last-child:after {
+  content: '';
+  position: absolute;
+  height: 0.6rem;
+  width: 0.6rem;
+  top: 50%;
+  display: block;
+  right: -5px;
+  z-index: 1;
+  transform: translateY(-50%);
+  background-image: url('data:image/svg+xml;base64,PHN2ZyBmaWxsPSJ3aGl0ZSIgd2lkdGg9IjgiIGhlaWdodD0iOCIgdmlld0JveD0iMCAwIDggOCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cG9seWdvbiBwb2ludHM9IjAsMCA4LDQgMCw4Ii8+PC9zdmc+');
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.timelineSliders .imgSlider li img {
+  filter: blur(5px);
+  opacity: 0.6;
+  aspect-ratio: 1.4;
+  width: 100%;
+  transition: opacity 400ms ease-out, filter 400ms ease-out;
+  border-radius: 12px;
+  margin-block: 1.5rem;
+}
+.timelineSliders .imgSlider li.is-active img {
+  filter: blur(0px);
+  opacity: 1;
+}
+
+.timelineSliders .imgSlider li p {
+  opacity: 0;
+  transition: opacity 400ms ease-out;
+}
+.timelineSliders .imgSlider li.is-active p {
+  opacity: 1;
+}
+.newsSlider .imgWrapper {
+  margin-block-end: 1rem;
+}
+
+.newsSlider :is(.imgWrapper, img) {
+  display: block;
+  background-color: var(--color-gray);
+  width: 100%;
+  aspect-ratio: 1.4;
+  border-radius: 12px;
+}
+.bgImgSlider img {
+  border-radius: 12px;
+}
+
+.bgImgSlider li {
+  position: relative;
+}
+
+.bgImgSlider li:has(img):after {
+  position: absolute;
+  inset: 0;
+  content: '';
+  background: linear-gradient(
+    rgba(0, 0, 0, 0.4),
+    rgba(0, 0, 0, 1) 80%,
+    rgba(0, 0, 0, 1)
+  );
+}
+
+.ig img {
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 1rem;
+}
+
+.linear-grad-mask:after {
+  content: '';
+  inset: 0;
+  position: absolute;
+  background: linear-gradient(
+    rgb(0, 0, 0, 1) 0%,
+    rgb(0, 0, 0, 0.6) 10%,
+    transparent,
+    rgb(0, 0, 0, 0.6) 90%,
+    rgb(0, 0, 0, 1) 100%
+  );
+}
+
+/* .logos-slider:not(.is-overflow) .splide__list {
+  justify-content: center;
+}
+.logos-slider:not(.is-overflow) .splide__slide:last-child {
+  margin: 0 !important;
+} */
+
+.line {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}
+[data-scrub-by*='char'] .char,
+[data-scrub-by*='word'] .word {
+  transform: translateY(100px);
+  transition: transform 0.5s;
+}
+
+/* HTML: <div class="loader"></div> */
+.loader {
+  margin: auto;
+  height: 50px;
+  aspect-ratio: 2;
+  border: 10px solid #000;
+  box-sizing: border-box;
+  background: radial-gradient(farthest-side, #fff 98%, #0000) left/20px 20px,
+    radial-gradient(farthest-side, #fff 98%, #0000) left/20px 20px,
+    radial-gradient(farthest-side, #fff 98%, #0000) center/20px 20px,
+    radial-gradient(farthest-side, #fff 98%, #0000) right/20px 20px, #000;
+  background-repeat: no-repeat;
+  filter: blur(4px) contrast(10);
+  animation: l14 1s infinite;
+}
+@keyframes l14 {
+  100% {
+    background-position: right, left, center, right;
+  }
+}
+
+.loaderOverlay {
+  position: fixed;
+  z-index: 100;
+  inset: 0;
+  background: var(--color-dark);
+  display: grid;
+  place-content: center;
+}
+
+.loaderOverlay.loaded {
+  z-index: -10;
+  visibility: 'hidden';
+  pointer-events: 'none';
+  opacity: 0;
+}
+
+.timelineBg {
+  --transparent-color: rgba(0, 0, 0, 0.2);
+  filter: blur(1px);
+}
+.timelineBg::after {
+  background: linear-gradient(
+      to left,
+      var(--transparent-color),
+      var(--color-dark)
+    ),
+    linear-gradient(
+      to bottom,
+      var(--color-dark),
+      var(--color-dark) 5%,
+      var(--transparent-color),
+      var(--color-dark) 95%,
+      var(--color-dark)
+    );
+}
+.timelineBg::before {
+  background: linear-gradient(
+      to right,
+      var(--transparent-color),
+      var(--color-dark)
+    ),
+    linear-gradient(
+      to bottom,
+      var(--color-dark),
+      var(--color-dark) 5%,
+      var(--transparent-color),
+      var(--color-dark) 95%,
+      var(--color-dark)
+    );
+}
+
+@media (width >= 64rem) {
+  .verticalTimeline .timlineItem:nth-child(even) {
+    .imgWrapper {
+      order: 1;
+    }
+    .txtWrapper {
+      order: -1;
+    }
+  }
+}
+
+.verticalTimeline .separator {
+  position: relative;
+  .year::after {
+    position: absolute;
+    inset-inline: 0;
+    inset-block-start: 0;
+    margin-inline: auto;
+    height: calc(45% - 2rem);
+    width: 2px;
+    background-color: white;
+    content: '';
+  }
+  .year::before {
+    position: absolute;
+    inset-inline: 0;
+    inset-block-end: 0;
+    margin-inline: auto;
+    height: calc(45% - 2.5rem);
+    width: 2px;
+    background-color: white;
+    content: '';
+  }
+}
+.verticalTimeline .timlineItem {
+  height: 100%;
+  min-height: 400px;
+  grid-template-rows: 1fr;
+}
+.verticalTimeline .timlineItem .imgWrapper {
+  align-items: center;
+  align-content: center;
+}
+
+@media (width <= 64rem) {
+  .verticalTimeline .timlineItem .txtWrapper {
+    padding-block: 2rem;
+  }
+
+  .verticalTimeline .timlineItem .imgWrapper img {
+    width: 100%;
+    height: auto;
+  }
+}

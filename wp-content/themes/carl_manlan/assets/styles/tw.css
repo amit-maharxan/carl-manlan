@@ -1,0 +1,99 @@
+/* .\tailwindcss-windows.exe --input ./css/tw.css --output ./css/output.css --watch */
+
+@import 'tailwindcss';
+@source not "../fonts";
+@source not "../icons";
+@source not "../images";
+@source not "../../.vscode";
+@source not "../../.git";
+
+@font-face {
+  font-family: Oswald;
+  src: url('../fonts/Oswald-VariableFont_wght.ttf') format('truetype');
+  font-style: normal;
+}
+
+@font-face {
+  font-family: OvertheRainbow;
+  src: url('../fonts/OvertheRainbow-Regular.ttf') format('truetype');
+  font-style: normal;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: Poppins;
+  src: url('../fonts/Poppins-Bold.ttf') format('truetype');
+  font-style: normal;
+  font-weight: 700;
+}
+@font-face {
+  font-family: Poppins;
+  src: url('../fonts/Poppins-Regular.ttf') format('truetype');
+  font-style: normal;
+  font-weight: 400;
+}
+
+@theme {
+  --color-dark: #000;
+  --color-light: #fff;
+  --color-primary: #f78104;
+  --color-secondary: #a0d3cc;
+  --color-gray: #ababab;
+
+  --font-oswald: Oswald;
+  --font-poppins: Poppins;
+  --font-over-the-rainbow: 'OvertheRainbow';
+}
+
+:root {
+  font-family: var(--font-oswald);
+  text-rendering: geometricPrecision;
+}
+@layer base {
+  main {
+    @apply z-1;
+  }
+  main,
+  section,
+  .pin-spacer {
+    @apply bg-dark;
+  }
+
+  .container {
+    @apply mx-auto px-4;
+  }
+}
+
+[class*='btn-'] {
+  @apply px-6 py-2 rounded-full uppercase max-w-max cursor-pointer;
+}
+
+.btn-primary {
+  @apply bg-primary text-light border-2 border-primary inline-block;
+  transition: background-color 400ms ease, color 400ms ease;
+  &:hover {
+    /* @apply bg-light text-primary; */
+    @apply bg-transparent;
+  }
+}
+.btn-light {
+  @apply bg-light text-dark border-2 border-light inline-block;
+  transition: background-color 400ms ease, color 400ms ease;
+  &:hover {
+    /* @apply bg-dark text-light; */
+    @apply bg-transparent;
+  }
+}
+
+.btn-secondary {
+  @apply bg-secondary text-dark border-2 border-secondary inline-block;
+  transition: background-color 400ms ease, color 400ms ease, filter 400ms ease;
+  &:hover {
+    @apply bg-dark text-secondary;
+    /* @apply bg-transparent; */
+    img {
+      filter: brightness(0) saturate(100%) invert(82%) sepia(21%) saturate(340%)
+        hue-rotate(122deg) brightness(96%) contrast(89%);
+    }
+  }
+}
