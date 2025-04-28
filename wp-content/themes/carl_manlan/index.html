@@ -43,9 +43,6 @@
       type="module"
       defer></script>
     <script
-      src="./assets/js/menu.js"
-      defer></script>
-    <script
       src="./assets/js/splide.min.js"
       defer></script>
     <script
@@ -57,36 +54,9 @@
     <script
       src="./assets/js/gsapScrollTrigger.min.js"
       defer></script>
-    <script defer>
-      document.addEventListener('DOMContentLoaded', () => {
-        const lenis = new Lenis({
-          lerp: 0.08,
-          smoothWheel: true,
-        });
-        window.lenis = lenis; // Expose Lenis instance globally for debugging
-        // Synchronize Lenis scrolling with GSAP's ScrollTrigger plugin
-        lenis.on('scroll', ScrollTrigger.update);
-
-        gsap.registerPlugin(ScrollTrigger);
-        // Add Lenis's requestAnimationFrame (raf) method to GSAP's ticker
-        // This ensures Lenis's smooth scroll animation updates on each GSAP tick
-        gsap.ticker.add((time) => {
-          lenis.raf(time * 1000); // Convert time from seconds to milliseconds
-        });
-
-        // Disable lag smoothing in GSAP to prevent any delay in scroll animations
-        gsap.ticker.lagSmoothing(0);
-      });
-    </script>
     <script
       src="https://unpkg.com/split-type"
       defer></script>
-
-    <script defer>
-      document.addEventListener('DOMContentLoaded', () => {
-        feather.replace();
-      });
-    </script>
     <title>Home</title>
   </head>
 
@@ -301,7 +271,7 @@
             <img
               loading="eager"
               src="./assets/images/Carl_Alpha.png"
-              class="max-h-[80vh] mx-auto mt-auto"
+              class="max-h-[80vh] mx-auto mt-auto object-scale-down"
               width="500"
               height="500"
               alt="" />

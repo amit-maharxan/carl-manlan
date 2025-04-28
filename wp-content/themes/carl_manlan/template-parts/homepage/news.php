@@ -7,36 +7,15 @@
         <div class="splide__track">
             <!-- <ul class="splide__list btnGroup flex justify-around gap-6 mx-auto flex-wrap"> -->
             <ul class="splide__list btnGroup">
+            <?php
+            if( have_rows('hp_logos') ):
+                while( have_rows('hp_logos') ) : the_row(); ?>
             <li class="splide__slide">
-                <button
-                class="border border-secondary rounded-[8px] px-10 py-6 uppercase text-xl font-medium">
-                Logo
-                </button>
+                <a href="<?php the_sub_field('url');?>" class="border border-secondary rounded-[8px] px-10 py-6 uppercase text-xl font-medium">
+                    <img src="<?php the_sub_field('logo');?>" alt="" class="max-h-20 max-w-max" />
+                </a>
             </li>
-            <li class="splide__slide">
-                <button
-                class="border border-secondary rounded-[8px] px-10 py-6 uppercase text-xl font-medium">
-                Logo
-                </button>
-            </li>
-            <li class="splide__slide">
-                <button
-                class="border border-secondary rounded-[8px] px-10 py-6 uppercase text-xl font-medium">
-                Logo
-                </button>
-            </li>
-            <li class="splide__slide">
-                <button
-                class="border border-secondary rounded-[8px] px-10 py-6 uppercase text-xl font-medium">
-                Logo
-                </button>
-            </li>
-            <li class="splide__slide">
-                <button
-                class="border border-secondary rounded-[8px] px-10 py-6 uppercase text-xl font-medium">
-                Logo
-                </button>
-            </li>
+            <?php endwhile; endif; ?>
             </ul>
         </div>
         </div>
@@ -44,9 +23,7 @@
     <div class="container mt-10">
         <div class="flex justify-between">
         <div class="btnGroup gap-4 flex">
-            <button
-            class="rounded-full border border-primary w-12 h-12 relative group"
-            data-prev>
+            <button class="rounded-full border border-primary w-12 h-12 relative group" data-prev>
             <svg
                 width="14"
                 height="22"
@@ -55,9 +32,7 @@
                 <use href="#icon-arrow-right"></use>
             </svg>
             </button>
-            <button
-            class="rounded-full border border-primary w-12 h-12 relative group"
-            data-next>
+            <button class="rounded-full border border-primary w-12 h-12 relative group" data-next>
             <svg
                 width="14"
                 height="22"
@@ -77,68 +52,24 @@
     </div>
     <div class="splide newsSlider pt-10 pb-20">
         <div class="splide__track">
-        <ul class="splide__list">
-            <li class="splide__slide">
-            <div class="imgWrapper">
-                <!-- <img
-                    loading="lazy"
-                    src=""
-                    alt="" /> -->
-            </div>
-            <p class="text-start text-xl">
-                La santé mentale reste taboue dans l’agenda du développement
-                humain en Afrique
-            </p>
-            </li>
-            <li class="splide__slide">
-            <div class="imgWrapper">
-                <!-- <img
-                    loading="lazy"
-                    src=""
-                    alt="" /> -->
-            </div>
-            <p class="text-start text-xl">
-                La santé mentale reste taboue dans l’agenda du développement
-                humain en Afrique
-            </p>
-            </li>
-            <li class="splide__slide">
-            <div class="imgWrapper">
-                <!-- <img
-                    loading="lazy"
-                    src=""
-                    alt="" /> -->
-            </div>
-            <p class="text-start text-xl">
-                La santé mentale reste taboue dans l’agenda du développement
-                humain en Afrique
-            </p>
-            </li>
-            <li class="splide__slide">
-            <div class="imgWrapper">
-                <!-- <img
-                    loading="lazy"
-                    src=""
-                    alt="" /> -->
-            </div>
-            <p class="text-start text-xl">
-                La santé mentale reste taboue dans l’agenda du développement
-                humain en Afrique
-            </p>
-            </li>
-            <li class="splide__slide">
-            <div class="imgWrapper">
-                <!-- <img
-                    loading="lazy"
-                    src=""
-                    alt="" /> -->
-            </div>
-            <p class="text-start text-xl">
-                La santé mentale reste taboue dans l’agenda du développement
-                humain en Afrique
-            </p>
-            </li>
-        </ul>
+            <ul class="splide__list">
+                <?php
+                $wp_query = new WP_Query(array(
+                    'post_type'      => 'news', // Fetch regular WordPress posts
+                    'posts_per_page' => 20, // Number of posts to display
+                ));
+                while ($wp_query->have_posts()) : $wp_query->the_post(); ?>
+                <li class="splide__slide">
+                    <div class="imgWrapper">
+                        <img loading="lazy" src="<?php echo get_the_post_thumbnail_url();?>" alt="" />
+                    </div>
+                    <p class="text-start text-xl">
+                        <?php the_title();?>
+                    </p>
+                </li>
+                <?php endwhile; ?>
+                <?php wp_reset_postdata(); ?>
+            </ul>
         </div>
     </div>
 </section>

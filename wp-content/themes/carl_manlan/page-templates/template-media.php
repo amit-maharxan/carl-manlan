@@ -1,16 +1,16 @@
 <?php
 /**
- * Template Name: About Layout
+ * Template Name: Media Layout
  */
 
 do_action('carl_header'); ?>
 
-  <?php 
+<?php 
       /**
-       * carl_about_content hook
+       * carl_media_content hook
        *
        */
-      do_action( 'carl_about_content' );
+      do_action( 'carl_media_content' );
   ?>
 
 <?php do_action('carl_footer'); ?>

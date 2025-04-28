@@ -11,9 +11,7 @@ $url    = wp_get_attachment_url( get_post_thumbnail_id($postID), 'thumbnail' ); 
 <!-- Hero -->
 <section class="hero">
   <div class="bannerSm blueOverlay">
-    <img
-      src="<?php echo $url;?>"
-      alt="" />
+    <img src="<?php echo $url;?>" alt="" />
     <div class="txtWrapper mainGrid">
       <div class="content">
         <small> Home / Papers </small>

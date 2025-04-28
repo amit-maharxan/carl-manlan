@@ -64,6 +64,32 @@ if (!function_exists('carl_homepage_masonary')){
 	}
 }
 
+// Carl Manlan About Content Hooks
+if (!function_exists('carl_about_banner')){
+	function carl_about_banner(){
+		get_template_part('template-parts/about/banner');
+	}
+}
+
+if (!function_exists('carl_about_about')){
+	function carl_about_about(){
+		get_template_part('template-parts/about/about');
+	}
+}
+
+if (!function_exists('carl_about_timeline')){
+	function carl_about_timeline(){
+		get_template_part('template-parts/about/timeline');
+	}
+}
+
+// Carl Manlan Media Content Hooks
+if (!function_exists('carl_media_contents')){
+	function carl_media_contents(){
+		get_template_part('template-parts/media/media');
+	}
+}
+
 /*==================================================================================================
   Hooks
   ==================================================================================================*/
@@ -98,3 +124,15 @@ add_action( 'carl_homepage_content', 'carl_homepage_banner', 10 );
 add_action( 'carl_homepage_content', 'carl_homepage_timeline', 20 );
 add_action( 'carl_homepage_content', 'carl_homepage_news', 30 );
 add_action( 'carl_homepage_content', 'carl_homepage_masonary', 40 );
+
+/**
+ * About Hook
+ */
+add_action( 'carl_about_content', 'carl_about_banner', 10 );
+add_action( 'carl_about_content', 'carl_about_about', 20 );
+add_action( 'carl_about_content', 'carl_about_timeline', 30 );
+
+/**
+ * Media Hook
+ */
+add_action( 'carl_media_content', 'carl_media_contents', 10 );
