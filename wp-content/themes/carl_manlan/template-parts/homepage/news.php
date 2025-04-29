@@ -68,7 +68,7 @@
                     </p>
                 </li>
                 <?php endwhile; ?>
-                <?php wp_reset_postdata(); ?>
+                <?php wp_reset_query(); ?>
             </ul>
         </div>
     </div>
