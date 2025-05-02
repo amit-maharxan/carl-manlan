@@ -50,6 +50,66 @@
   </section>
   <?php endif; ?>
 
+  <?php if(is_page('116')){ ?>
+    <section class="relative py-20">
+      <div
+        class="hexBg pattern3 bgEffect absolute inset-0 z-0 after:z-0 after:block after:inset-0 after:absolute after:bg-linear-to-b after:from-dark after:via-dark/40 after:via-10% after:to-dark/40"
+        data-gradX="0.9"
+        data-gradY="0.5"
+        data-gradSize="farthest-corner"
+        data-box-dimension="212"></div>
+      <div class="container relative z-1 text-light text-center">
+        <h1 class="text-3xl font-medium uppercase">
+          Sign up now to start your journey toward <br />
+          <span class="text-primary"
+            >becoming the leader you aspire to be</span
+          >.
+        </h1>
+        <p class="mt-10 font-poppins text-light/75 font-bold text-xs/relaxed">
+          Be part of an exclusive mentorship experience led by Carl Manlan—
+          <br class="max-md:hidden" />
+          where meaningful growth meets purposeful leadership. Spaces are
+          limited.
+        </p>
+
+        <form
+          class="flex flex-col gap-6 max-w-[44rem] mx-auto text-left mt-10">
+          <div class="grid md:grid-cols-2 gap-6">
+            <div class="formGrp grid gap-2 w-full">
+              <label for="first-name">First Name*</label>
+              <input
+                required
+                class="rounded-full bg-light/25 px-8 py-4"
+                id="first-name"
+                type="text" />
+            </div>
+            <div class="formGrp grid gap-2 w-full">
+              <label for="last-name">Last Name*</label>
+              <input
+                required
+                class="rounded-full bg-light/25 px-8 py-4"
+                id="last-name"
+                type="text" />
+            </div>
+          </div>
+          <div class="formGrp grid gap-2 w-full">
+            <label for="email">Email Address*</label>
+            <input
+              required
+              class="rounded-full bg-light/25 px-8 py-4"
+              id="email"
+              type="email" />
+          </div>
+          <button
+            type="submit"
+            class="btn-primary hover:!text-primary">
+            Apply
+          </button>
+        </form>
+      </div>
+    </section>
+  <?php } ?>
+
   <div class="bg-gray py-4">
     <div
       class="container flex flex-wrap gap-x-8 gap-y-4 justify-between font-medium text-xs uppercase">

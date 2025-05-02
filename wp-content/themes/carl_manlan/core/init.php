@@ -44,8 +44,7 @@ require_once ( DK_FUNCTION.'/extras.php' );
 require_once ( DK_FUNCTION.'/ajax-functions.php' );
 
 
-require_once ( DK_CORE.'/post_types/type_news.php' );
-require_once ( DK_CORE.'/post_types/type_what_we_do.php' );
+require_once ( DK_CORE.'/post_types/type_blueprints.php' );
 
 /**
  * Theme Hooks

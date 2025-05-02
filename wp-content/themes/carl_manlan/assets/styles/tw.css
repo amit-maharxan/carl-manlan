@@ -1,4 +1,4 @@
-/* .\tailwindcss-windows.exe --input ./css/tw.css --output ./css/output.css --watch */
+/* .\tailwindcss-windows.exe --input ./assets/styles/tw.css --output ./assets/styles/output.css --watch */
 
 @import 'tailwindcss';
 @source not "../fonts";
@@ -32,6 +32,12 @@
   font-style: normal;
   font-weight: 400;
 }
+@font-face {
+  font-family: Splash;
+  src: url('../fonts/Splash-Regular.ttf') format('truetype');
+  font-style: normal;
+  font-weight: 400;
+}
 
 @theme {
   --color-dark: #000;
@@ -43,6 +49,7 @@
   --font-oswald: Oswald;
   --font-poppins: Poppins;
   --font-over-the-rainbow: 'OvertheRainbow';
+  --font-splash: Splash;
 }
 
 :root {
@@ -96,4 +103,12 @@
         hue-rotate(122deg) brightness(96%) contrast(89%);
     }
   }
+}
+
+.btn-filter[data-active] {
+  @apply rounded-md border bg-dark not-[:has(~:hover)]:bg-primary border-primary transition-colors duration-600;
+}
+
+.btn-filter {
+  @apply !rounded-md border bg-dark border-secondary hover:bg-primary hover:border-primary transition-colors duration-600;
 }

@@ -210,6 +210,31 @@
     }
   }
 }
+.hexBg.pattern3 {
+  --bgOpacity: 0.07;
+  --r: 255;
+  --g: 255;
+  --b: 255;
+  --colBg: rgba(var(--r), var(--g), var(--b), var(--bgOpacity));
+  --circleDiameter: 4px;
+
+  .row:last-child {
+    .col:nth-child(1) {
+      background-color: var(--colBg);
+      position: relative;
+      &::after {
+        background-color: var(--color-light);
+        content: '';
+        position: absolute;
+        height: var(--circleDiameter);
+        width: var(--circleDiameter);
+        top: calc(var(--circleDiameter) / -2 - 0.5px);
+        right: calc(var(--circleDiameter) / -2 - 0.5px);
+        border-radius: 50%;
+      }
+    }
+  }
+}
 
 .col {
   border: 1px solid rgba(255, 255, 255, 0.05);
@@ -296,7 +321,7 @@ main > section:first-child {
   border-radius: 12px;
   margin-block: 1.5rem;
 }
-.timelineSliders .imgSlider li.is-active img {
+.timelineSliders .imgSlider :is(li.is-active, li:hover) img {
   filter: blur(0px);
   opacity: 1;
 }
@@ -305,7 +330,7 @@ main > section:first-child {
   opacity: 0;
   transition: opacity 400ms ease-out;
 }
-.timelineSliders .imgSlider li.is-active p {
+.timelineSliders .imgSlider :is(li.is-active, li:hover) p {
   opacity: 1;
 }
 .newsSlider .imgWrapper {
@@ -499,23 +524,47 @@ main > section:first-child {
   min-height: 400px;
   grid-template-rows: 1fr;
 }
+.verticalTimeline .timlineItem :is(.separator, .separator > *) {
+  text-align: center;
+}
+.verticalTimeline .timlineItem .imgWrapper img {
+  border-radius: 1rem;
+}
 .verticalTimeline .timlineItem .imgWrapper {
   align-items: center;
   align-content: center;
+  aspect-ratio: 3/2;
+  align-self: center;
+  border-radius: 1rem;
+  img {
+    aspect-ratio: 3/2;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
 }
-
+.verticalTimeline .timlineItem .imgWrapperClone {
+  position: absolute;
+  width: 50%;
+  height: auto;
+  inset-inline-start: 50%;
+  margin-block: unset !important;
+  z-index: 0;
+  filter: blur(6px) brightness(70%);
+  opacity: 90%;
+}
+.verticalTimeline .timlineItem .txtWrapper {
+  position: relative;
+  z-index: 1;
+}
 @media (width <= 64rem) {
   .verticalTimeline .timlineItem .txtWrapper {
     padding-block: 2rem;
   }
-
-  .verticalTimeline .timlineItem .imgWrapper img {
-    width: 100%;
-    height: auto;
-  }
 }
 
-.mediaGrid {
+.mediaGrid,
+.blogGrid {
   --grid-max-col-count: 3;
   --grid-min-col-size: 200px;
   --grid-gap: 1rem;
@@ -547,4 +596,51 @@ main > section:first-child {
 }
 .mediaSection .txtWrapper {
   text-align: center;
+}
+
+.lineContents .line {
+  display: contents !important;
+}
+
+.card .txtStroke {
+  -webkit-text-stroke: 1px var(--color-light);
+}
+
+nav ul li:has(a):not(.text-primary, :has(.text-primary)) {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  background: linear-gradient(
+    to right,
+    var(--color-primary),
+    var(--color-primary) 50%,
+    var(--color-light) 50%
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% 100%;
+  background-position: 100%;
+  transition: background-position 275ms ease;
+  text-decoration: none;
+  &:hover {
+    background-position: 0 100%;
+  }
+}
+footer nav ul li:has(a):not(.text-primary, :has(.text-primary)) {
+  background: linear-gradient(
+    to right,
+    var(--color-primary),
+    var(--color-primary) 50%,
+    var(--color-dark) 50%
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% 100%;
+  background-position: 100%;
+}
+
+input {
+  border: 1px transparent !important;
 }

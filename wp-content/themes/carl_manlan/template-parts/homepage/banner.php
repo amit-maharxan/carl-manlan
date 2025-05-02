@@ -27,7 +27,7 @@
         <img
             loading="eager"
             src="<?php echo get_field('hp_banner_image');?>"
-            class="max-h-[80vh] mx-auto mt-auto"
+            class="max-h-[80vh] mx-auto mt-auto object-scale-down"
             width="500"
             height="500"
             alt="" />
