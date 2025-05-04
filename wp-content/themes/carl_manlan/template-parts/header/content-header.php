@@ -39,7 +39,7 @@
       <div class="content flex flex-col gap-4">
         <div class="menuBlock px-(--menu-padding-x)">
           <a
-            href=""
+            href="<?php echo site_url('about');?>"
             class="contents">
             <p
               class="text-xl"
@@ -50,7 +50,7 @@
         </div>
         <div class="menuBlock px-(--menu-padding-x)">
           <a
-            href=""
+            href="<?php echo site_url('media');?>"
             class="contents">
             <p
               class="text-xl"
@@ -61,7 +61,7 @@
         </div>
         <div class="menuBlock px-(--menu-padding-x)">
           <a
-            href=""
+            href="<?php echo site_url('blueprint-for-change');?>"
             class="contents">
             <p
               class="text-xl"
@@ -72,7 +72,7 @@
         </div>
         <div class="menuBlock px-(--menu-padding-x)">
           <a
-            href=""
+            href="<?php echo site_url('blueprint-for-success');?>"
             class="contents">
             <p
               class="text-xl"
