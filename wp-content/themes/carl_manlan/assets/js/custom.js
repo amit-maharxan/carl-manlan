@@ -5,4 +5,5 @@ $(document).ready(function() {
     $('.max-mdhidden').each(function () {
         $(this).removeClass('max-mdhidden').addClass('max-md:hidden');
     });
+    $('li#menu-item-122 a').addClass('btn-primary');
 });

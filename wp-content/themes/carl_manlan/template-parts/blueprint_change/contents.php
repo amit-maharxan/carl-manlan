@@ -16,18 +16,28 @@
         </div>
 
         <div class="btnGroup flex gap-4 flex-wrap w-full justify-center py-10 text-light uppercase font-medium">
-            <button class="btn-filter" data-active>All</button>
-            <button class="btn-filter">Economic Development and Financial Inclusion</button>
-            <button class="btn-filter">Youth and Human Capital</button>
-            <button class="btn-filter">African Leadership & Governance</button>
+            <button class="btn-filter" data-active data-id="all">All</button>
+            <?php
+                $terms = get_terms(array(
+                    'taxonomy'   => 'category',
+                    'hide_empty' => false, // set to true if you only want terms assigned to at least one post
+                    'exclude'    => array('1'),
+                ));
+
+                if (!empty($terms) && !is_wp_error($terms)) {
+                    foreach ($terms as $term) {
+                        echo '<button class="btn-filter" data-id="'. esc_html($term->slug) .'">' . esc_html($term->name) . '</button>';
+                    }
+                }
+            ?>
         </div>
     </div>
 </div>
-<div class="container blogGrid bg-dark" style="--grid-gap: 2.5rem">
+<div class="container blogGrid bg-dark" style="--grid-gap: 2.5rem" id="blueprint_blogGrid">
     <?php
         $wp_query = new WP_Query(array(
             'post_type'      => 'blueprints', // Fetch regular WordPress posts
-            'posts_per_page' => 20, // Number of posts to display
+            'posts_per_page' => 9, // Number of posts to display
         ));
         while ($wp_query->have_posts()) : $wp_query->the_post(); ?>
         <article class="blogCard flex flex-col gap-10">
@@ -38,7 +48,8 @@
                 alt="" />
             </div>
             <div class="btn-tag !rounded-md border border-primary text-light font-medium">
-                Economic Development and Financial Inclusion
+                <?php $terms = get_the_terms(get_the_ID(), 'category');
+                echo $terms[0]->name; ?>
             </div>
             <h1 class="text-light font-medium text-xl uppercase"><?php the_title();?></h1>
             <p class="text-light font-poppins text-sm">
@@ -48,62 +59,42 @@
         </article>
     <?php endwhile; wp_reset_query(); ?>
 </div>
+<div class="loader_icon" id="loader_icon">
+        <img src="<?php echo site_url('wp-content/uploads/2025/05/loader.gif');?>" alt="" width="200" height="200" class="mx-auto my-20" />
+</div>
 <div
     class="container relative subscribe blogGrid bg-dark my-20"
     style="--grid-gap: 2.5rem">
     <div
     class="bgGrad absolute inset-0 bg-linear-to-b from-dark/30 via-dark/80 to-dark"></div>
-    <article class="blogCard flex flex-col gap-10">
-    <div class="imgWrapper aspect-[3/2] rounded-md">
-        <img
-        src="./assets/images/img1.png"
-        class="aspect-[3/2] rounded-md"
-        alt="" />
-    </div>
-    <div
-        class="btn-tag !rounded-md border border-primary text-light font-medium">
-        Economic Development and Financial Inclusion
-    </div>
-    <h1 class="text-light font-medium text-xl uppercase">Blog Title</h1>
-    <p class="text-light font-poppins text-sm">
-        Carl Manlan was born in Treichville, a neighbourhood in Abidjan,
-        and grew up with a deep sense of helping others
-    </p>
-    </article>
-    <article class="blogCard flex flex-col gap-10">
-    <div class="imgWrapper aspect-[3/2] rounded-md">
-        <img
-        src="./assets/images/img2.png"
-        class="aspect-[3/2] rounded-md"
-        alt="" />
-    </div>
-    <div
-        class="btn-tag !rounded-md border border-primary text-light font-medium">
-        Youth and Human Capital
-    </div>
-    <h1 class="text-light font-medium text-xl uppercase">Blog Title</h1>
-    <p class="text-light font-poppins text-sm">
-        Carl Manlan was born in Treichville, a neighbourhood in Abidjan,
-        and grew up with a deep sense of helping others
-    </p>
-    </article>
-    <article class="blogCard flex flex-col gap-10">
-    <div class="imgWrapper aspect-[3/2] rounded-md">
-        <img
-        src="./assets/images/img3.png"
-        class="aspect-[3/2] rounded-md"
-        alt="" />
-    </div>
-    <div
-        class="btn-tag !rounded-md border border-primary text-light font-medium">
-        Economic Development and Financial Inclusion
-    </div>
-    <h1 class="text-light font-medium text-xl uppercase">Blog Title</h1>
-    <p class="text-light font-poppins text-sm">
-        Carl Manlan was born in Treichville, a neighbourhood in Abidjan,
-        and grew up with a deep sense of helping others
-    </p>
-    </article>
+
+    <?php
+        $wp_query = new WP_Query(array(
+            'post_type'      => 'blueprints', // Fetch regular WordPress posts
+            'posts_per_page' => 9, // Number of posts to display
+        ));
+        while ($wp_query->have_posts()) : $wp_query->the_post(); ?>
+
+        <article class="blogCard flex flex-col gap-10">
+            <div class="imgWrapper aspect-[3/2] rounded-md">
+                <img
+                src="<?php echo get_the_post_thumbnail_url();?>"
+                class="aspect-[3/2] rounded-md"
+                alt="" />
+            </div>
+            <div class="btn-tag !rounded-md border border-primary text-light font-medium">
+                <?php $terms = get_the_terms(get_the_ID(), 'category');
+                echo $terms[0]->name; ?>
+            </div>
+            <h1 class="text-light font-medium text-xl uppercase"><?php the_title();?></h1>
+            <p class="text-light font-poppins text-sm">
+                <?php $content = get_the_content(); 
+                echo wp_trim_words( $content, 200 );?>
+            </p>
+        </article>
+
+    <?php endwhile; wp_reset_query(); ?>
+
     <div
     class="absolute inset-0 text-light font-medium uppercase text-center">
     <div
@@ -124,3 +115,48 @@
     </div>
 </div>
 </section>
+
+<script>
+
+    document.addEventListener('DOMContentLoaded', function () {
+        const filterButtons = document.querySelectorAll('.btn-filter');
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', function () {
+                // Remove data-active from all buttons
+                filterButtons.forEach(btn => btn.removeAttribute('data-active'));
+
+                // Add data-active to the clicked button
+                this.setAttribute('data-active', '');
+            });
+        });
+    });
+    
+    $(document).ready(function(){
+        $('#loader_icon').hide();
+    });
+
+    $('.btn-filter').click(function(e){
+        e.preventDefault();
+        
+        $('#loader_icon').show();
+        var blueprint_id    = $(this).attr('data-id');
+        var str             = '&blueprint_id=' + blueprint_id + '&action=filter_blueprints';
+        $('#blueprint_blogGrid').html('');
+
+        $.ajax({
+            type: "POST",
+            dataType: "html",
+            url: "<?php echo admin_url( 'admin-ajax.php' );?>",
+            data: str,
+            success: function(data){
+             
+                $('#loader_icon').hide();
+                $('#blueprint_blogGrid').html(data);
+            },
+            error : function(jqXHR, textStatus, errorThrown) {
+                console.log('error');
+            }
+        });
+    });
+</script>
