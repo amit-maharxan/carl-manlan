@@ -8,21 +8,23 @@
             data-scrub-by=".char">
             <?php echo get_field('change_description_left');?>
             </h2>
-            <p
-            class="font-poppins font-bold px-12"
-            data-scrub-by=".word">
-            <?php echo get_field('change_description_right');?>
+            <p class="font-poppins font-bold px-12" data-scrub-by=".word">
+                <?php echo get_field('change_description_right');?>
             </p>
         </div>
 
         <div class="btnGroup flex gap-4 flex-wrap w-full justify-center py-10 text-light uppercase font-medium">
             <button class="btn-filter" data-active data-id="all">All</button>
             <?php
-                $terms = get_terms(array(
+                $terms = get_terms([
                     'taxonomy'   => 'category',
-                    'hide_empty' => false, // set to true if you only want terms assigned to at least one post
-                    'exclude'    => array('1'),
-                ));
+                    'hide_empty' => false, // Set to true if you only want terms that are actually used
+                    'object_ids' => get_posts([
+                        'post_type'      => 'blueprints',
+                        'posts_per_page' => -1,
+                        'fields'         => 'ids',
+                    ]),
+                ]);
 
                 if (!empty($terms) && !is_wp_error($terms)) {
                     foreach ($terms as $term) {
@@ -71,7 +73,7 @@
     <?php
         $wp_query = new WP_Query(array(
             'post_type'      => 'blueprints', // Fetch regular WordPress posts
-            'posts_per_page' => 9, // Number of posts to display
+            'posts_per_page' => -1, // Number of posts to display
         ));
         while ($wp_query->have_posts()) : $wp_query->the_post(); ?>
 

@@ -21,10 +21,10 @@
         class="text-wrapper lg:py-8 uppercase text-light/75 items-end content-center">
         <div data-by=".word">
             <h2 class="text-2xl uppercase font-medium">
-            <?php echo get_field('mission_title');?>
+                <?php echo get_field('mission_title');?>
             </h2>
             <p class="text-sm font-poppins font-bold py-10">
-            <?php echo get_field('mission_description');?>
+                <?php echo get_field('mission_description');?>
             </p>
         </div>
         </div>
@@ -42,23 +42,23 @@
 
 <section class="cardSection">
     <div class="container grid grid-cols-[repeat(auto-fit,_minmax(340px,_1fr))] gap-10 bg-dark text-light font-medium">
-<?php $i = 1;
-if( have_rows('blueprints_lists') ):
-    while( have_rows('blueprints_lists') ) : the_row(); ?>
-        <div class="card p-10 grid gap-6 border rounded-2xl border-light">
-            <span class="block text-9xl text-dark txtStroke"><?php echo $i++; ?></span>
-            <h1 class="text-3xl uppercase">
-                <?php echo get_sub_field('title')?>
-            </h1>
-            <ul
-                class="font-poppins font-bold list-disc list-outside ml-4 text-xs space-y-1 text-light/75">
-                <?php
-                if( have_rows('points') ):
-                    while( have_rows('points') ) : the_row(); ?>
-                <li><?php echo get_sub_field('point');?></li>
-                <?php endwhile; endif; ?>
-            </ul>
-        </div>
-<?php endwhile; endif; ?>
+        <?php $i = 1;
+        if( have_rows('blueprints_lists') ):
+            while( have_rows('blueprints_lists') ) : the_row(); ?>
+                <div class="card p-10 grid gap-6 border rounded-2xl border-light">
+                    <span class="block text-9xl text-dark txtStroke"><?php echo $i++; ?></span>
+                    <h1 class="text-3xl uppercase">
+                        <?php echo get_sub_field('title')?>
+                    </h1>
+                    <ul
+                        class="font-poppins font-bold list-disc list-outside ml-4 text-xs space-y-1 text-light/75">
+                        <?php
+                        if( have_rows('points') ):
+                            while( have_rows('points') ) : the_row(); ?>
+                        <li><?php echo get_sub_field('point');?></li>
+                        <?php endwhile; endif; ?>
+                    </ul>
+                </div>
+        <?php endwhile; endif; ?>
     </div>
 </section>

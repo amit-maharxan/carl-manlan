@@ -60,54 +60,22 @@
         data-box-dimension="212"></div>
       <div class="container relative z-1 text-light text-center">
         <h1 class="text-3xl font-medium uppercase">
-          Sign up now to start your journey toward <br />
-          <span class="text-primary"
-            >becoming the leader you aspire to be</span
-          >.
+          <?php echo get_field('success_form_title');?>
         </h1>
         <p class="mt-10 font-poppins text-light/75 font-bold text-xs/relaxed">
-          Be part of an exclusive mentorship experience led by Carl Manlan—
-          <br class="max-md:hidden" />
-          where meaningful growth meets purposeful leadership. Spaces are
-          limited.
+          <?php echo get_field('success_form_desc');?>
         </p>
-
-        <form
-          class="flex flex-col gap-6 max-w-[44rem] mx-auto text-left mt-10">
-          <div class="grid md:grid-cols-2 gap-6">
-            <div class="formGrp grid gap-2 w-full">
-              <label for="first-name">First Name*</label>
-              <input
-                required
-                class="rounded-full bg-light/25 px-8 py-4"
-                id="first-name"
-                type="text" />
-            </div>
-            <div class="formGrp grid gap-2 w-full">
-              <label for="last-name">Last Name*</label>
-              <input
-                required
-                class="rounded-full bg-light/25 px-8 py-4"
-                id="last-name"
-                type="text" />
-            </div>
-          </div>
-          <div class="formGrp grid gap-2 w-full">
-            <label for="email">Email Address*</label>
-            <input
-              required
-              class="rounded-full bg-light/25 px-8 py-4"
-              id="email"
-              type="email" />
-          </div>
-          <button
-            type="submit"
-            class="btn-primary hover:!text-primary">
-            Apply
-          </button>
-        </form>
+        <?php $shortcode = get_field('success_form_shortcode');
+        echo do_shortcode($shortcode);?>
       </div>
     </section>
+
+    <script>
+      $(document).ready(function() {
+        $('form').addClass('flex flex-col gap-6 max-w-[44rem] mx-auto text-left mt-10');
+        $('.bg-light25').addClass('bg-light/25');
+      });
+    </script>
   <?php } ?>
 
   <div class="bg-gray py-4">
@@ -164,11 +132,3 @@
     </div>
   </div>
 </footer>
-
-<?php
-  // wp_nav_menu(array(
-  //     'theme_location' => 'footer-menu-1',
-  //     'container' => '',
-  //     'menu_class' => 'menuList'
-  // ));
-?>
