@@ -29,7 +29,7 @@
         <a href="<?php the_permalink();?>" class="contents">
             <div class="card">
                 <div class="imgWrapper rounded-md bg-gray w-full aspect-[3/2]">
-                    <img src="<?php echo get_the_post_thumbnail_url();?>" alt="" class="" />
+                    <img src="<?php echo get_the_post_thumbnail_url();?>" alt="" class="rounded-md w-full aspect-[3/2]" />
                 </div>
                 <div class="txtWrapper">
                 <h2 class="text-xl">

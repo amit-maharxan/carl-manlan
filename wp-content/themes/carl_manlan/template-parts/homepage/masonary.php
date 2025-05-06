@@ -1,14 +1,16 @@
-<section class="container grid md:grid-cols-3 gap-4 text-light font-over-the-rainbow pb-20">
-    <?php
-        if( have_rows('snaps_from_his_life') ):
-            while( have_rows('snaps_from_his_life') ) : the_row(); ?>
-        <div class="flex flex-col gap-4">
-            <div class="imgWrapper w-full aspect-[3/2] bg-gray">
-                <img loading="lazy" src="<?php the_sub_field('hp_snaps_select_image');?>" alt="" />
+<section class="container gap-4 text-light font-over-the-rainbow pb-20">
+    <div class="masonry">
+        <?php
+            if( have_rows('snaps_from_his_life') ):
+                while( have_rows('snaps_from_his_life') ) : the_row(); ?>
+            <div class="masonry__item">
+                <div class="imgWrapper w-full aspect-[3/2] bg-gray">
+                    <img loading="lazy" src="<?php the_sub_field('hp_snaps_select_image');?>" alt="" />
+                </div>
+                <?php the_sub_field('hp_snaps_description');?>
             </div>
-            <?php the_sub_field('hp_snaps_description');?>
-        </div>
-    <?php endwhile; endif; ?>
+        <?php endwhile; endif; ?>
+    </div>
 </section>
 
 <!-- form -->
