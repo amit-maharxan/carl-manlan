@@ -33,48 +33,7 @@
         alt="" />
     </div>
     <div class="txtWrapper text-light/75 flex flex-col gap-15">
-    <div
-        class="contentCard"
-        data-scrub-by=".line">
-        <h1 class="text-2xl">MO Ibrahim Fellowship</h1>
-        <time class="text-2xl text-primary">2014</time>
-        <p class="text-sm font-normal mt-4 font-poppins">
-        Awarded annually to only three exceptional African leaders, this
-        fellowship honors individuals committed to driving governance,
-        economic inclusion, and social impact in Africa. Carl’s
-        selection highlights his remarkable leadership qualities and
-        impact.
-        </p>
-    </div>
-    <div
-        class="contentCard"
-        data-scrub-by=".line">
-        <h1 class="text-2xl">Benin National Honors</h1>
-        <h2 class="text-2xl text-primary">
-        Chevalier de l’ordre national du mérite du Benin
-        </h2>
-        <time class="text-2xl text-primary">2014</time>
-        <p class="text-sm font-normal mt-4 font-poppins">
-        Awarded annually to only three exceptional African leaders, this
-        fellowship honors individuals committed to driving governance,
-        economic inclusion, and social impact in Africa. Carl’s
-        selection highlights his remarkable leadership qualities and
-        impact.
-        </p>
-    </div>
-    <div
-        class="contentCard"
-        data-scrub-by=".line">
-        <h1 class="text-2xl">Euromoney Award for Excellence</h1>
-        <time class="text-2xl text-primary">2014</time>
-        <p class="text-sm font-normal mt-4 font-poppins">
-        Awarded annually to only three exceptional African leaders, this
-        fellowship honors individuals committed to driving governance,
-        economic inclusion, and social impact in Africa. Carl’s
-        selection highlights his remarkable leadership qualities and
-        impact.
-        </p>
-    </div>
+        <?php echo get_field('about_section_history_description');?>
     </div>
 </div>
 </section>

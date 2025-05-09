@@ -28,7 +28,8 @@
 
                 if (!empty($terms) && !is_wp_error($terms)) {
                     foreach ($terms as $term) {
-                        echo '<button class="btn-filter" data-id="'. esc_html($term->slug) .'">' . esc_html($term->name) . '</button>';
+                        $slug = $_GET['filter'] ?? '';
+                        echo '<button class="btn-filter '.$slug.'" data-id="'. esc_html($term->slug) .'">' . esc_html($term->name) . '</button>';
                     }
                 }
             ?>
@@ -135,6 +136,7 @@
     });
     
     $(document).ready(function(){
+        
         $('#loader_icon').hide();
     });
 

@@ -24,15 +24,17 @@
         <div class="splide imgSlider">
         <div class="splide__track">
             <ul class="splide__list">
-            <?php if( have_rows('hp_timeline') ):
-            while( have_rows('hp_timeline') ): the_row(); ?>
+            <?php
+            if( have_rows('timeline_data', 84) ):
+                while( have_rows('timeline_data', 84) ) : the_row(); ?>
                 <li class="splide__slide">
                     <img
                     loading="lazy"
                     src="<?php echo get_sub_field('image');?>"
                     alt="" />
                     <p class="text-center uppercase">
-                    <?php echo get_sub_field('title');?>
+                    <?php $desc = get_sub_field('description');
+                    echo strip_tags($desc);?>
                     </p>
                 </li>
             <?php endwhile; endif; ?>

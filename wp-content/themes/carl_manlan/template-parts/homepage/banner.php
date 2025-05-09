@@ -46,13 +46,15 @@
                 class="max-h-20 max-w-max"
                 alt="" />
             <p class="text-2xl lg:text-3xl mt-auto py-8">
-                <?php echo get_sub_field('title');?>
+                <?php $title = get_sub_field('title');
+                echo get_sub_field('title');?>
             </p>
             <?php $link = get_sub_field('button');
             if( $link ): 
                 $link_url   = $link['url'];
-                $link_title = $link['title']; ?>
-            <a href="<?php echo $link_url;?>" class="btn-light hover:!text-light"><?php echo $link_title;?></a>
+                $link_title = $link['title'];
+                $result     = str_replace(' ', '-', $title); ?>
+            <a href="<?php echo site_url('blueprint-for-change').'?filter='.strtolower($result);?>" class="btn-light hover:!text-light"><?php echo $link_title;?></a>
             <?php endif; ?>
         </div>
         <?php endwhile;
