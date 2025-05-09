@@ -1,17 +1,17 @@
 <header class="z-10">
   <nav class="topHeader container text-white uppercase py-6 flex flex-wrap justify-between gap-8 font-medium">
-    <div class="logo text-3xl md:text-4xl"><a href="<?php echo site_url();?>">Carl Manlan</a></div>
+    <div class="logo text-3xl md:text-4xl"><a href="<?php echo site_url(); ?>">Carl Manlan</a></div>
     <?php
-      wp_nav_menu([
-          'menu'            => 'top',
-          'theme_location'  => 'header-menu',
-          'container'       => false,
-          'menu_id'         => '',
-          'menu_class'      => 'flex gap-6 text-xs align-middle content-center flex-wrap',
-          'depth'           => 2,
-          'fallback_cb'     => 'bs4navwalker::fallback',
-          'walker'          => new bs4navwalker()
-      ]);
+    wp_nav_menu([
+      'menu'            => 'top',
+      'theme_location'  => 'header-menu',
+      'container'       => false,
+      'menu_id'         => '',
+      'menu_class'      => 'flex gap-6 text-sm align-middle content-center flex-wrap',
+      'depth'           => 2,
+      'fallback_cb'     => 'bs4navwalker::fallback',
+      'walker'          => new bs4navwalker()
+    ]);
     ?>
   </nav>
 
@@ -22,7 +22,7 @@
     class="bg-dark text-light flex flex-col gap-12 shadow uppercase fixed inset-0 ml-auto h-full overflow-y-auto min-w-[min(400px,_100%)] w-max max-h-full max-w-full py-8 content-start">
     <div class="head px-(--menu-padding-x) flex gap-4 justify-between">
       <div class="logo text-3xl md:text-4xl uppercase text-primary">
-        <a href="<?php echo site_url();?>">Carl Manlan</a>
+        <a href="<?php echo site_url(); ?>">Carl Manlan</a>
       </div>
       <button
         popovertarget="hamburgerMenu"
@@ -39,7 +39,7 @@
       <div class="content flex flex-col gap-4">
         <div class="menuBlock px-(--menu-padding-x)">
           <a
-            href="<?php echo site_url('about');?>"
+            href="<?php echo site_url('about'); ?>"
             class="contents">
             <p
               class="text-xl"
@@ -50,7 +50,7 @@
         </div>
         <div class="menuBlock px-(--menu-padding-x)">
           <a
-            href="<?php echo site_url('media');?>"
+            href="<?php echo site_url('media'); ?>"
             class="contents">
             <p
               class="text-xl"
@@ -61,7 +61,7 @@
         </div>
         <div class="menuBlock px-(--menu-padding-x)">
           <a
-            href="<?php echo site_url('blueprint-for-change');?>"
+            href="<?php echo site_url('blueprint-for-change'); ?>"
             class="contents">
             <p
               class="text-xl"
@@ -72,7 +72,7 @@
         </div>
         <div class="menuBlock px-(--menu-padding-x)">
           <a
-            href="<?php echo site_url('blueprint-for-success');?>"
+            href="<?php echo site_url('blueprint-for-success'); ?>"
             class="contents">
             <p
               class="text-xl"
@@ -91,38 +91,38 @@
       <div class="social-links">
         <ul class="flex gap-6 justify-around">
           <li>
-            <a href="<?php the_field('linkedin');?>" target="_blank">
-            <img
-              loading="lazy"
-              src="<?php echo DK_ASSEST_URI.'/icons/Linkedin.svg';?>" />
+            <a href="<?php the_field('linkedin'); ?>" target="_blank">
+              <img
+                loading="lazy"
+                src="<?php echo DK_ASSEST_URI . '/icons/Linkedin.svg'; ?>" />
             </a>
           </li>
           <li>
-            <a href="<?php the_field('facebook');?>" target="_blank">
-            <img
-              loading="lazy"
-              src="<?php echo DK_ASSEST_URI.'/icons/Facebook.svg';?>" />
+            <a href="<?php the_field('facebook'); ?>" target="_blank">
+              <img
+                loading="lazy"
+                src="<?php echo DK_ASSEST_URI . '/icons/Facebook.svg'; ?>" />
             </a>
           </li>
           <li>
-            <a href="<?php the_field('x');?>" target="_blank">
-            <img
-              loading="lazy"
-              src="<?php echo DK_ASSEST_URI.'/icons/X.svg';?>" />
+            <a href="<?php the_field('x'); ?>" target="_blank">
+              <img
+                loading="lazy"
+                src="<?php echo DK_ASSEST_URI . '/icons/X.svg'; ?>" />
             </a>
           </li>
           <li>
-            <a href="<?php the_field('youtube');?>" target="_blank">
-            <img
-              loading="lazy"
-              src="<?php echo DK_ASSEST_URI.'/icons/Youtube.svg';?>" />
+            <a href="<?php the_field('youtube'); ?>" target="_blank">
+              <img
+                loading="lazy"
+                src="<?php echo DK_ASSEST_URI . '/icons/Youtube.svg'; ?>" />
             </a>
           </li>
           <li>
-            <a href="<?php the_field('instagram');?>" target="_blank">
-            <img
-              loading="lazy"
-              src="<?php echo DK_ASSEST_URI.'/icons/Instagram.svg';?>" />
+            <a href="<?php the_field('instagram'); ?>" target="_blank">
+              <img
+                loading="lazy"
+                src="<?php echo DK_ASSEST_URI . '/icons/Instagram.svg'; ?>" />
             </a>
           </li>
         </ul>
