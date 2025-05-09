@@ -1,12 +1,12 @@
-import { AnimateByElements, AnimateScrubByElements } from "./TimelineText.js";
+import { AnimateByElements, AnimateScrubByElements } from './TimelineText.js';
 import {
   setHeaderHeight,
   setScrollPos,
   stickyHeader,
   handleSubmenuAnimation,
-} from "./menu.js";
+} from './menu.js';
 
-window.addEventListener("load", async () => {
+window.addEventListener('load', async () => {
   featherInit();
   lenisInit();
   await RemoveLoader();
@@ -25,10 +25,10 @@ window.addEventListener("load", async () => {
   CurtainOpener();
   GsapImgParallax();
   verticalTimelineInit();
-  window.addEventListener("resize", setHeaderHeight);
-  window.addEventListener("resize", BannerBgEffect.init);
-  window.addEventListener("resize", AlignBleedOut);
-  window.addEventListener("resize", CurtainOpener);
+  window.addEventListener('resize', setHeaderHeight);
+  window.addEventListener('resize', BannerBgEffect.init);
+  window.addEventListener('resize', AlignBleedOut);
+  window.addEventListener('resize', CurtainOpener);
 });
 
 function featherInit() {
@@ -43,7 +43,7 @@ function lenisInit() {
     });
     window.lenis = lenis; // Expose Lenis instance globally for debugging
     // Synchronize Lenis scrolling with GSAP's ScrollTrigger plugin
-    lenis.on("scroll", ScrollTrigger.update);
+    lenis.on('scroll', ScrollTrigger.update);
 
     gsap.ticker.add((time) => {
       lenis.raf(time * 1000);
@@ -56,7 +56,7 @@ function lenisInit() {
 function RemoveLoader() {
   window.scrollTo({ top: 0 });
   return new Promise((resolve) => {
-    const loader = document.getElementById("loader");
+    const loader = document.getElementById('loader');
     if (!loader) return;
 
     let loopCounter = 0;
@@ -68,24 +68,24 @@ function RemoveLoader() {
       }
 
       // Apply styles and resolve the promise after a brief delay to allow the styles to be applied
-      loader.classList.add("loaded");
+      loader.classList.add('loaded');
       // Resolve the promise after styles are applied
       resolve();
     };
 
     loader
-      .querySelector(".loader")
-      .addEventListener("animationiteration", animationIterationHandler);
+      .querySelector('.loader')
+      .addEventListener('animationiteration', animationIterationHandler);
   });
 }
 
 function HideBrokenImg() {
-  document.querySelectorAll("img").forEach(function (img) {
+  document.querySelectorAll('img').forEach(function (img) {
     img.onerror = function () {
-      this.style.display = "none";
+      this.style.display = 'none';
     };
-    if (img.src.includes(".html")) {
-      img.style.display = "none";
+    if (img.src.includes('.html')) {
+      img.style.display = 'none';
     }
   });
 }
@@ -102,7 +102,7 @@ const BannerBgEffect = (() => {
   function createHexGrid(hexBg) {
     // Get element data
     const boxDimension = parseInt(
-      hexBg.getAttribute("data-box-dimension") || "130",
+      hexBg.getAttribute('data-box-dimension') || '130',
       10
     );
     const rect = hexBg.getBoundingClientRect();
@@ -114,9 +114,9 @@ const BannerBgEffect = (() => {
     const columns = Math.ceil(width / boxDimension);
 
     // Only rebuild if necessary
-    const existingRows = hexBg.querySelectorAll(".row").length;
+    const existingRows = hexBg.querySelectorAll('.row').length;
     const existingCols =
-      hexBg.querySelector(".row")?.querySelectorAll(".col").length || 0;
+      hexBg.querySelector('.row')?.querySelectorAll('.col').length || 0;
 
     if (existingRows === rows && existingCols === columns) {
       // Grid already exists with correct dimensions
@@ -125,7 +125,7 @@ const BannerBgEffect = (() => {
     }
 
     // Clear existing content
-    hexBg.innerHTML = "";
+    hexBg.innerHTML = '';
 
     // Use document fragment for better performance
     const fragment = document.createDocumentFragment();
@@ -135,13 +135,13 @@ const BannerBgEffect = (() => {
     const columnElements = [];
 
     for (let i = 0; i < rows; i++) {
-      const row = document.createElement("div");
-      row.classList.add("row");
+      const row = document.createElement('div');
+      row.classList.add('row');
       rowElements.push(row);
 
       for (let j = 0; j < columns; j++) {
-        const column = document.createElement("div");
-        column.classList.add("col");
+        const column = document.createElement('div');
+        column.classList.add('col');
         columnElements.push({ column, rowIndex: i });
       }
     }
@@ -165,7 +165,7 @@ const BannerBgEffect = (() => {
       targetY: 0,
       isHovering: false,
       needsUpdate: true,
-      isBgEffect: hexBg.classList.contains("bgEffect"),
+      isBgEffect: hexBg.classList.contains('bgEffect'),
       lastUpdateTime: 0,
     };
 
@@ -214,8 +214,8 @@ const BannerBgEffect = (() => {
           const roundedY = Math.round(data.currentY * 100) / 100;
 
           // Batch style updates with transform instead of CSS variables
-          element.style.setProperty("--x", `${roundedX}px`);
-          element.style.setProperty("--y", `${roundedY}px`);
+          element.style.setProperty('--x', `${roundedX}px`);
+          element.style.setProperty('--y', `${roundedY}px`);
 
           data.needsUpdate = false;
         }
@@ -281,8 +281,8 @@ const BannerBgEffect = (() => {
     if (!data) return;
 
     const rect = element.getBoundingClientRect();
-    const gradX = parseFloat(element.getAttribute("data-gradX") || "0.5");
-    const gradY = parseFloat(element.getAttribute("data-gradY") || "0.5");
+    const gradX = parseFloat(element.getAttribute('data-gradX') || '0.5');
+    const gradY = parseFloat(element.getAttribute('data-gradY') || '0.5');
 
     // Set target to specified position
     data.targetX = rect.width * gradX;
@@ -292,8 +292,8 @@ const BannerBgEffect = (() => {
 
     // Set size once instead of repeatedly
     const size =
-      element.getAttribute("data-gradSize") || `${rect.height * 1.2}px`;
-    element.style.setProperty("--size", size);
+      element.getAttribute('data-gradSize') || `${rect.height * 1.2}px`;
+    element.style.setProperty('--size', size);
 
     // Ensure animation continues until we reach the target
     if (!animationRunning && isMoving(data)) {
@@ -311,7 +311,7 @@ const BannerBgEffect = (() => {
     cleanup();
 
     // Find and initialize all hex backgrounds
-    const hexBgs = document.querySelectorAll(".hexBg");
+    const hexBgs = document.querySelectorAll('.hexBg');
 
     hexBgs.forEach((hexBg) => {
       createHexGrid(hexBg);
@@ -334,18 +334,18 @@ const BannerBgEffect = (() => {
         });
 
         // Add event listeners
-        parentElement.addEventListener("mouseleave", handlers.mouseleave, {
+        parentElement.addEventListener('mouseleave', handlers.mouseleave, {
           passive: true,
         });
 
-        parentElement.addEventListener("mousemove", handlers.mousemove, {
+        parentElement.addEventListener('mousemove', handlers.mousemove, {
           passive: true,
         });
       }
     });
 
     // Handle resize with debounce
-    window.addEventListener("resize", debounceResize);
+    window.addEventListener('resize', debounceResize);
   }
 
   // Clean up function to remove event listeners
@@ -365,8 +365,8 @@ const BannerBgEffect = (() => {
       const handlerData = elementHandlers.get(element);
       if (handlerData) {
         const { parent, handlers } = handlerData;
-        parent.removeEventListener("mouseleave", handlers.mouseleave);
-        parent.removeEventListener("mousemove", handlers.mousemove);
+        parent.removeEventListener('mouseleave', handlers.mouseleave);
+        parent.removeEventListener('mousemove', handlers.mousemove);
       }
     });
 
@@ -393,11 +393,11 @@ const BannerBgEffect = (() => {
 
 function AlignBleedOut() {
   const bleedOutRightWrapper =
-    document.querySelector(".bleedOutRight") ?? false;
+    document.querySelector('.bleedOutRight') ?? false;
   if (!bleedOutRightWrapper) return;
 
   const siblingContainer =
-    bleedOutRightWrapper.parentElement.querySelector(".container");
+    bleedOutRightWrapper.parentElement.querySelector('.container');
 
   const computedStyles = window.getComputedStyle(siblingContainer);
   bleedOutRightWrapper.style.marginInlineStart =
@@ -407,20 +407,20 @@ function AlignBleedOut() {
 }
 
 function InitializeSliders() {
-  const padingUnits = "max(10%,6rem)";
+  const padingUnits = 'max(10%,6rem)';
 
   //timelineSliders
   const dateSlider =
-    document.querySelector(".timelineSliders .dateSlider") ?? false;
+    document.querySelector('.timelineSliders .dateSlider') ?? false;
   const imgSlider =
-    document.querySelector(".timelineSliders .imgSlider") ?? false;
+    document.querySelector('.timelineSliders .imgSlider') ?? false;
   if (dateSlider && imgSlider) {
     const sliderOptions = {
       arrows: false,
       pagination: false,
       perPage: 4,
       updateOnMove: true,
-      focus: "center",
+      focus: 'center',
       padding: { right: padingUnits },
       breakpoints: {
         800: {
@@ -434,30 +434,30 @@ function InitializeSliders() {
     const dateSliderr = new Splide(dateSlider, sliderOptions);
     const imgSliderr = new Splide(imgSlider, {
       ...sliderOptions,
-      gap: "2rem",
+      gap: '2rem',
     });
     imgSliderr.sync(dateSliderr);
     dateSliderr.mount();
     imgSliderr.mount();
 
-    imgSliderr.on("click", (Slide, e) => {
+    imgSliderr.on('click', (Slide, e) => {
       const index = Slide.index;
       imgSliderr.go(index);
       dateSliderr.go(index);
     });
   }
 
-  const newsSlider = document.querySelector(".newsSlider") ?? false;
+  const newsSlider = document.querySelector('.newsSlider') ?? false;
   if (newsSlider) {
-    const prevBtn = newsSlider.parentElement.querySelector("button[data-prev]");
-    const nextBtn = newsSlider.parentElement.querySelector("button[data-next]");
+    const prevBtn = newsSlider.parentElement.querySelector('button[data-prev]');
+    const nextBtn = newsSlider.parentElement.querySelector('button[data-next]');
     const sliderOptions = {
       arrows: false,
       pagination: false,
       perPage: 3,
       updateOnMove: true,
-      focus: "center",
-      gap: "3rem",
+      focus: 'center',
+      gap: '3rem',
       start: 2,
       padding: { left: padingUnits, right: padingUnits },
       breakpoints: {
@@ -472,23 +472,23 @@ function InitializeSliders() {
 
     const slider = new Splide(newsSlider, sliderOptions);
     slider.mount();
-    prevBtn.addEventListener("click", () => {
-      slider.go("<");
+    prevBtn.addEventListener('click', () => {
+      slider.go('<');
     });
-    nextBtn.addEventListener("click", () => {
-      slider.go(">");
+    nextBtn.addEventListener('click', () => {
+      slider.go('>');
     });
   }
-  const bgImgSlider = document.querySelector(".bgImgSlider") ?? false;
+  const bgImgSlider = document.querySelector('.bgImgSlider') ?? false;
   if (bgImgSlider) {
     const sliderOptions = {
       arrows: false,
       pagination: false,
       perPage: 3,
       updateOnMove: true,
-      focus: "center",
-      gap: "1.5rem",
-      type: "loop",
+      focus: 'center',
+      gap: '1.5rem',
+      type: 'loop',
       autoplay: true,
       padding: { left: padingUnits, right: padingUnits },
       breakpoints: {
@@ -503,28 +503,28 @@ function InitializeSliders() {
     const slider = new Splide(bgImgSlider, sliderOptions);
     slider.mount();
   }
-  const logosSlider = document.querySelector(".logos-slider");
+  const logosSlider = document.querySelector('.logos-slider');
   if (logosSlider) {
     const logosSliderr = new Splide(logosSlider, {
-      type: "slide",
+      type: 'slide',
       autoWidth: true,
-      gap: "1rem",
+      gap: '1rem',
       pagination: false,
       arrows: false,
     });
     const Components = logosSliderr.Components;
-    logosSliderr.on("resized", function () {
+    logosSliderr.on('resized', function () {
       const isOverflow = Components.Layout.isOverflow();
       const list = Components.Elements.list;
       const lastSlide = Components.Slides.getAt(logosSliderr.length - 1);
 
       if (lastSlide) {
         // Toggles `justify-content: center`
-        list.style.justifyContent = isOverflow ? "" : "center";
+        list.style.justifyContent = isOverflow ? '' : 'center';
 
         // Remove the last margin
         if (!isOverflow) {
-          lastSlide.slide.style.marginRight = "";
+          lastSlide.slide.style.marginRight = '';
         }
       }
     });
@@ -534,10 +534,10 @@ function InitializeSliders() {
 }
 
 function CurtainOpener() {
-  const curtains = document.querySelectorAll(".curtain");
+  const curtains = document.querySelectorAll('.curtain');
 
   curtains.forEach((curtain) => {
-    const images = curtain.querySelectorAll("img");
+    const images = curtain.querySelectorAll('img');
 
     // If no images, process immediately
     if (images.length === 0) {
@@ -559,7 +559,7 @@ function CurtainOpener() {
         }
       } else {
         // Add load event for images still loading
-        img.addEventListener("load", () => {
+        img.addEventListener('load', () => {
           loadedCount++;
           // If all images are loaded, position the curtain
           if (loadedCount === images.length) {
@@ -573,9 +573,9 @@ function CurtainOpener() {
 
 // Helper function to handle the positioning logic
 function positionCurtain(curtain) {
-  curtain.style.position = "initial";
-  curtain.style.bottom = "unset";
-  curtain.style.top = "unset"; // Clear any top value
+  curtain.style.position = 'initial';
+  curtain.style.bottom = 'unset';
+  curtain.style.top = 'unset'; // Clear any top value
   // Get original position and dimensions
   const originalTop = curtain.offsetTop;
   const curtainHeight = curtain.offsetHeight;
@@ -586,31 +586,31 @@ function positionCurtain(curtain) {
   const fromBottom = documentHeight - (originalTop + curtainHeight);
   // Add margin to previous element to maintain document flow
   if (curtain.previousElementSibling) {
-    curtain.previousElementSibling.style.marginBlockEnd = curtainHeight + "px";
+    curtain.previousElementSibling.style.marginBlockEnd = curtainHeight + 'px';
   }
 
   // Set position fixed with the bottom value
-  curtain.style.position = "fixed";
-  curtain.style.position = "fixed";
-  curtain.style.bottom = fromBottom + "px";
-  curtain.style.top = "auto"; // Clear any top value
-  curtain.style.marginInline = "auto"; // Clear any top value
-  curtain.style.insetInline = "0"; // Clear any top value
+  curtain.style.position = 'fixed';
+  curtain.style.position = 'fixed';
+  curtain.style.bottom = fromBottom + 'px';
+  curtain.style.top = 'auto'; // Clear any top value
+  curtain.style.marginInline = 'auto'; // Clear any top value
+  curtain.style.insetInline = '0'; // Clear any top value
 }
 
 function GsapImgParallax() {
-  gsap.utils.toArray(".parallax-image-container").forEach(function (container) {
-    let image = container.querySelector("img");
+  gsap.utils.toArray('.parallax-image-container').forEach(function (container) {
+    let image = container.querySelector('img');
 
     gsap.to(image, {
       y: () => image.offsetHeight * 1.2 - container.offsetHeight,
-      ease: "none",
+      ease: 'none',
       scrollTrigger: {
         trigger: container,
         scrub: true,
         pin: false,
-        start: "top bottom", // when container enters viewport
-        end: "bottom top", // when it leaves
+        start: 'top bottom', // when container enters viewport
+        end: 'bottom top', // when it leaves
         markers: false,
         invalidateOnRefresh: true,
       },
@@ -618,13 +618,39 @@ function GsapImgParallax() {
   });
 }
 
+// function GsapImgParallax() {
+//   gsap.utils.toArray('.parallax-image-container').forEach(function (container) {
+//     let image = container.querySelector('img');
+
+//     // Position the image initially
+//     gsap.set(image, {
+//       position: 'absolute',
+//       width: '100%',
+//       height: '100%',
+//       objectFit: 'cover',
+//     });
+
+//     gsap.to(image, {
+//       y: () => -container.offsetTop, // This counteracts the container's scroll movement
+//       ease: 'none',
+//       scrollTrigger: {
+//         trigger: container,
+//         start: 'top bottom',
+//         end: 'bottom top',
+//         scrub: true,
+//         invalidateOnRefresh: true,
+//       },
+//     });
+//   });
+// }
+
 async function verticalTimelineInit() {
   const verticalTimelineElement =
-    document.querySelector(".verticalTimeline") ?? false;
+    document.querySelector('.verticalTimeline') ?? false;
   if (!verticalTimelineElement) return;
-  const { verticalTimeline } = await import("./utilFunctions.js");
+  const { verticalTimeline } = await import('./utilFunctions.js');
   verticalTimeline({ verticalTimeline: verticalTimelineElement });
-  window.addEventListener("resize", () => {
+  window.addEventListener('resize', () => {
     verticalTimeline({ verticalTimeline: verticalTimelineElement });
   });
 }

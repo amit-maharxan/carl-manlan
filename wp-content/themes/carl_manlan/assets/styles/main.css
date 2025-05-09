@@ -557,6 +557,12 @@ main > section:first-child {
   position: relative;
   z-index: 1;
 }
+.verticalTimeline .timlineItem .txtWrapper .imgWrapper {
+  z-index: 0;
+}
+.verticalTimeline .timlineItem .txtWrapper > *:not(.imgWrapper) {
+  z-index: 1;
+}
 @media (width <= 64rem) {
   .verticalTimeline .timlineItem .txtWrapper {
     padding-block: 2rem;
@@ -606,7 +612,7 @@ main > section:first-child {
   -webkit-text-stroke: 1px var(--color-light);
 }
 
-nav ul li:has(a:not([class*="btn-"])):not(.text-primary, :has(.text-primary)) {
+nav ul li:has(a:not([class*='btn-'])):not(.text-primary, :has(.text-primary)) {
   position: relative;
   display: inline-block;
   overflow: hidden;
@@ -641,6 +647,6 @@ footer nav ul li:has(a):not(.text-primary, :has(.text-primary)) {
   background-position: 100%;
 }
 
-input {
+input:not([class*='btn-']) {
   border: 1px transparent !important;
 }
