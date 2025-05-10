@@ -16,8 +16,8 @@ function filter_blueprints()
     if ($blueprint_id !== 'all') {
         $args['tax_query'] = array(
             array(
-                'taxonomy' => 'category',
-                'field'    => 'slug',
+                'taxonomy' => 'blueprint-category',
+                'field'    => 'id',
                 'terms'    => $blueprint_id,
             ),
         );
@@ -31,7 +31,7 @@ function filter_blueprints()
                     <img src="' . get_the_post_thumbnail_url() . '" class="aspect-[3/2] rounded-md" alt="" />
                 </div>
                 <div class="btn-tag !rounded-md border border-primary text-light font-medium">';
-        $terms = get_the_terms(get_the_ID(), 'category');
+        $terms = get_the_terms(get_the_ID(), 'blueprint-category');
         $out .= $terms[0]->name;
         $out .= '</div>
                 <h1 class="text-light font-medium text-xl uppercase"><?php the_title();?></h1>

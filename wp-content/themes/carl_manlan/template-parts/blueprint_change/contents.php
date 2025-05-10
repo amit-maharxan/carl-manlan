@@ -15,10 +15,11 @@
             </div>
 
             <div class="btnGroup flex gap-4 flex-wrap w-full justify-center py-10 text-light uppercase font-medium">
-                <button class="btn-filter" data-active data-id="all">All</button>
+                <?php $slug = $_GET['filter'] ?? 'data-active';?>
+                <button class="btn-filter" <?php echo $slug;?> data-id="all">All</button>
                 <?php
                 $terms = get_terms([
-                    'taxonomy'   => 'category',
+                    'taxonomy'   => 'blueprint-category',
                     'hide_empty' => false, // Set to true if you only want terms that are actually used
                     'object_ids' => get_posts([
                         'post_type'      => 'blueprints',
@@ -29,8 +30,14 @@
 
                 if (!empty($terms) && !is_wp_error($terms)) {
                     foreach ($terms as $term) {
+                        // var_dump($term);
                         $slug = $_GET['filter'] ?? '';
-                        echo '<button class="btn-filter '.$slug.'" data-id="'. esc_html($term->slug) .'">' . esc_html($term->name) . '</button>';
+                        if($slug == $term->term_id) {
+                            $active = 'data-active';
+                        } else {
+                            $active = '';
+                        }
+                        echo '<button class="btn-filter '.esc_html($term->term_id).'"'. $active .' data-id="'. esc_html($term->term_id) .'">' . esc_html($term->name) . '</button>';
                     }
                 }
                 ?>
@@ -52,7 +59,7 @@
                         alt="" />
                 </div>
                 <div class="btn-tag !rounded-md border border-primary text-light font-medium text-sm">
-                    <?php $terms = get_the_terms(get_the_ID(), 'category');
+                    <?php $terms = get_the_terms(get_the_ID(), 'blueprint-category');
                     echo $terms[0]->name; ?>
                 </div>
                 <h1 class="text-light font-medium text-xl uppercase"><?php the_title(); ?></h1>
@@ -88,7 +95,7 @@
                         alt="" />
                 </div>
                 <div class="btn-tag !rounded-md border border-primary text-light font-medium text-sm">
-                    <?php $terms = get_the_terms(get_the_ID(), 'category');
+                    <?php $terms = get_the_terms(get_the_ID(), 'blueprint-category');
                     echo $terms[0]->name; ?>
                 </div>
                 <h1 class="text-light font-medium text-xl uppercase"><?php the_title(); ?></h1>
@@ -138,7 +145,6 @@
     });
     
     $(document).ready(function(){
-        
         $('#loader_icon').hide();
     });
 
@@ -165,4 +171,9 @@
             }
         });
     });
+
+    var id = "<?php echo $slug; ?>";
+    setTimeout(function() {
+        $('.btn-filter.' + id).click();
+    }, 2000);
 </script>

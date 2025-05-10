@@ -53,7 +53,31 @@ class carl_blueprints_post_type {
 	 * Add category taxonomy to custom post type
 	 */
 	public function add_category_to_blueprints() {
-	    register_taxonomy_for_object_type( 'category', 'blueprints' );
+		$labels = array(
+			'name'              => _x( 'Blueprint Categories', 'taxonomy general name', 'carl_blueprints' ),
+			'singular_name'     => _x( 'Blueprint Category', 'taxonomy singular name', 'carl_blueprints' ),
+			'search_items'      => __( 'Search Blueprint Categories', 'carl_blueprints' ),
+			'all_items'         => __( 'All Blueprint Categories', 'carl_blueprints' ),
+			'parent_item'       => __( 'Parent Category', 'carl_blueprints' ),
+			'parent_item_colon' => __( 'Parent Category:', 'carl_blueprints' ),
+			'edit_item'         => __( 'Edit Category', 'carl_blueprints' ),
+			'update_item'       => __( 'Update Category', 'carl_blueprints' ),
+			'add_new_item'      => __( 'Add New Category', 'carl_blueprints' ),
+			'new_item_name'     => __( 'New Category Name', 'carl_blueprints' ),
+			'menu_name'         => __( 'Blueprint Categories', 'carl_blueprints' ),
+		);
+	
+		$args = array(
+			'hierarchical'      => true,
+			'labels'            => $labels,
+			'show_ui'           => true,
+			'show_admin_column' => true,
+			'query_var'         => true,
+			'rewrite'           => array( 'slug' => 'blueprint-category' ),
+		);
+	
+		register_taxonomy( 'blueprint-category', array( 'blueprints' ), $args );
 	}
+	
 }
 new carl_blueprints_post_type();
