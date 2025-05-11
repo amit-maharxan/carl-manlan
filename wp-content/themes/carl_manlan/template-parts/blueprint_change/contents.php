@@ -5,18 +5,18 @@
         <div class="container z-1 relative">
             <div class="grid py-20 md:grid-cols-2 text-light font-medium">
                 <h2
-                    class="text-3xl/relaxed uppercase px-12"
+                    class="text-3xl/relaxed uppercase"
                     data-scrub-by=".char">
                     <?php echo get_field('change_description_left'); ?>
                 </h2>
-                <p class="font-poppins font-bold px-12" data-scrub-by=".word">
+                <p class="font-poppins font-bold" data-scrub-by=".word">
                     <?php echo get_field('change_description_right'); ?>
                 </p>
             </div>
 
             <div class="btnGroup flex gap-4 flex-wrap w-full justify-center py-10 text-light uppercase font-medium">
-                <?php $slug = $_GET['filter'] ?? 'data-active';?>
-                <button class="btn-filter" <?php echo $slug;?> data-id="all">All</button>
+                <?php $slug = $_GET['filter'] ?? 'data-active'; ?>
+                <button class="btn-filter" <?php echo $slug; ?> data-id="all">All</button>
                 <?php
                 $terms = get_terms([
                     'taxonomy'   => 'blueprint-category',
@@ -32,12 +32,12 @@
                     foreach ($terms as $term) {
                         // var_dump($term);
                         $slug = $_GET['filter'] ?? '';
-                        if($slug == $term->term_id) {
+                        if ($slug == $term->term_id) {
                             $active = 'data-active';
                         } else {
                             $active = '';
                         }
-                        echo '<button class="btn-filter '.esc_html($term->term_id).'"'. $active .' data-id="'. esc_html($term->term_id) .'">' . esc_html($term->name) . '</button>';
+                        echo '<button class="btn-filter ' . esc_html($term->term_id) . '"' . $active . ' data-id="' . esc_html($term->term_id) . '">' . esc_html($term->name) . '</button>';
                     }
                 }
                 ?>
@@ -143,8 +143,8 @@
             });
         });
     });
-    
-    $(document).ready(function(){
+
+    $(document).ready(function() {
         $('#loader_icon').hide();
     });
 

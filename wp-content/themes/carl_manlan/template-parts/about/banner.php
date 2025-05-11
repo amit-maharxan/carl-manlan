@@ -9,7 +9,7 @@
         class="content pt-10 container grid max-lg:pb-6 lg:grid-cols-2 gap-8 mt-auto max-lg:text-center z-1">
         <div
             class="text-wrapper lg:py-8 uppercase text-white items-end content-center">
-            <div data-by=".char">
+            <div data-by=".word">
                 <h1 class="text-primary text-5xl md:text-6xl lg:text-7xl xl:text-8xl">
                     <?php the_field('about_page_title'); ?>
                 </h1>

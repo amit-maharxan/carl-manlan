@@ -3,11 +3,13 @@
         <?php
         if (have_rows('snaps_from_his_life')):
             while (have_rows('snaps_from_his_life')) : the_row(); ?>
-                <div class="masonry__item">
-                    <div class="imgWrapper w-full aspect-[3/2] bg-gray">
+                <div class="masonry__item mb-6">
+                    <div class="imgWrapper w-full aspect-[3/2] bg-gray mb-4">
                         <img loading="lazy" src="<?php the_sub_field('hp_snaps_select_image'); ?>" alt="" />
                     </div>
-                    <?php the_sub_field('hp_snaps_description'); ?>
+                    <div class="txtWrapper">
+                        <?php the_sub_field('hp_snaps_description'); ?>
+                    </div>
                 </div>
         <?php endwhile;
         endif; ?>

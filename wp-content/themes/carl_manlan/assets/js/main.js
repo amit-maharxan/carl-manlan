@@ -25,6 +25,7 @@ window.addEventListener('load', async () => {
   CurtainOpener();
   GsapImgParallax();
   verticalTimelineInit();
+  boxReveal();
   window.addEventListener('resize', setHeaderHeight);
   window.addEventListener('resize', BannerBgEffect.init);
   window.addEventListener('resize', AlignBleedOut);
@@ -653,4 +654,32 @@ async function verticalTimelineInit() {
   window.addEventListener('resize', () => {
     verticalTimeline({ verticalTimeline: verticalTimelineElement });
   });
+}
+
+function boxReveal() {
+  const cards = document.querySelectorAll('.mediaGrid .card');
+  if (!cards.length) return;
+
+  // Create a controller for batch processing
+  ScrollTrigger.batch(cards, {
+    start: 'top 80%',
+    onEnter: (batch) => {
+      // Create a timeline for cards that enter the viewport
+      gsap.to(batch, {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        ease: 'back.out',
+        stagger: 0.25, // 0.25 second stagger between cards in the same batch
+        onStart: function () {
+          // Make sure elements are properly set up for animation
+          gsap.set(batch, { opacity: 0, y: 100 });
+        },
+      });
+    },
+    markers: false,
+  });
+
+  // Set initial state for all cards
+  gsap.set(cards, { opacity: 0, y: 100 });
 }

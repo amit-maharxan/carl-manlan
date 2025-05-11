@@ -27,7 +27,7 @@
             <img
                 loading="eager"
                 src="<?php echo get_field('hp_banner_image'); ?>"
-                class="max-h-[80vh] mx-auto mt-auto object-scale-down"
+                class="max-h-[80vh] w-full mx-auto mt-auto object-scale-down"
                 width="500"
                 height="500"
                 alt="" />
@@ -45,26 +45,27 @@
 
     </p>
     <div class="cardWrapper pb-8 grid grid-cols-[repeat(auto-fill,_minmax(350px,_1fr))] gap-12 uppercase font-medium">
-        <?php if( have_rows('hp_cards') ):
-        while( have_rows('hp_cards') ): the_row(); ?>
-        <div class="card w-full flex flex-col border <?php echo get_sub_field('color_codes');?> p-8 min-h-[350px] md:min-h-[500px] max-w-[min(100%,400px)] mx-auto">
-            <img
-                loading="lazy"
-                src="<?php echo get_sub_field('image');?>"
-                class="max-h-20 max-w-max"
-                alt="" />
-            <p class="text-2xl lg:text-3xl mt-auto py-8">
-                <?php $title = get_sub_field('title');
-                echo get_sub_field('title');?>
-            </p>
-            <?php $link = get_sub_field('button');
-            if( $link ): 
-                $link_url   = $link['url'];
-                $link_title = $link['title'];
-                $result     = get_sub_field('category'); ?>
-            <a href="<?php echo site_url('blueprint-for-change').'?filter='.strtolower($result);?>" class="btn-light hover:!text-light"><?php echo $link_title;?></a>
-            <?php endif; ?>
-        </div>
+        <?php if (have_rows('hp_cards')):
+            while (have_rows('hp_cards')): the_row(); ?>
+                <!-- <div class="card w-full flex flex-col border <?php echo get_sub_field('color_codes'); ?> p-8 min-h-[350px] md:min-h-[500px] max-w-[min(100%,400px)] mx-auto"> -->
+                <div class="card w-full flex flex-col border <?php echo get_sub_field('color_codes'); ?> p-8 min-h-[350px] md:min-h-[500px] max-w-[100%] mx-auto">
+                    <img
+                        loading="lazy"
+                        src="<?php echo get_sub_field('image'); ?>"
+                        class="max-h-20 max-w-max"
+                        alt="" />
+                    <p class="text-2xl lg:text-3xl mt-auto py-8">
+                        <?php $title = get_sub_field('title');
+                        echo get_sub_field('title'); ?>
+                    </p>
+                    <?php $link = get_sub_field('button');
+                    if ($link):
+                        $link_url   = $link['url'];
+                        $link_title = $link['title'];
+                        $result     = get_sub_field('category'); ?>
+                        <a href="<?php echo site_url('blueprint-for-change') . '?filter=' . strtolower($result); ?>" class="btn-light hover:!text-light"><?php echo $link_title; ?></a>
+                    <?php endif; ?>
+                </div>
         <?php endwhile;
         endif; ?>
     </div>
