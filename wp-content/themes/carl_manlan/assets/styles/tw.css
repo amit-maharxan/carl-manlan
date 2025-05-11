@@ -39,6 +39,13 @@
   font-weight: 400;
 }
 
+@font-face {
+  font-family: Splash;
+  src: url('../fonts/Linotype\ Feltpen\ Medium.otf') format('opentype');
+  font-style: normal;
+  font-weight: 500;
+}
+
 @theme {
   --color-dark: #000;
   --color-light: #fff;
