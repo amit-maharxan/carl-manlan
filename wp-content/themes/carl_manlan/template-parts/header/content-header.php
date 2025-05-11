@@ -13,6 +13,11 @@
       'walker'          => new bs4navwalker()
     ]);
     ?>
+    <button
+      class="btn-hamburger lg:hidden"
+      popovertarget="hamburgerMenu">
+      <i data-feather="menu"></i>
+    </button>
   </nav>
 
   <nav

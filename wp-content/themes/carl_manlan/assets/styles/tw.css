@@ -112,3 +112,7 @@
 .btn-filter {
   @apply !rounded-md border bg-dark border-secondary hover:bg-primary hover:border-primary transition-colors duration-600;
 }
+
+.max-mdhidden {
+  @apply max-lg:!hidden;
+}

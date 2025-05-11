@@ -12,7 +12,7 @@
         <?php
         if (have_rows('timeline_data')):
             while (have_rows('timeline_data')) : the_row(); ?>
-                <div class="timlineItem container grid grid-cols-[90px_1fr] lg:grid-cols-3 gap-8 lg:gap-10 place-content-center relative z-1">
+                <div class="timlineItem pb-4 container grid grid-cols-[90px_1fr] lg:grid-cols-3 gap-8 lg:gap-10 place-content-center relative z-1">
                     <div class="imgWrapper">
                         <img src="<?php the_sub_field('image'); ?>" alt="" />
                     </div>

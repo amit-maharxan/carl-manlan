@@ -650,3 +650,11 @@ footer nav ul li:has(a):not(.text-primary, :has(.text-primary)) {
 input:not([class*='btn-']) {
   border: 1px transparent !important;
 }
+
+.blog-section .left__part * {
+  margin-block: 1rem;
+}
+.blog-section .left__part {
+  max-width: 1100px;
+  margin-inline: auto;
+}
