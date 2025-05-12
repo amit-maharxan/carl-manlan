@@ -19,7 +19,7 @@
                     <div class="separator content-center">
                         <div
                             class="year text-4xl md:text-5xl lg:text-8xl text-primary font-bold"
-                            data-scrub-by=".char">
+                            data-scrub-by=".word">
                             <?php the_sub_field('year'); ?>
                         </div>
                     </div>

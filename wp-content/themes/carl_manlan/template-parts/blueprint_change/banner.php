@@ -11,7 +11,7 @@
         </div>
         <div
             class="text-wrapper lg:py-8 uppercase text-white items-end content-center text-center">
-            <div data-by=".word">
+            <div data-by=".char">
                 <h1
                     class="text-primary text-center text-5xl md:text-6xl lg:text-7xl xl:text-8xl">
                     <?php echo get_field('change_title'); ?>

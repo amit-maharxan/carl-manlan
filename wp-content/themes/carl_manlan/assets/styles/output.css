@@ -1437,11 +1437,12 @@
   border-style: var(--tw-border-style);
   border-width: 2px;
   border-color: var(--color-primary);
-  background-color: var(--color-primary);
-  color: var(--color-light);
+  background-color: transparent;
+  color: var(--color-primary);
   transition: background-color 400ms ease, color 400ms ease;
   &:hover {
-    background-color: transparent;
+    background-color: var(--color-primary);
+    color: var(--color-light);
   }
 }
 .btn-light {
@@ -1449,27 +1450,30 @@
   border-style: var(--tw-border-style);
   border-width: 2px;
   border-color: var(--color-light);
-  background-color: var(--color-light);
-  color: var(--color-dark);
+  background-color: transparent;
+  color: var(--color-light);
   transition: background-color 400ms ease, color 400ms ease;
   &:hover {
-    background-color: transparent;
+    background-color: var(--color-light);
+    color: var(--color-dark);
   }
 }
 .btn-secondary {
+  transition: background-color 400ms ease, color 400ms ease, filter 400ms ease;
   display: inline-block;
   border-style: var(--tw-border-style);
   border-width: 2px;
   border-color: var(--color-secondary);
-  background-color: var(--color-secondary);
-  color: var(--color-dark);
-  transition: background-color 400ms ease, color 400ms ease, filter 400ms ease;
-  &:hover {
-    background-color: var(--color-dark);
-    color: var(--color-secondary);
+  background-color: var(--color-dark);
+  color: var(--color-secondary);
+  &:not(:hover) {
     img {
       filter: brightness(0) saturate(100%) invert(82%) sepia(21%) saturate(340%) hue-rotate(122deg) brightness(96%) contrast(89%);
     }
+  }
+  &:hover {
+    background-color: var(--color-secondary);
+    color: var(--color-dark);
   }
 }
 .btn-filter[data-active] {

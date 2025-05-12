@@ -83,32 +83,36 @@
 }
 
 .btn-primary {
-  @apply bg-primary text-light border-2 border-primary inline-block;
+  /* @apply bg-primary text-light border-2 border-primary inline-block; */
+  @apply bg-transparent text-primary border-2 border-primary inline-block;
   transition: background-color 400ms ease, color 400ms ease;
   &:hover {
     /* @apply bg-light text-primary; */
-    @apply bg-transparent;
+    @apply bg-primary text-light;
   }
 }
 .btn-light {
-  @apply bg-light text-dark border-2 border-light inline-block;
+  /* @apply bg-light text-dark border-2 border-light inline-block; */
+  @apply bg-transparent text-light border-2 border-light inline-block;
   transition: background-color 400ms ease, color 400ms ease;
   &:hover {
-    /* @apply bg-dark text-light; */
-    @apply bg-transparent;
+    @apply bg-light text-dark;
+    /* @apply bg-transparent; */
   }
 }
 
 .btn-secondary {
-  @apply bg-secondary text-dark border-2 border-secondary inline-block;
   transition: background-color 400ms ease, color 400ms ease, filter 400ms ease;
-  &:hover {
-    @apply bg-dark text-secondary;
-    /* @apply bg-transparent; */
+  @apply bg-dark text-secondary border-2 border-secondary inline-block;
+  /* @apply bg-transparent; */
+  &:not(:hover) {
     img {
       filter: brightness(0) saturate(100%) invert(82%) sepia(21%) saturate(340%)
         hue-rotate(122deg) brightness(96%) contrast(89%);
     }
+  }
+  &:hover {
+    @apply bg-secondary text-dark;
   }
 }
 

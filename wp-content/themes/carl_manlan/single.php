@@ -21,11 +21,12 @@ $post_type = get_post_type(); ?>
         <?php $url = wp_get_attachment_url(get_post_thumbnail_id($post->ID), 'thumbnail'); ?>
         <img src="<?php echo $url; ?>" alt="image">
       </div>
-      <div class="blog-details">
+      <b class="blog-details pb-10">
 
-        <p class="added-on"><?php echo get_the_date(); ?></p>
+        <p class="added-on"><?php if (get_field("organization_post")) { ?>Originally Published on the <?php echo the_field("organization_post"); ?>,<?php } ?> <?php echo get_the_date(); ?></p>
         <p class="desc"><?php the_content(); ?></p>
-      </div>
+        <button class="btn-primary"> View All</button>
+      </b>
     </div>
     <!-- <div class="right__part">
       <h3>Recent Articles</h3>

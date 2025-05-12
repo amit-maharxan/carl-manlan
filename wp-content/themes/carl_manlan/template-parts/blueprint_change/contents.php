@@ -6,7 +6,7 @@
             <div class="grid py-20 md:grid-cols-2 text-light font-medium">
                 <h2
                     class="text-3xl/relaxed uppercase"
-                    data-scrub-by=".char">
+                    data-scrub-by=".word">
                     <?php echo get_field('change_description_left'); ?>
                 </h2>
                 <p class="font-poppins font-bold" data-scrub-by=".word">
