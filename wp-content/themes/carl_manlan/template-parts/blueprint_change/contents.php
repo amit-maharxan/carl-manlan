@@ -74,7 +74,8 @@
         wp_reset_query(); ?>
     </div>
     <div class="loader_icon" id="loader_icon">
-        <img src="<?php echo site_url('wp-content/uploads/2025/05/loader.gif'); ?>" alt="" width="200" height="200" class="mx-auto my-20" />
+		<div class="loader"></div>
+        <!-- <img src="<?php echo site_url('wp-content/uploads/2025/05/loader.gif'); ?>" alt="" width="200" height="200" class="mx-auto my-20" /> -->
     </div>
     <div
         class="container relative subscribe blogGrid bg-dark my-20"
@@ -125,13 +126,31 @@
                     Join a growing community dedicated to creating meaningful change
                     - one idea at a time.
                 </p>
-                <button class="btn-primary mx-auto">
+                <button class="btn-primary mx-auto" popovertarget="myDialog">
                     Subscribe for full access
                 </button>
             </div>
         </div>
     </div>
 </section>
+
+    <!-- Dialog with popover -->
+    <dialog
+      id="myDialog"
+      popover
+      class="rounded-lg w-full max-w-md p-6 shadow-xl m-auto">
+      <!-- Close button -->
+
+      <button
+        popovertarget="myDialog"
+        class="absolute top-2 right-2 text-gray-400 hover:text-gray-600 text-xl">
+        &times;
+      </button>
+
+      <!-- Dialog content -->
+      <h2 class="text-xl font-semibold mb-4">Contact Form</h2>
+      <div class="klaviyo-form-U8JXNL"></div>
+    </dialog>
 
 <script>
     document.addEventListener('DOMContentLoaded', function() {

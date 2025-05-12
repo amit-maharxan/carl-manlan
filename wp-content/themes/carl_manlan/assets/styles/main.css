@@ -675,3 +675,6 @@ footer
   :is(.line, span.text-primary) {
   display: inline !important;
 } */
+dialog[popover]::backdrop {
+  background-color: rgba(0, 0, 0, 0.5);
+}
