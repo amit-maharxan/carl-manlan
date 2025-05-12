@@ -1,4 +1,5 @@
 <?php do_action('carl_header');
+
 $blogID = get_the_ID();
 $post_type = get_post_type(); ?>
 
@@ -25,45 +26,27 @@ $post_type = get_post_type(); ?>
 
         <p class="added-on"><?php if (get_field("organization_post")) { ?>Originally Published on the <?php echo the_field("organization_post"); ?>,<?php } ?> <?php echo get_the_date(); ?></p>
         <p class="desc"><?php the_content(); ?></p>
-        <!-- Todo: Dynamic -->
-        <button class="btn-primary"> View All </button>
+        <a class="btn-primary view-all" href="">View All</a>
       </div>
     </div>
-    <!-- <div class="right__part">
-      <h3>Recent Articles</h3>
-      <div class="row">
-        <?php
-        $wp_query = new WP_Query(array(
-          'post_type'         => $post_type,
-          'posts_per_page'    => 4,
-          'post__not_in'      => array($blogID)
-        ));
-
-        while ($wp_query->have_posts()) : $wp_query->the_post();
-          $link = get_the_permalink();
-        ?>
-          <div class="recent_article">
-            <div class="media_thumbnails">
-              <div class="media_image">
-                <?php $image_url =  get_the_post_thumbnail_url(); ?>
-                <a href="<?php echo $link; ?>">
-                  <img src="<?php echo $image_url; ?>">
-                </a>
-              </div>
-              <div class="media_text">
-                <span class="media_date"><?php echo get_the_date(); ?></span>
-                <h5><?php the_title(); ?></h5>
-                <div class="media_short_desc">
-                  <p><?php the_excerpt(); ?></p>
-                </div>
-              </div>
-            </div>
-          </div>
-        <?php endwhile;
-        wp_reset_postdata(); ?>
-      </div>
-    </div> -->
   </div>
 </section>
+
+<script>
+  $(document).ready(function() {
+    var postype   = '<?php echo $post_type; ?>';
+    var blueprint = '<?php echo site_url('blueprint-for-change')?>';
+    var media     = '<?php echo site_url('media')?>';
+    
+    if(postype == 'post') {
+      $('li#menu-item-120').addClass('active');
+      $('.view-all').attr('href', media);
+    }
+    if(postype == 'blueprints') {
+      $('li#menu-item-119').addClass('active');
+      $('.view-all').attr('href', blueprint);
+    }
+  });
+</script>
 
 <?php do_action('carl_footer'); ?>

@@ -48,7 +48,7 @@
         <?php
         $wp_query = new WP_Query(array(
             'post_type'      => 'blueprints', // Fetch regular WordPress posts
-            'posts_per_page' => 9, // Number of posts to display
+            'posts_per_page' => 6, // Number of posts to display
         ));
         while ($wp_query->have_posts()) : $wp_query->the_post(); ?>
             <a href="<?php the_permalink(); ?>" class="contents">
@@ -86,7 +86,7 @@
         <?php
         $wp_query = new WP_Query(array(
             'post_type'      => 'blueprints', // Fetch regular WordPress posts
-            'posts_per_page' => -1, // Number of posts to display
+            'posts_per_page' => 6, // Number of posts to display
         ));
         while ($wp_query->have_posts()) : $wp_query->the_post(); ?>
 
