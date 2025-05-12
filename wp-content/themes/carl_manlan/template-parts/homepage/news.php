@@ -61,12 +61,14 @@
                 ));
                 while ($wp_query->have_posts()) : $wp_query->the_post(); ?>
                     <li class="splide__slide">
-                        <div class="imgWrapper">
-                            <img loading="lazy" src="<?php echo get_the_post_thumbnail_url(); ?>" alt="" />
-                        </div>
-                        <p class="text-start text-xl">
-                            <?php the_title(); ?>
-                        </p>
+                        <a href="<?php the_permalink(); ?>">
+                            <div class="imgWrapper">
+                                <img loading="lazy" src="<?php echo get_the_post_thumbnail_url(); ?>" alt="" />
+                            </div>
+                            <p class="text-start text-xl">
+                                <?php the_title(); ?>
+                            </p>
+                        </a>
                     </li>
                 <?php endwhile; ?>
                 <?php wp_reset_query(); ?>

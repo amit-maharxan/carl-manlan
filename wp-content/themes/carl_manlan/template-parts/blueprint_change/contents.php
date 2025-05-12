@@ -51,23 +51,25 @@
             'posts_per_page' => 9, // Number of posts to display
         ));
         while ($wp_query->have_posts()) : $wp_query->the_post(); ?>
-            <article class="blogCard flex flex-col gap-4">
-                <div class="imgWrapper aspect-[3/2] rounded-md">
-                    <img
-                        src="<?php echo get_the_post_thumbnail_url(); ?>"
-                        class="aspect-[3/2] rounded-md"
-                        alt="" />
-                </div>
-                <div class="btn-tag">
-                    <?php $terms = get_the_terms(get_the_ID(), 'blueprint-category');
-                    echo $terms[0]->name; ?>
-                </div>
-                <h1 class="text-light font-medium text-xl uppercase"><?php the_title(); ?></h1>
-                <p class="text-light font-poppins text-sm">
-                    <?php $content = get_the_content();
-                    echo wp_trim_words($content, 200); ?>
-                </p>
-            </article>
+            <a href="<?php the_permalink(); ?>" class="contents">
+                <article class="blogCard flex flex-col gap-4">
+                    <div class="imgWrapper aspect-[3/2] rounded-md">
+                        <img
+                            src="<?php echo get_the_post_thumbnail_url(); ?>"
+                            class="aspect-[3/2] rounded-md"
+                            alt="" />
+                    </div>
+                    <div class="btn-tag">
+                        <?php $terms = get_the_terms(get_the_ID(), 'blueprint-category');
+                        echo $terms[0]->name; ?>
+                    </div>
+                    <h1 class="text-light font-medium text-xl uppercase"><?php the_title(); ?></h1>
+                    <p class="text-light font-poppins text-sm">
+                        <?php $content = get_the_content();
+                        echo wp_trim_words($content, 200); ?>
+                    </p>
+                </article>
+            </a>
         <?php endwhile;
         wp_reset_query(); ?>
     </div>
@@ -88,21 +90,23 @@
         while ($wp_query->have_posts()) : $wp_query->the_post(); ?>
 
             <article class="blogCard flex flex-col gap-4">
-                <div class="imgWrapper aspect-[3/2] rounded-md">
-                    <img
-                        src="<?php echo get_the_post_thumbnail_url(); ?>"
-                        class="aspect-[3/2] rounded-md"
-                        alt="" />
-                </div>
-                <div class="btn-tag">
-                    <?php $terms = get_the_terms(get_the_ID(), 'blueprint-category');
-                    echo $terms[0]->name; ?>
-                </div>
-                <h1 class="text-light font-medium text-xl uppercase"><?php the_title(); ?></h1>
-                <p class="text-light font-poppins text-sm">
-                    <?php $content = get_the_content();
-                    echo wp_trim_words($content, 200); ?>
-                </p>
+                <a href="<?php the_permalink(); ?>">
+                    <div class="imgWrapper aspect-[3/2] rounded-md">
+                        <img
+                            src="<?php echo get_the_post_thumbnail_url(); ?>"
+                            class="aspect-[3/2] rounded-md"
+                            alt="" />
+                    </div>
+                    <div class="btn-tag">
+                        <?php $terms = get_the_terms(get_the_ID(), 'blueprint-category');
+                        echo $terms[0]->name; ?>
+                    </div>
+                    <h1 class="text-light font-medium text-xl uppercase"><?php the_title(); ?></h1>
+                    <p class="text-light font-poppins text-sm">
+                        <?php $content = get_the_content();
+                        echo wp_trim_words($content, 200); ?>
+                    </p>
+                </a>
             </article>
 
         <?php endwhile;
