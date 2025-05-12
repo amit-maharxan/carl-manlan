@@ -63,7 +63,7 @@
                         $link_url   = $link['url'];
                         $link_title = $link['title'];
                         $result     = get_sub_field('category'); ?>
-                        <a href="<?php echo site_url('blueprint-for-change') . '?filter=' . strtolower($result); ?>" class="btn-light hover:!text-light"><?php echo $link_title; ?></a>
+                        <a href="<?php echo site_url('blueprint-for-change') . '?filter=' . strtolower($result); ?>" class="btn-light"><?php echo $link_title; ?></a>
                     <?php endif; ?>
                 </div>
         <?php endwhile;

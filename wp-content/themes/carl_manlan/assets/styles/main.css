@@ -480,6 +480,11 @@ main > section:first-child {
     }
   }
 }
+
+.verticalTimeline .timlineItem:last-child > *:not(.separator) {
+  padding-bottom: 4rem;
+}
+
 .verticalTimeline .timlineItem:first-child .separator:after {
   --squareLength: 0.6rem;
   content: '';
@@ -633,7 +638,10 @@ nav ul li:has(a:not([class*='btn-'])):not(.text-primary, :has(.text-primary)) {
     background-position: 0 100%;
   }
 }
-footer nav ul li:has(a):not(.text-primary, :has(.text-primary)) {
+footer
+  nav
+  ul
+  li:has(a:not([class*='btn-'])):not(.text-primary, :has(.text-primary)) {
   background: linear-gradient(
     to right,
     var(--color-primary),
@@ -645,10 +653,6 @@ footer nav ul li:has(a):not(.text-primary, :has(.text-primary)) {
   -webkit-text-fill-color: transparent;
   background-size: 200% 100%;
   background-position: 100%;
-}
-
-input:not([class*='btn-']) {
-  border: 1px transparent !important;
 }
 
 .blog-section .left__part * {

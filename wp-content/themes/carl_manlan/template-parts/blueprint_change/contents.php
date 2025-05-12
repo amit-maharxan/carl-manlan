@@ -6,7 +6,7 @@
             <div class="grid py-20 md:grid-cols-2 text-light font-medium">
                 <h2
                     class="text-3xl/relaxed uppercase"
-                    data-scrub-by=".char">
+                    data-scrub-by=".word">
                     <?php echo get_field('change_description_left'); ?>
                 </h2>
                 <p class="font-poppins font-bold" data-scrub-by=".word">
@@ -59,7 +59,7 @@
                             class="aspect-[3/2] rounded-md"
                             alt="" />
                     </div>
-                    <div class="btn-tag !rounded-md border border-primary text-light font-medium text-sm">
+                    <div class="btn-tag">
                         <?php $terms = get_the_terms(get_the_ID(), 'blueprint-category');
                         echo $terms[0]->name; ?>
                     </div>
@@ -97,7 +97,7 @@
                             class="aspect-[3/2] rounded-md"
                             alt="" />
                     </div>
-                    <div class="btn-tag !rounded-md border border-primary text-light font-medium text-sm">
+                    <div class="btn-tag">
                         <?php $terms = get_the_terms(get_the_ID(), 'blueprint-category');
                         echo $terms[0]->name; ?>
                     </div>

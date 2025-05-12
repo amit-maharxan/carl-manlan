@@ -1,6 +1,6 @@
 <section class="font-medium uppercase bg-light text-center">
     <div class="container py-20">
-        <div class="headingWrapper" data-scrub-by=".char">
+        <div class="headingWrapper" data-scrub-by=".word">
             <?php echo get_field('hp_news_title'); ?>
         </div>
         <div class="splide logos-slider mt-10 !visible">
@@ -47,7 +47,7 @@
             if ($link):
                 $link_url   = $link['url'];
                 $link_title = $link['title']; ?>
-                <a href="<?php echo $link_url; ?>" class="btn-primary hover:!text-primary"><?php echo $link_title; ?></a>
+                <a href="<?php echo $link_url; ?>" class="btn-primary"><?php echo $link_title; ?></a>
             <?php endif; ?>
         </div>
     </div>
@@ -97,7 +97,7 @@
         </div>
 
         <div class="container lg:absolute inset-0 my-auto py-auto max-h-max flex flex-col">
-            <p class="text-3xl/relaxed" data-scrub-by=".char">
+            <p class="text-3xl/relaxed" data-scrub-by=".word">
                 <?php echo get_field('hp_blog_title'); ?>
             </p>
             <?php $link = get_field('hp_blog_button');

@@ -23,24 +23,25 @@
             </div>
         </div>
         <div class="splide imgSlider">
-        <div class="splide__track">
-            <ul class="splide__list">
-            <?php
-            if( have_rows('timeline_data', 84) ):
-                while( have_rows('timeline_data', 84) ) : the_row(); ?>
-                <li class="splide__slide">
-                    <img
-                    loading="lazy"
-                    src="<?php echo get_sub_field('image');?>"
-                    alt="" />
-                    <p class="text-center uppercase">
-                    <?php $desc = get_sub_field('description');
-                    echo strip_tags($desc);?>
-                    </p>
-                </li>
-            <?php endwhile; endif; ?>
-            </ul>
-        </div>
+            <div class="splide__track">
+                <ul class="splide__list">
+                    <?php
+                    if (have_rows('timeline_data', 84)):
+                        while (have_rows('timeline_data', 84)) : the_row(); ?>
+                            <li class="splide__slide">
+                                <img
+                                    loading="lazy"
+                                    src="<?php echo get_sub_field('image'); ?>"
+                                    alt="" />
+                                <p class="text-center uppercase">
+                                    <?php $desc = get_sub_field('description');
+                                    echo strip_tags($desc); ?>
+                                </p>
+                            </li>
+                    <?php endwhile;
+                    endif; ?>
+                </ul>
+            </div>
         </div>
     </div>
 </section>
@@ -54,7 +55,7 @@
         class="w-full max-h-screen object-cover"></video>
     <p
         class="uppercase text-primary font-medium text-[calc(4rem_+_10vw)] absolute inset-0 m-auto max-w-max max-h-max"
-        data-scrub-by=".char">
+        data-scrub-by=".word">
         <?php echo get_field('hp_video_title'); ?>
     </p>
 </section>
