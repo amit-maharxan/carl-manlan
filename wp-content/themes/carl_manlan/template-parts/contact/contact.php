@@ -14,7 +14,7 @@
 <!-- form -->
 <section class="uppercase font-medium bg-dark text-light/75 py-20">
     <div class="container">
-        <?php echo do_shortcode('[contact-form-7 id="c43f149" title="Contact Page Form"]');?>
+        <?php echo do_shortcode('[contact-form-7 id="d712fe3" title="Contact Page Form"]');?>
     </div>
 </section>
 
