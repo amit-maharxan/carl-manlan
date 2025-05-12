@@ -662,3 +662,16 @@ footer
   max-width: 1100px;
   margin-inline: auto;
 }
+
+.contentCard p:has(time) {
+  display: block !important;
+}
+
+:is([data-by], [data-scrub-by]):not(.exclude):has(.text-primary)
+  :is(.line, span.text-primary) {
+  display: contents !important;
+}
+/* :is([data-by], [data-scrub-by]).exclude:has(.text-primary)
+  :is(.line, span.text-primary) {
+  display: inline !important;
+} */

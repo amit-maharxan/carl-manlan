@@ -1161,16 +1161,6 @@
       --tw-gradient-stops: var(--tw-gradient-via-stops, var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-to) var(--tw-gradient-to-position));
     }
   }
-  .after\:to-dark\/80 {
-    &::after {
-      content: var(--tw-content);
-      --tw-gradient-to: color-mix(in srgb, #000 80%, transparent);
-      @supports (color: color-mix(in lab, red, red)) {
-        --tw-gradient-to: color-mix(in oklab, var(--color-dark) 80%, transparent);
-      }
-      --tw-gradient-stops: var(--tw-gradient-via-stops, var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-to) var(--tw-gradient-to-position));
-    }
-  }
   .hover\:\!text-light {
     &:hover {
       @media (hover: hover) {
@@ -1327,16 +1317,6 @@
   .lg\:grid-cols-3 {
     @media (width >= 64rem) {
       grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
-  }
-  .lg\:grid-cols-\[1fr_auto_1fr\] {
-    @media (width >= 64rem) {
-      grid-template-columns: 1fr auto 1fr;
-    }
-  }
-  .lg\:grid-cols-\[auto_1fr_auto\] {
-    @media (width >= 64rem) {
-      grid-template-columns: auto 1fr auto;
     }
   }
   .lg\:gap-4 {

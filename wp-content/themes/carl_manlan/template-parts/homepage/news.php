@@ -1,6 +1,6 @@
 <section class="font-medium uppercase bg-light text-center">
     <div class="container py-20">
-        <div class="headingWrapper" data-scrub-by=".word">
+        <div class="headingWrapper exclude" data-scrub-by=".word">
             <?php echo get_field('hp_news_title'); ?>
         </div>
         <div class="splide logos-slider mt-10 !visible">

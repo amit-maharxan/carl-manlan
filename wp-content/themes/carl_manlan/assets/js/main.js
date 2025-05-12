@@ -26,6 +26,7 @@ window.addEventListener('load', async () => {
   GsapImgParallax();
   verticalTimelineInit();
   boxReveal();
+  setTimeout(masonry, 1000);
   window.addEventListener('resize', setHeaderHeight);
   window.addEventListener('resize', BannerBgEffect.init);
   window.addEventListener('resize', AlignBleedOut);
@@ -682,4 +683,12 @@ function boxReveal() {
 
   // Set initial state for all cards
   gsap.set(cards, { opacity: 0, y: 100 });
+}
+
+function masonry() {
+  const masonryItems = document.querySelectorAll('.masonry__item');
+  if (masonryItems.length == 0) return;
+  masonryItems.forEach((item, index) => {
+    item.style.setProperty('--height', Math.ceil(item.clientHeight / 4 + 4));
+  });
 }
