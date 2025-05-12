@@ -12,13 +12,13 @@
         <?php
         if (have_rows('timeline_data')):
             while (have_rows('timeline_data')) : the_row(); ?>
-                <div class="timlineItem pb-4 container grid grid-cols-[90px_1fr] lg:grid-cols-3 gap-8 lg:gap-10 place-content-center relative z-1">
+                <div class="timlineItem container grid grid-cols-[90px_1fr] lg:grid-cols-3 gap-8 lg:gap-10 place-content-center relative z-1">
                     <div class="imgWrapper">
                         <img src="<?php the_sub_field('image'); ?>" alt="" />
                     </div>
                     <div class="separator content-center">
                         <div
-                            class="year text-4xl md:text-5xl lg:text-8xl text-primary font-bold"
+                            class="year text-4xl md:text-5xl lg:text-6xl xl:text-8xl text-primary font-bold"
                             data-scrub-by=".word">
                             <?php the_sub_field('year'); ?>
                         </div>

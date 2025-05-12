@@ -58,7 +58,7 @@
                         class="aspect-[3/2] rounded-md"
                         alt="" />
                 </div>
-                <div class="btn-tag !rounded-md border border-primary text-light font-medium text-sm">
+                <div class="btn-tag">
                     <?php $terms = get_the_terms(get_the_ID(), 'blueprint-category');
                     echo $terms[0]->name; ?>
                 </div>
@@ -94,7 +94,7 @@
                         class="aspect-[3/2] rounded-md"
                         alt="" />
                 </div>
-                <div class="btn-tag !rounded-md border border-primary text-light font-medium text-sm">
+                <div class="btn-tag">
                     <?php $terms = get_the_terms(get_the_ID(), 'blueprint-category');
                     echo $terms[0]->name; ?>
                 </div>

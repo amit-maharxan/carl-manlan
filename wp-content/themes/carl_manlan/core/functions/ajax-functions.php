@@ -30,7 +30,7 @@ function filter_blueprints()
                 <div class="imgWrapper aspect-[3/2] rounded-md">
                     <img src="' . get_the_post_thumbnail_url() . '" class="aspect-[3/2] rounded-md" alt="" />
                 </div>
-                <div class="btn-tag !rounded-md border border-primary text-light font-medium">';
+                <div class="btn-tag">';
         $terms = get_the_terms(get_the_ID(), 'blueprint-category');
         $out .= $terms[0]->name;
         $out .= '</div>

@@ -480,6 +480,11 @@ main > section:first-child {
     }
   }
 }
+
+.verticalTimeline .timlineItem:last-child > *:not(.separator) {
+  padding-bottom: 4rem;
+}
+
 .verticalTimeline .timlineItem:first-child .separator:after {
   --squareLength: 0.6rem;
   content: '';
