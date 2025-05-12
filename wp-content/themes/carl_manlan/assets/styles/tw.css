@@ -139,3 +139,36 @@
 .btn-tag {
   @apply p-2 !rounded-md border border-primary text-light font-medium;
 }
+
+.klaviyo-form input {
+  @apply !rounded-full !text-base !bg-light/20 !text-light;
+  &::placeholder {
+    @apply !text-light/90 !text-base;
+  }
+}
+
+.klaviyo-form button {
+  @apply !px-6 !py-2 !rounded-full !uppercase !max-w-max !cursor-pointer;
+  @apply !bg-transparent !text-primary !border-2 !border-primary !inline-block !text-base;
+  @apply transition-colors duration-[400ms] ease-[ease];
+  height: unset !important;
+  &:hover {
+    @apply !bg-primary !text-light;
+  }
+}
+
+@media (width < 64rem) {
+  .klaviyo-form [data-testid='form-row'] {
+    flex-wrap: wrap !important;
+    > * {
+      width: 100% !important;
+      flex: unset !important;
+      flex-grow: 1 !important;
+    }
+  }
+}
+
+.klaviyo-form,
+.klaviyo-form * {
+  @apply !font-oswald;
+}
