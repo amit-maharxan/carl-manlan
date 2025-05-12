@@ -74,7 +74,7 @@
         wp_reset_query(); ?>
     </div>
     <div class="loader_icon" id="loader_icon">
-		<div class="loader"></div>
+        <div class="loader"></div>
         <!-- <img src="<?php echo site_url('wp-content/uploads/2025/05/loader.gif'); ?>" alt="" width="200" height="200" class="mx-auto my-20" /> -->
     </div>
     <div
@@ -134,23 +134,24 @@
     </div>
 </section>
 
+<!-- Dialog with popover -->
+<dialog
+    id="myDialog"
+    popover
+    class="rounded-lg w-full max-w-[min(600px,calc(100%_-_2rem))] shadow-xl m-auto border border-gray">
+    <!-- Close button -->
     <!-- Dialog with popover -->
-    <dialog
-      id="myDialog"
-      popover
-      class="rounded-lg w-full max-w-md p-6 shadow-xl m-auto">
-      <!-- Close button -->
 
-      <button
+
+    <button
         popovertarget="myDialog"
-        class="absolute top-2 right-2 text-gray-400 hover:text-gray-600 text-xl">
-        &times;
-      </button>
+        class="absolute top-4 right-2 text-primary text-xl z-1">
+        <i data-feather="x"></i>
+    </button>
 
-      <!-- Dialog content -->
-      <h2 class="text-xl font-semibold mb-4">Contact Form</h2>
-      <div class="klaviyo-form-SBjQQY"></div>
-    </dialog>
+    <!-- Dialog content -->
+    <div class="klaviyo-form-SBjQQY"></div>
+</dialog>
 
 <script>
     document.addEventListener('DOMContentLoaded', function() {
