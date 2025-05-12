@@ -103,6 +103,19 @@ if (!function_exists('carl_change_contents')){
 	}
 }
 
+// Carl Manlan Change 2 Content Hooks
+if (!function_exists('carl_change_2_banner')){
+	function carl_change_2_banner(){
+		get_template_part('template-parts/blueprint_change_2/banner');
+	}
+}
+
+if (!function_exists('carl_change_2_contents')){
+	function carl_change_2_contents(){
+		get_template_part('template-parts/blueprint_change_2/contents');
+	}
+}
+
 // Carl Manlan Success Content Hooks
 if (!function_exists('carl_success_banner')){
 	function carl_success_banner(){
@@ -175,6 +188,12 @@ add_action( 'carl_media_content', 'carl_media_contents', 10 );
  */
 add_action( 'carl_change_content', 'carl_change_banner', 10 );
 add_action( 'carl_change_content', 'carl_change_contents', 20 );
+
+/**
+ * Change 2 Hook
+ */
+add_action( 'carl_change_2_content', 'carl_change_2_banner', 10 );
+add_action( 'carl_change_2_content', 'carl_change_2_contents', 20 );
 
 /**
  * Success Hook
