@@ -686,3 +686,6 @@ footer
 :is(.blogCard, .mediaSection .card):hover .imgWrapper img {
   scale: 1.1;
 }
+dialog[popover]::backdrop {
+  background-color: rgba(0, 0, 0, 0.5);
+}
