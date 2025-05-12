@@ -26,7 +26,7 @@ function filter_blueprints()
     $wp_query = new WP_Query($args);
 
     while ($wp_query->have_posts()) : $wp_query->the_post();
-        $out .= '<article class="blogCard flex flex-col gap-4 md:max-w-[33vw]">
+        $out .= '<a href="'.get_permalink().'" class="contents"><article class="blogCard flex flex-col gap-4 md:max-w-[33vw]">
                 <div class="imgWrapper aspect-[3/2] rounded-md">
                     <img src="' . get_the_post_thumbnail_url() . '" class="aspect-[3/2] rounded-md" alt="" />
                 </div>
@@ -34,12 +34,12 @@ function filter_blueprints()
         $terms = get_the_terms(get_the_ID(), 'blueprint-category');
         $out .= $terms[0]->name;
         $out .= '</div>
-                <h1 class="text-light font-medium text-xl uppercase"><?php the_title();?></h1>
+                <h1 class="text-light font-medium text-xl uppercase">'. get_the_title() .'</h1>
                 <p class="text-light font-poppins text-sm">';
         $content = get_the_content();
         $out .= wp_trim_words($content, 200);
         $out .= '</p>
-            </article>';
+            </article></a>';
 
     endwhile;
     wp_reset_query();

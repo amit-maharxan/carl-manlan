@@ -116,6 +116,13 @@ if (!function_exists('carl_success_mission')){
 	}
 }
 
+// Carl Manlan Contact Content Hooks
+if (!function_exists('carl_contact_contents')){
+	function carl_contact_contents(){
+		get_template_part('template-parts/contact/contact');
+	}
+}
+
 /*==================================================================================================
   Hooks
   ==================================================================================================*/
@@ -174,3 +181,8 @@ add_action( 'carl_change_content', 'carl_change_contents', 20 );
  */
 add_action( 'carl_success_content', 'carl_success_banner', 10 );
 add_action( 'carl_success_content', 'carl_success_mission', 20 );
+
+/**
+ * Contact Hook
+ */
+add_action( 'carl_contact_content', 'carl_contact_contents', 10 );
