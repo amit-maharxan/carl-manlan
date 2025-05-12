@@ -482,7 +482,7 @@ main > section:first-child {
 }
 
 .verticalTimeline .timlineItem:last-child > *:not(.separator) {
-  padding-bottom: 4rem;
+  padding-bottom: 7rem;
 }
 
 .verticalTimeline .timlineItem:first-child .separator:after {
@@ -675,3 +675,14 @@ footer
   :is(.line, span.text-primary) {
   display: inline !important;
 } */
+:is(.blogCard, .mediaSection .card) .imgWrapper {
+  overflow: hidden;
+}
+
+:is(.blogCard, .mediaSection .card) .imgWrapper img {
+  scale: 1;
+  transition: scale 400ms ease-in-out;
+}
+:is(.blogCard, .mediaSection .card):hover .imgWrapper img {
+  scale: 1.1;
+}

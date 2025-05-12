@@ -137,5 +137,5 @@
 }
 
 .btn-tag {
-  @apply px-1 py-2 !rounded-md border border-primary text-light font-medium;
+  @apply p-2 !rounded-md border border-primary text-light font-medium;
 }
