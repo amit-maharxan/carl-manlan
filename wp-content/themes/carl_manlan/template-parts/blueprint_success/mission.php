@@ -18,7 +18,7 @@
     <div
         class="content container grid lg:grid-cols-2 gap-8 mt-auto max-lg:text-center z-1 relative">
         <div
-            class="text-wrapper lg:py-8 uppercase text-light/75 items-end content-center">
+            class="text-wrapper lg:py-8 text-light/75 items-end content-center">
             <div data-by=".word">
                 <h2 class="text-2xl uppercase font-medium">
                     <?php echo get_field('mission_title'); ?>
