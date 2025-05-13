@@ -8,19 +8,28 @@ export function setHeaderHeight() {
 
 export function setScrollPos() {
   let animationFrameId;
+
   if (lenis) {
-    lenis.on('scroll', () => {
+    function setscroll() {
       requestAnimationFrame(() => {
         const body = document.querySelector('body');
         body.style.setProperty('--scrollY', lenis.scroll);
       });
+    }
+    setscroll();
+    lenis.on('scroll', () => {
+      setscroll();
     });
   } else {
-    document.addEventListener('scroll', () => {
+    function setScroll() {
       requestAnimationFrame(() => {
         const body = document.querySelector('body');
         body.style.setProperty('--scrollY', window.scrollY);
       });
+    }
+    setScroll();
+    document.addEventListener('scroll', () => {
+      setScroll();
     });
   }
 }
@@ -39,7 +48,7 @@ export function stickyHeader() {
     header.classList.remove('show');
   };
 
-  lenis.on('scroll', () => {
+  function coreLogic() {
     const scrollY = window.scrollY;
     if (scrollY > 10) {
       header.classList.add('bg-dark');
@@ -63,7 +72,10 @@ export function stickyHeader() {
 
     makeSticy();
     prevScrollY = scrollY;
-  });
+  }
+
+  coreLogic();
+  lenis.on('scroll', () => coreLogic());
 }
 
 //Submenu Open CLose Animation

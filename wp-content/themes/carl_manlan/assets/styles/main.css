@@ -702,3 +702,16 @@ dialog[popover]::backdrop {
 .verticalTimeline .line .word:last-child {
   margin-inline-end: 1ch;
 }
+
+.wpcf7-not-valid-tip {
+  display: none;
+}
+input:has(+ .wpcf7-not-valid-tip) {
+  outline: 1px solid #dc3232;
+}
+
+.wpcf7-response-output {
+  border-top-color: transparent !important;
+  border-left-color: transparent !important;
+  border-right-color: transparent !important;
+}
