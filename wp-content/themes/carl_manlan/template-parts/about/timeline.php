@@ -18,7 +18,7 @@
                     </div>
                     <div class="separator min-h-[12rem] content-end lg:content-center">
                         <div
-                            class="year text-4xl md:text-5xl lg:text-6xl 2xl:text-8xl text-primary font-bold"
+                            class="year text-4xl md:text-5xl lg:text-6xl text-primary font-bold"
                             data-scrub-by=".word" data-breakpoint="1024">
                             <?php the_sub_field('year'); ?>
                         </div>
