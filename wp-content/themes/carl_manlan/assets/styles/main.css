@@ -716,3 +716,8 @@ input:has(+ .wpcf7-not-valid-tip) {
   border-right-color: transparent !important;
   max-width: fit-content;
 }
+.wpcf7 form.invalid .wpcf7-response-output,
+.wpcf7 form.unaccepted .wpcf7-response-output,
+.wpcf7 form.payment-required .wpcf7-response-output {
+  border-bottom-color: #dc3232 !important;
+}
