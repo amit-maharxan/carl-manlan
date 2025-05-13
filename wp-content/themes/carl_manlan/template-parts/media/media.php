@@ -30,11 +30,13 @@
             'post_type'      => 'post', // Fetch regular WordPress posts
             'posts_per_page' => -1, // Number of posts to display
         ));
-        while ($wp_query->have_posts()) : $wp_query->the_post(); ?>
+        while ($wp_query->have_posts()) : $wp_query->the_post();
+        $img_url    =   get_the_post_thumbnail_url();
+        $width      =   '350'; ?>
             <a href="<?php the_permalink(); ?>" class="contents">
                 <div class="card">
                     <div class="imgWrapper rounded-md bg-gray w-full aspect-[3/2]">
-                        <img src="<?php echo get_the_post_thumbnail_url(); ?>" alt="" class="rounded-md w-full aspect-[3/2]" />
+                        <img src="<?php echo aq_resize($img_url, $width); ?>" alt="" class="rounded-md w-full aspect-[3/2]" />
                     </div>
                     <div class="txtWrapper">
                         <h2 class="text-xl">
