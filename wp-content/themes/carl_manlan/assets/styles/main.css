@@ -392,8 +392,8 @@ main > section:first-child {
 .line {
   clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
 }
-[data-scrub-by*='char'] .char,
-[data-scrub-by*='word'] .word {
+[data-scrub-by*='char']:not([data-breakpoint]) .char,
+[data-scrub-by*='word']:not([data-breakpoint]) .word {
   transform: translateY(100px);
   transition: transform 0.5s;
 }
@@ -512,6 +512,9 @@ main > section:first-child {
     width: 2px;
     background-color: white;
     content: '';
+    @media (width < 64rem) {
+      height: calc((45% - 1rem) * 2);
+    }
   }
   .year::before {
     position: absolute;
@@ -522,6 +525,9 @@ main > section:first-child {
     width: 2px;
     background-color: white;
     content: '';
+    @media (width < 64rem) {
+      content: unset;
+    }
   }
 }
 .verticalTimeline .timlineItem {
@@ -688,4 +694,11 @@ footer
 }
 dialog[popover]::backdrop {
   background-color: rgba(0, 0, 0, 0.5);
+}
+
+.verticalTimeline .line {
+  display: contents !important;
+}
+.verticalTimeline .line .word:last-child {
+  margin-inline-end: 1ch;
 }

@@ -24,9 +24,12 @@ $post_type = get_post_type(); ?>
       </div>
       <div class="blog-details pb-10">
 
-        <p class="added-on"><?php if (get_field("organization_post")) { ?>Originally Published on the <?php echo the_field("organization_post"); ?>,<?php } ?> <?php echo get_the_date(); ?></p>
+        <div class="flex flex-wrap justify-between w-full">
+          <p class="added-on"><?php if (get_field("organization_post")) { ?>Originally Published on the <?php echo the_field("organization_post"); ?>,<?php } ?> <?php echo get_the_date(); ?> tent> </p>
+          <p class="flex gap-2 shareSocials">SHARE <img class="!my-auto" src="<?php echo DK_ASSEST_URI . '/icons/fb.svg'; ?>" alt="facebook"> <img class="!my-auto" src="<?php echo DK_ASSEST_URI . '/icons/xTwitter.svg' ?>" alt="X"> <img class="!my-auto" src="<?php echo DK_ASSEST_URI . '/icons/ln.svg' ?>" alt="Linkedin"> <img class="!my-auto" src="<?php echo DK_ASSEST_URI . '/icons/mail.svg' ?>" alt="Mail"> </p>
+        </div>
         <p class="desc"><?php the_content(); ?></p>
-        <a class="btn-primary view-all" href="">View All</a>
+        <a class="btn-primary view-all uppercase" href="">Back To All</a>
       </div>
     </div>
   </div>
@@ -34,15 +37,15 @@ $post_type = get_post_type(); ?>
 
 <script>
   $(document).ready(function() {
-    var postype   = '<?php echo $post_type; ?>';
-    var blueprint = '<?php echo site_url('blueprint-for-change')?>';
-    var media     = '<?php echo site_url('media')?>';
-    
-    if(postype == 'post') {
+    var postype = '<?php echo $post_type; ?>';
+    var blueprint = '<?php echo site_url('blueprint-for-change') ?>';
+    var media = '<?php echo site_url('media') ?>';
+
+    if (postype == 'post') {
       $('li#menu-item-120').addClass('active');
       $('.view-all').attr('href', media);
     }
-    if(postype == 'blueprints') {
+    if (postype == 'blueprints') {
       $('li#menu-item-119').addClass('active');
       $('.view-all').attr('href', blueprint);
     }

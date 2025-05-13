@@ -5,7 +5,7 @@ export function verticalTimeline({ verticalTimeline }) {
   const colCount = window
     .getComputedStyle(timelineItems[0])
     .gridTemplateColumns.split(' ').length;
-
+  debugger;
   timelineItems.forEach((item) => {
     // const tl = gsap.timeline({
     //   scrollTrigger: {
@@ -16,7 +16,8 @@ export function verticalTimeline({ verticalTimeline }) {
     const txtWrapper = item.querySelector('.txtWrapper');
     const imgWrapperClone = imgWrapper.cloneNode(true);
     imgWrapperClone.classList.add('imgWrapperClone');
-    if (colCount == 2) {
+    debugger;
+    if (colCount < 3) {
       txtWrapper.insertBefore(imgWrapper, txtWrapper.firstChild);
       imgWrapper.style.marginBlockEnd = '1rem';
       const clone = txtWrapper.querySelector('.imgWrapperClone');
