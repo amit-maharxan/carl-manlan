@@ -12,8 +12,8 @@
         <div class="splide dateSlider">
             <div class="splide__track">
                 <ul class="splide__list text-center">
-                    <?php if (have_rows('hp_timeline')):
-                        while (have_rows('hp_timeline')): the_row(); ?>
+                    <?php if (have_rows('timeline_data', 84)):
+                        while (have_rows('timeline_data', 84)) : the_row(); ?>
                             <li class="splide__slide">
                                 <span class="max-w-max"><?php echo get_sub_field('year'); ?></span>
                             </li>
