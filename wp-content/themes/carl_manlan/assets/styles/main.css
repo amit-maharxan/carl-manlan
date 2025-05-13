@@ -699,7 +699,7 @@ dialog[popover]::backdrop {
 .verticalTimeline .line {
   display: contents !important;
 }
-.verticalTimeline .line .word:last-child {
+.verticalTimeline .txtWrapper .line .word:last-child {
   margin-inline-end: 1ch;
 }
 
