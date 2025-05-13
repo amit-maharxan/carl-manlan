@@ -714,4 +714,5 @@ input:has(+ .wpcf7-not-valid-tip) {
   border-top-color: transparent !important;
   border-left-color: transparent !important;
   border-right-color: transparent !important;
+  max-width: fit-content;
 }
