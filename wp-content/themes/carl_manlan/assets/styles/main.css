@@ -736,3 +736,7 @@ form.submitting .wpcf7-spinner {
 form.label {
   text-transform: uppercase;
 }
+
+.policyContent > * {
+  margin-block: 0.5rem;
+}
