@@ -32,7 +32,7 @@
 <section class="container my-20">
     <div class="flex justify-between mb-10 text-light">
         <h1 class="uppercase text-3xl">Blueprints For Success</h1>
-        <a href="<?php echo site_url('blueprint-for-success');?>" class="btn-primary">View All</a>
+        <a href="<?php echo site_url('blueprint-for-success');?>" class="btn-primary !flex">View All</a>
     </div>
     <div class="cardWrapper pb-8 grid grid-cols-[repeat(auto-fill,_minmax(350px,_1fr))] gap-12 uppercase font-medium">
         <?php if (have_rows('hp_cards')):

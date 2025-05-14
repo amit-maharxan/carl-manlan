@@ -537,8 +537,11 @@ function InitializeSliders() {
 
 function CurtainOpener() {
   const curtains = document.querySelectorAll('.curtain');
-
   curtains.forEach((curtain) => {
+    const curtainHeight = curtain.getBoundingClientRect().height;
+    const screenHeight = window.innerHeight;
+    if (curtainHeight > screenHeight) return;
+
     const images = curtain.querySelectorAll('img');
 
     // If no images, process immediately
