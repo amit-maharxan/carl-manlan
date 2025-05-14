@@ -685,7 +685,7 @@ footer
   overflow: hidden;
 }
 
-:is(.blogCard, .mediaSection .card) .imgWrapper img {
+:is(.blogCard, .mediaSection .card, .newsSlider) .imgWrapper img {
   scale: 1;
   transition: scale 400ms ease-in-out;
 }
@@ -731,4 +731,8 @@ input:has(+ .wpcf7-not-valid-tip) {
 
 form.submitting .wpcf7-spinner {
   display: block;
+}
+
+form.label {
+  text-transform: uppercase;
 }

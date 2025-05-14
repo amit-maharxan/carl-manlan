@@ -32,13 +32,13 @@
 <section class="container my-20">
     <div class="flex justify-between mb-10 text-light">
         <h1 class="uppercase text-3xl">Blueprints For Success</h1>
-        <a href="<?php echo site_url('blueprint-for-success');?>" class="btn-primary !flex">View All</a>
+        <a href="<?php echo site_url('blueprint-for-success'); ?>" class="btn-primary !flex my-auto">View All</a>
     </div>
     <div class="cardWrapper pb-8 grid grid-cols-[repeat(auto-fill,_minmax(350px,_1fr))] gap-12 uppercase font-medium">
         <?php if (have_rows('hp_cards')):
             while (have_rows('hp_cards')): the_row(); ?>
                 <!-- <div class="card w-full flex flex-col border <?php echo get_sub_field('color_codes'); ?> p-8 min-h-[350px] md:min-h-[500px] max-w-[min(100%,400px)] mx-auto"> -->
-                <div class="card w-full flex flex-col border <?php echo get_sub_field('color_codes'); ?> p-8 min-h-[350px] md:min-h-[500px] max-w-[100%] mx-auto">
+                <div class="card w-full flex flex-col border rounded-xl p-8 min-h-[350px] md:min-h-[500px] max-w-[100%] mx-auto <?php echo get_sub_field('color_codes'); ?>">
                     <img
                         loading="lazy"
                         src="<?php echo get_sub_field('image'); ?>"

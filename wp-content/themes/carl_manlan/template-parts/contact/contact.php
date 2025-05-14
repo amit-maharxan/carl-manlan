@@ -5,7 +5,7 @@
         data-gradSize="farthest-corner"
         data-gradY="0"></div>
     <div class="titleDiv relative pb-10 pt-[max(4rem,_30vh)]">
-        <h1 class="text-4xl font-bold w-full text-light text-center">
+        <h1 class="text-4xl font-bold w-full text-light text-center uppercase">
             Get In Touch
         </h1>
     </div>
@@ -14,7 +14,7 @@
 <!-- form -->
 <section class="uppercase font-medium bg-dark text-light/75 py-20">
     <div class="container">
-        <?php echo do_shortcode('[contact-form-7 id="d712fe3" title="Contact Page Form"]');?>
+        <?php echo do_shortcode('[contact-form-7 id="d712fe3" title="Contact Page Form"]'); ?>
     </div>
 </section>
 

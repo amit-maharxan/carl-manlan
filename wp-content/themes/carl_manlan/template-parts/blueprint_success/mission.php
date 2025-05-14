@@ -5,12 +5,12 @@
         data-gradY="0.5"
         data-gradSize="farthest-corner"
         data-box-dimension="180"></div>
-    <div class="container grid py-20 md:grid-cols-2 text-light font-medium">
+    <div class="container grid gap-x-24 gap-y-12 py-20 md:grid-cols-2 text-light font-medium">
         <h2 class="text-3xl/relaxed uppercase  z-1 relative">
             <?php echo get_field('success_description_left'); ?>
         </h2>
         <p
-            class="font-poppins font-bold "
+            class="font-poppins font-bold text-light/75"
             data-scrub-by=".word">
             <?php echo get_field('success_description_right'); ?>
         </p>

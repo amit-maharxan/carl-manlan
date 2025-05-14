@@ -40,7 +40,6 @@
       --tw-ring-offset-width: 0px;
       --tw-ring-offset-color: #fff;
       --tw-ring-offset-shadow: 0 0 #0000;
-      --tw-outline-style: solid;
       --tw-blur: initial;
       --tw-brightness: initial;
       --tw-contrast: initial;
@@ -529,9 +528,6 @@
   .\!min-w-\[265px\] {
     min-width: 265px !important;
   }
-  .min-w-\[265px\] {
-    min-width: 265px;
-  }
   .min-w-\[min\(400px\,_100\%\)\] {
     min-width: min(400px, 100%);
   }
@@ -657,11 +653,17 @@
   .gap-x-12 {
     column-gap: calc(var(--spacing) * 12);
   }
+  .gap-x-24 {
+    column-gap: calc(var(--spacing) * 24);
+  }
   .gap-y-4 {
     row-gap: calc(var(--spacing) * 4);
   }
   .gap-y-6 {
     row-gap: calc(var(--spacing) * 6);
+  }
+  .gap-y-12 {
+    row-gap: calc(var(--spacing) * 12);
   }
   .overflow-hidden {
     overflow: hidden;
@@ -997,10 +999,6 @@
   .ring {
     --tw-ring-shadow: var(--tw-ring-inset,) 0 0 0 calc(1px + var(--tw-ring-offset-width)) var(--tw-ring-color, currentColor);
     box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
-  }
-  .outline {
-    outline-style: var(--tw-outline-style);
-    outline-width: 1px;
   }
   .blur {
     --tw-blur: blur(8px);
@@ -1595,7 +1593,6 @@
   text-transform: uppercase;
   min-width: max-content;
   height: max-content;
-  margin-block: auto;
 }
 .btn-primary {
   display: inline-block;
@@ -1750,6 +1747,9 @@
       color: color-mix(in oklab, var(--color-light) 90%, transparent) !important;
     }
   }
+}
+.klaviyo-form span {
+  text-transform: uppercase !important;
 }
 .klaviyo-form button {
   max-width: max-content !important;
@@ -1967,11 +1967,6 @@
   syntax: "*";
   inherits: false;
   initial-value: 0 0 #0000;
-}
-@property --tw-outline-style {
-  syntax: "*";
-  inherits: false;
-  initial-value: solid;
 }
 @property --tw-blur {
   syntax: "*";
