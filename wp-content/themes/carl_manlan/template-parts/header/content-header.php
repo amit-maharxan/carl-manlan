@@ -2,19 +2,20 @@
   <nav class="topHeader container text-white uppercase py-6 flex flex-wrap justify-between gap-8 font-medium">
     <div class="logo text-3xl md:text-4xl"><a href="<?php echo site_url(); ?>">Carl Manlan</a></div>
     <?php
-    wp_nav_menu([
-      'menu'            => 'top',
-      'theme_location'  => 'header-menu',
-      'container'       => false,
-      'menu_id'         => '',
-      'menu_class'      => 'flex gap-6 text-sm align-middle content-center flex-wrap',
-      'depth'           => 2,
-      'fallback_cb'     => 'bs4navwalker::fallback',
-      'walker'          => new bs4navwalker()
-    ]);
+      wp_nav_menu([
+        'menu'            => 'top',
+        'theme_location'  => 'header-menu',
+        'container'       => false,
+        'menu_id'         => '',
+        'menu_class'      => 'flex gap-6 text-sm align-middle content-center flex-wrap',
+        'depth'           => 2,
+        'fallback_cb'     => 'bs4navwalker::fallback',
+        'walker'          => new bs4navwalker()
+      ]);
     ?>
   </nav>
 
+  <?php $post_type = get_post_type(); ?>
   <nav
     popover
     role="menubar"
@@ -42,7 +43,7 @@
             href="<?php echo site_url('about'); ?>"
             class="contents">
             <p
-              class="text-xl"
+              class="text-xl <?php if(is_page('84')){ echo 'text-primary';} ?>"
               role="heading">
               About
             </p>
@@ -53,7 +54,7 @@
             href="<?php echo site_url('media'); ?>"
             class="contents">
             <p
-              class="text-xl"
+              class="text-xl  <?php if(is_page('104')){ echo 'text-primary';} if($post_type=='post'){ echo 'text-primary';}?>"
               role="heading">
               Media
             </p>
@@ -64,7 +65,7 @@
             href="<?php echo site_url('blueprint-for-change'); ?>"
             class="contents">
             <p
-              class="text-xl"
+              class="text-xl  <?php if(is_page('114')){ echo 'text-primary';} if($post_type=='blueprints'){ echo 'text-primary';} ?>"
               role="heading">
               Blueprint For Change
             </p>
@@ -75,14 +76,14 @@
             href="<?php echo site_url('blueprint-for-success'); ?>"
             class="contents">
             <p
-              class="text-xl"
+              class="text-xl  <?php if(is_page('116')){ echo 'text-primary';} ?>"
               role="heading">
               Blueprint For Success
             </p>
           </a>
         </div>
         <div class="menuBlock px-(--menu-padding-x)">
-          <button class="btn-primary mt-4">Get In Touch</button>
+          <a href="<?php echo site_url('get-in-touch'); ?>" class="btn-primary mt-4">Get In Touch</a>
         </div>
       </div>
     </div>

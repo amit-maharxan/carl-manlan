@@ -30,7 +30,7 @@ $post_type = get_post_type(); ?>
             <a id="fb-share" class="contents" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=<?php echo urlencode( get_permalink( get_the_ID() ) ); ?>&text=<?php echo urlencode( get_the_title() );?>&summary=<?php echo urlencode( get_the_title() );?>&source=<?php echo 'Carl_Manlan';?>">
               <img class="!my-auto" src="<?php echo DK_ASSEST_URI . '/icons/fb.svg'; ?>" alt="facebook">
             </a>
-            <a id="x-share" class="contents" target="_blank" href="https://twitter.com/share?url=<?php the_permalink();?>&via=<?php echo 'Carl_Manlan';?>&related=<?php echo urlencode( get_the_title() );?>&hashtags=<?php echo 'Media';?>&text=<?php echo urlencode( get_the_title() );?>">
+            <a id="x-share" class="contents" target="_blank" href="https://x.com/share?url=<?php the_permalink();?>&via=<?php echo 'Carl_Manlan';?>&related=<?php echo urlencode( get_the_title() );?>&hashtags=<?php echo 'Media';?>&text=<?php echo urlencode( get_the_title() );?>">
               <img class="!my-auto" src="<?php echo DK_ASSEST_URI . '/icons/xTwitter.svg' ?>" alt="X">
             </a>
             <a id="in-share" class="contents" target="_blank" href="https://www.linkedin.com/shareArticle?mini=true&url=<?php the_permalink();?>&text=<?php echo urlencode( get_the_title() );?>&summary=<?php echo urlencode( get_the_title() );?>&source=<?php echo 'Carl_Manlan';?>">
