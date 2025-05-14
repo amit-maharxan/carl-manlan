@@ -96,7 +96,7 @@
             </div>
         </div>
 
-        <div class="container lg:absolute inset-0 my-auto py-auto max-h-max flex flex-col">
+        <div class="container text-center lg:absolute inset-0 my-auto py-auto max-h-max flex flex-col gap-6">
             <p class="text-3xl/relaxed" data-scrub-by=".word">
                 <?php echo get_field('hp_blog_title'); ?>
             </p>
