@@ -685,11 +685,11 @@ footer
   overflow: hidden;
 }
 
-:is(.blogCard, .mediaSection .card, .newsSlider) .imgWrapper img {
+:is(.blogCard, .mediaSection .card, .newsSlider li) .imgWrapper img {
   scale: 1;
   transition: scale 400ms ease-in-out;
 }
-:is(.blogCard, .mediaSection .card, .newsSlider):hover .imgWrapper img {
+:is(.blogCard, .mediaSection .card, .newsSlider li):hover .imgWrapper img {
   scale: 1.1;
 }
 dialog[popover]::backdrop {
