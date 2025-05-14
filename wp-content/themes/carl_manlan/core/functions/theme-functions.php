@@ -46,3 +46,24 @@ add_filter( 'show_admin_bar', '__return_false' );
 @ini_set( 'upload_max_size' , '64M' );
 @ini_set( 'post_max_size', '64M');
 @ini_set( 'max_execution_time', '300' );
+
+// // Redirect default login URLs to home
+// function disable_default_login() {
+//     $request = $_SERVER['REQUEST_URI'];
+//     if (strpos($request, 'wp-login.php') !== false || strpos($request, 'wp-admin') !== false) {
+//         wp_redirect(home_url());
+//         exit;
+//     }
+// }
+// add_action('init', 'disable_default_login');
+
+// // Custom login route at /hello
+// function custom_login_url() {
+//     $request_uri = trim($_SERVER['REQUEST_URI'], '/');
+//     echo $request_uri;
+//     if ($request_uri === 'hello_carl') {
+//         require_once(ABSPATH . 'wp-login.php');
+//         exit;
+//     }
+// }
+// add_action('init', 'custom_login_url');
