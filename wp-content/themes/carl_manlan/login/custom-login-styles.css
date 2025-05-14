@@ -1,5 +1,5 @@
 body.login {
-  background-color: #ddd4d4;
+  background-color: #000;
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center;
@@ -7,7 +7,7 @@ body.login {
 }
 
 .login h1 a {
-  background-image: url('logo.svg');
+  background-image: url('carl.png');
   width: 220px;
   height: 90px;
   background-size: contain;
@@ -85,4 +85,14 @@ p#backtoblog {
 
 .login .privacy-policy-page-link {
     margin: 3em 0 2em;
+}
+
+#login {
+    width: 320px;
+    padding: 15% 0 0;
+    margin: auto;
+}
+
+.privacy-policy-page-link {
+    display: none;
 }
