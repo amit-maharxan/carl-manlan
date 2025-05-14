@@ -681,7 +681,7 @@ footer
   :is(.line, span.text-primary) {
   display: inline !important;
 } */
-:is(.blogCard, .mediaSection .card) .imgWrapper {
+:is(.blogCard, .mediaSection .card, .newsSlider) .imgWrapper {
   overflow: hidden;
 }
 
@@ -689,7 +689,7 @@ footer
   scale: 1;
   transition: scale 400ms ease-in-out;
 }
-:is(.blogCard, .mediaSection .card):hover .imgWrapper img {
+:is(.blogCard, .mediaSection .card, .newsSlider):hover .imgWrapper img {
   scale: 1.1;
 }
 dialog[popover]::backdrop {
