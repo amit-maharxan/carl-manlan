@@ -91,7 +91,7 @@
         while ($wp_query->have_posts()) : $wp_query->the_post(); ?>
 
             <article class="blogCard flex flex-col gap-4">
-                <a href="<?php the_permalink(); ?>">
+                <a href="<?php the_permalink(); ?>" class="contents">
                     <div class="imgWrapper aspect-[3/2] rounded-md">
                         <img
                             src="<?php echo get_the_post_thumbnail_url(); ?>"
@@ -116,9 +116,9 @@
         <div
             class="absolute inset-0 text-light font-medium uppercase text-center">
             <div
-                class="bgGrad absolute inset-0 bg-linear-to-b from-dark/30 via-dark/80 to-dark"></div>
+                class="bgGrad absolute inset-0 bg-linear-to-b from-dark/30 via-dark/60 to-dark"></div>
             <div
-                class="txtWrapper z-1 absolute inset-x-0 inset-y-[60%] grid place-content-center gap-10">
+                class="txtWrapper z-1 absolute inset-x-0 inset-y-[80%] lg:inset-y-[60%] grid place-content-center gap-10">
                 <p
                     class="text-3xl"
                     data-by=".line">

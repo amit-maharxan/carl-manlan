@@ -39,7 +39,7 @@
     <!-- todo: dynamic -->
     <div class="flex justify-between mb-10 text-light">
         <h1 class="uppercase text-3xl">Blueprints For Success</h1>
-        <a href="#" class="btn-primary">View All</a>
+        <a href="#" class="btn-primary !flex">View All</a>
 
     </div>
 
