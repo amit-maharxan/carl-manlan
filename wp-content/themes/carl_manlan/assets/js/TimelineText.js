@@ -1,5 +1,11 @@
 export const AnimateByElements = () => {
-  const byTxt = new SplitType('[data-by]', { types: 'lines, words, chars' });
+  const byTxt = new SplitType('[data-by=".char"]', {
+    types: 'lines, words, chars',
+  });
+  const sthElseTxt = new SplitType('[data-by=".word"]', {
+    types: 'lines, words',
+  });
+  const sthElseeeTxt = new SplitType('[data-by=".line"]', { types: 'lines' });
   const lineParents = Array.from(
     document.querySelectorAll('[data-by] .line')
   ).map((line) => line.parentElement);
@@ -31,8 +37,14 @@ export const AnimateByElements = () => {
 
 // Function to handle animations for elements with [data-scrub-by] attribute
 export const AnimateScrubByElements = () => {
-  const scrubByTxt = new SplitType('[data-scrub-by]', {
+  const byTxt = new SplitType('[data-scrub-by=".char"]', {
     types: 'lines, words, chars',
+  });
+  const sthElseTxt = new SplitType('[data-scrub-by=".word"]', {
+    types: 'lines, words',
+  });
+  const sthElseeeTxt = new SplitType('[data-scrub-by=".line"]', {
+    types: 'lines',
   });
   const lineParents = Array.from(
     document.querySelectorAll('[data-scrub-by] .line')
