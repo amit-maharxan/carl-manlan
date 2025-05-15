@@ -487,6 +487,9 @@
   .min-h-screen {
     min-height: 100vh;
   }
+  .min-h-svh {
+    min-height: 100svh;
+  }
   .w-12 {
     width: calc(var(--spacing) * 12);
   }
@@ -528,9 +531,6 @@
   }
   .\!min-w-\[265px\] {
     min-width: 265px !important;
-  }
-  .min-w-\[265px\] {
-    min-width: 265px;
   }
   .min-w-\[min\(400px\,_100\%\)\] {
     min-width: min(400px, 100%);
@@ -657,11 +657,17 @@
   .gap-x-12 {
     column-gap: calc(var(--spacing) * 12);
   }
+  .gap-x-24 {
+    column-gap: calc(var(--spacing) * 24);
+  }
   .gap-y-4 {
     row-gap: calc(var(--spacing) * 4);
   }
   .gap-y-6 {
     row-gap: calc(var(--spacing) * 6);
+  }
+  .gap-y-12 {
+    row-gap: calc(var(--spacing) * 12);
   }
   .overflow-hidden {
     overflow: hidden;
@@ -971,6 +977,18 @@
       color: color-mix(in oklab, var(--color-light) 75%, transparent);
     }
   }
+  .text-light\/80 {
+    color: color-mix(in srgb, #fff 80%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      color: color-mix(in oklab, var(--color-light) 80%, transparent);
+    }
+  }
+  .text-light\/90 {
+    color: color-mix(in srgb, #fff 90%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      color: color-mix(in oklab, var(--color-light) 90%, transparent);
+    }
+  }
   .text-primary {
     color: var(--color-primary);
   }
@@ -1143,6 +1161,16 @@
       background-image: linear-gradient(var(--tw-gradient-stops));
     }
   }
+  .after\:bg-linear-to-bl {
+    &::after {
+      content: var(--tw-content);
+      --tw-gradient-position: to bottom left;
+      @supports (background-image: linear-gradient(in lab, red, red)) {
+        --tw-gradient-position: to bottom left in oklab;
+      }
+      background-image: linear-gradient(var(--tw-gradient-stops));
+    }
+  }
   .after\:bg-linear-to-l {
     &::after {
       content: var(--tw-content);
@@ -1166,6 +1194,16 @@
       --tw-gradient-from: color-mix(in srgb, #000 10%, transparent);
       @supports (color: color-mix(in lab, red, red)) {
         --tw-gradient-from: color-mix(in oklab, var(--color-dark) 10%, transparent);
+      }
+      --tw-gradient-stops: var(--tw-gradient-via-stops, var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-to) var(--tw-gradient-to-position));
+    }
+  }
+  .after\:from-dark\/20 {
+    &::after {
+      content: var(--tw-content);
+      --tw-gradient-from: color-mix(in srgb, #000 20%, transparent);
+      @supports (color: color-mix(in lab, red, red)) {
+        --tw-gradient-from: color-mix(in oklab, var(--color-dark) 20%, transparent);
       }
       --tw-gradient-stops: var(--tw-gradient-via-stops, var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-to) var(--tw-gradient-to-position));
     }
@@ -1276,6 +1314,16 @@
       --tw-gradient-to: color-mix(in srgb, #000 40%, transparent);
       @supports (color: color-mix(in lab, red, red)) {
         --tw-gradient-to: color-mix(in oklab, var(--color-dark) 40%, transparent);
+      }
+      --tw-gradient-stops: var(--tw-gradient-via-stops, var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-to) var(--tw-gradient-to-position));
+    }
+  }
+  .after\:to-dark\/80 {
+    &::after {
+      content: var(--tw-content);
+      --tw-gradient-to: color-mix(in srgb, #000 80%, transparent);
+      @supports (color: color-mix(in lab, red, red)) {
+        --tw-gradient-to: color-mix(in oklab, var(--color-dark) 80%, transparent);
       }
       --tw-gradient-stops: var(--tw-gradient-via-stops, var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-to) var(--tw-gradient-to-position));
     }
@@ -1595,7 +1643,6 @@
   text-transform: uppercase;
   min-width: max-content;
   height: max-content;
-  margin-block: auto;
 }
 .btn-primary {
   display: inline-block;
@@ -1750,6 +1797,9 @@
       color: color-mix(in oklab, var(--color-light) 90%, transparent) !important;
     }
   }
+}
+.klaviyo-form span {
+  text-transform: uppercase !important;
 }
 .klaviyo-form button {
   max-width: max-content !important;

@@ -3,13 +3,13 @@
         <div class="hexBg pattern1 bgEffect absolute inset-0 z-0 after:z-0 after:block after:inset-0 after:absolute after:bg-linear-to-b after:from-dark after:via-dark/40 after:via-20% after:via-dark/40 after:via-80% after:to-dark" data-gradX="0.9" data-gradY="0.5" data-gradSize="farthest-corner" data-box-dimension="180"></div>
         <!-- <div class="absolute inset-0 z-0 after:z-0 after:block after:inset-0 after:absolute after:bg-linear-to-l after:from-dark after:via-dark/40 after:via-10% after:to-dark/40" data-gradX="0.9" data-gradY="0.5" data-gradSize="farthest-corner" data-box-dimension="180"></div> -->
         <div class="container z-1 relative">
-            <div class="grid py-20 md:grid-cols-2 text-light font-medium">
+            <div class="grid py-20 md:grid-cols-2 gap-x-24 gap-y-12 text-light font-medium">
                 <h2
                     class="text-3xl/relaxed uppercase"
                     data-scrub-by=".word">
                     <?php echo get_field('change_description_left'); ?>
                 </h2>
-                <p class="font-poppins font-bold" data-scrub-by=".word">
+                <p class="font-poppins font-bold text-light/75" data-scrub-by=".word">
                     <?php echo get_field('change_description_right'); ?>
                 </p>
             </div>

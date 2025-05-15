@@ -1,5 +1,5 @@
 <section class="font-medium uppercase bg-light text-center">
-    <div class="container py-20">
+    <div class="container pt-20">
         <div class="headingWrapper exclude" data-scrub-by=".word">
             <?php echo get_field('hp_news_title'); ?>
         </div>
