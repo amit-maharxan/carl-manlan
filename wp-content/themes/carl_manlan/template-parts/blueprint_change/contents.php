@@ -170,6 +170,13 @@
 
     $(document).ready(function() {
         $('#loader_icon').hide();
+        
+        if ($('.klaviyo-form-SBjQQY').hasClass('form-version-cid-1')) {
+            console.log('It has the class form-version-cid-1');
+        } else {
+            $('<h2>You have already subscribed. Please use the link you received in your email.</h2>').appendTo($form);
+            console.log('It does not have the class form-version-cid-1');
+        }
     });
 
     $('.btn-filter').click(function(e) {

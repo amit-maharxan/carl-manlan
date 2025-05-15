@@ -26,3 +26,14 @@ li.active {
     color: #fff;
     overflow: hidden;
 }
+
+dialog#myDialog h2 {
+    font-size: 30px;
+    padding: 10%;
+    color: #f78104;
+    background-color: #000;
+}
+
+dialog#myDialog {
+    min-height: 200px;
+}
