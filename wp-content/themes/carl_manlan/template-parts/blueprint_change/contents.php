@@ -171,13 +171,16 @@
     $(document).ready(function() {
         $('#loader_icon').hide();
         
-        if ($('.klaviyo-form-SBjQQY').hasClass('form-version-cid-1')) {
+        var $form = $('.klaviyo-form-SBjQQY');
+
+        if ($form.hasClass('form-version-cid-1')) {
             console.log('It has the class form-version-cid-1');
         } else {
-            $('<h2>You have already subscribed. Please use the link you received in your email.</h2>').appendTo($form);
+            $form.append('<h2>You have already subscribed. Please use the link you received in your email.</h2>');
             console.log('It does not have the class form-version-cid-1');
         }
     });
+
 
     $('.btn-filter').click(function(e) {
         e.preventDefault();
