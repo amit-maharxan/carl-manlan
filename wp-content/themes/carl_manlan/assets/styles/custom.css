@@ -39,3 +39,7 @@ dialog#myDialog h2 {
 dialog#myDialog {
     min-height: 200px;
 }
+
+li.current-menu-item {
+    background-position: 0 100% !important;
+}
