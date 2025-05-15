@@ -170,17 +170,24 @@
 
     $(document).ready(function() {
         $('#loader_icon').hide();
-        
-        var $form = $('.klaviyo-form-SBjQQY');
-
-        if ($form.hasClass('form-version-cid-1')) {
-            console.log('It has the class form-version-cid-1');
-        } else {
-            $form.append('<h2>You have already subscribed. Please use the link you received in your email.</h2>');
-            console.log('It does not have the class form-version-cid-1');
-        }
     });
-
+    
+    $(document).ready(function() {
+        var checkForm = setInterval(function() {
+            var $form = $('.klaviyo-form-SBjQQY');
+    
+            if ($form.length > 0) {
+                clearInterval(checkForm);
+    
+                if ($form.hasClass('form-version-cid-1')) {
+                    console.log('It has the class form-version-cid-1');
+                } else {
+                    $form.append('<h2>You have already subscribed. Please use the link you received in your email.</h2>');
+                    console.log('It does not have the class form-version-cid-1');
+                }
+            }
+        }, 300); // Checks every 300ms
+    });
 
     $('.btn-filter').click(function(e) {
         e.preventDefault();
