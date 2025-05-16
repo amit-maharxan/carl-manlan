@@ -171,6 +171,18 @@
     $(document).ready(function() {
         $('#loader_icon').hide();
     });
+    
+    $(document).ready(function() {
+        var $form = $('.klaviyo-form-SBjQQY');
+        setTimeout(function() {
+            if ($form.children().length > 0) {
+                console.log('It has the class form-version-cid-1');
+            } else {
+                $form.append('<h2>You have already subscribed. Please use the link you received in your email.</h2>');
+                console.log('It does not have the class form-version-cid-1');
+            }
+        }, 2000);
+    });
 
     $('.btn-filter').click(function(e) {
         e.preventDefault();

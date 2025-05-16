@@ -46,11 +46,11 @@
       class="container flex flex-wrap gap-x-8 gap-y-4 justify-between font-medium text-xs uppercase">
       <nav class="grid place-content-center">
         <?php
-        wp_nav_menu(array(
-          'theme_location' => 'footer-menu',
-          'container' => '',
-          'menu_class' => 'flex gap-6'
-        ));
+          wp_nav_menu(array(
+            'theme_location' => 'footer-menu',
+            'container' => '',
+            'menu_class' => 'flex gap-6'
+          ));
         ?>
       </nav>
       <div class="social-links max-md:w-full">

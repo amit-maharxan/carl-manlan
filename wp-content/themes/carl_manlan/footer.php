@@ -39,13 +39,12 @@ wp_footer(); ?>
     gsap.ticker.lagSmoothing(0);
     });
 </script>
-<script
-    src="https://unpkg.com/split-type"
-    defer></script>
+
+<script src="https://unpkg.com/split-type" defer></script>
 
 <script defer>
     document.addEventListener('DOMContentLoaded', () => {
-    feather.replace();
+        feather.replace();
     });
 </script>
 
