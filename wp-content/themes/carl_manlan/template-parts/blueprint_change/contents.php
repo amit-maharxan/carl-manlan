@@ -150,7 +150,8 @@
     </button>
 
     <!-- Dialog content -->
-    <div class="klaviyo-form-SBjQQY"></div>
+    <!-- <div class="klaviyo-form-SBjQQY"></div> -->
+    <div class="klaviyo-form-Su23ES"></div>
 </dialog>
 
 <script>
@@ -173,7 +174,7 @@
     });
     
     $(document).ready(function() {
-        var $form = $('.klaviyo-form-SBjQQY');
+        var $form = $('.klaviyo-form-Su23ES');
         setTimeout(function() {
             if ($form.children().length > 0) {
                 console.log('It has the class form-version-cid-1');
