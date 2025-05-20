@@ -31,6 +31,40 @@
 
 <section class="container my-20">
     <div class="flex justify-between mb-10 text-light">
+        <h1 class="uppercase text-3xl"><?php the_field('hp_podcast_title');?></h1>
+        <h4 class="uppercase description"><?php the_field('hp_podcast_desc');?></h4>
+    </div>
+    <div class="cardWrapper pb-8 grid grid-cols-[repeat(auto-fill,_minmax(350px,_1fr))] gap-12 uppercase font-medium">
+        <?php 
+            //Playlist: PLAD954BCB770DB285, remove PL from name
+            // $api_key = 'YOUR_API_KEY';
+            // $playlist_id = 'AD954BCB770DB285'; // without "PL"
+            // $playlist_id = 'PL' . $playlist_id; // add PL back for actual API use
+
+            // $api_url = "https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=50&playlistId={$playlist_id}&key={$api_key}";
+
+            // $response = file_get_contents($api_url);
+            // $data = json_decode($response, true);
+
+            // if (!isset($data['items'])) {
+            //     die("Error fetching playlist data.");
+            // }
+
+            // echo "Playlist Name: (YouTube API v3 doesn't return name here)<br/>";
+            // echo "Number of Videos (".count($data['items'])."):<br/>";
+
+            // foreach ($data['items'] as $item) {
+            //     $snippet = $item['snippet'];
+            //     echo "Name: " . $snippet['title'] . "<br/>";
+            //     echo "Link: https://www.youtube.com/watch?v=" . $snippet['resourceId']['videoId'] . "<br/>";
+            //     echo "Image: <img src='" . $snippet['thumbnails']['medium']['url'] . "' /><br/>";
+            // }
+        ?>
+    </div>
+</section>
+
+<section class="container my-20">
+    <div class="flex justify-between mb-10 text-light">
         <h1 class="uppercase text-3xl">Blueprints For Success</h1>
         <a href="<?php echo site_url('blueprint-for-success'); ?>" class="btn-primary !flex my-auto">View All</a>
     </div>

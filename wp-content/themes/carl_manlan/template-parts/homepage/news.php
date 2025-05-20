@@ -56,7 +56,7 @@
             <ul class="splide__list">
                 <?php
                 $wp_query = new WP_Query(array(
-                    'post_type'      => 'post', // Fetch regular WordPress posts
+                    'post_type'      => 'news-stories', // Fetch regular WordPress posts
                     'posts_per_page' => 20, // Number of posts to display
                 ));
                 while ($wp_query->have_posts()) : $wp_query->the_post(); ?>

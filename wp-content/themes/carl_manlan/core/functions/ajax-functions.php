@@ -9,14 +9,14 @@ function filter_blueprints()
     $blueprint_id    = (isset($_POST['blueprint_id'])) ? $_POST['blueprint_id'] : 0;
 
     $args = array(
-        'post_type'      => 'blueprints',
+        'post_type'      => 'post',
         'posts_per_page' => 9,
     );
 
     if ($blueprint_id !== 'all') {
         $args['tax_query'] = array(
             array(
-                'taxonomy' => 'blueprint-category',
+                'taxonomy' => 'category',
                 'field'    => 'id',
                 'terms'    => $blueprint_id,
             ),
@@ -31,13 +31,13 @@ function filter_blueprints()
                     <img src="' . get_the_post_thumbnail_url() . '" class="aspect-[3/2] rounded-md" alt="" />
                 </div>
                 <div class="btn-tag">';
-        $terms = get_the_terms(get_the_ID(), 'blueprint-category');
+        $terms = get_the_terms(get_the_ID(), 'category');
         $out .= $terms[0]->name;
         $out .= '</div>
                 <h1 class="text-light font-medium text-xl uppercase">'. get_the_title() .'</h1>
                 <p class="text-light font-poppins text-sm">';
         $content = get_the_content();
-        $out .= wp_trim_words($content, 200);
+        $out .= wp_trim_words($content, 50);
         $out .= '</p>
             </article></a>';
 
@@ -59,14 +59,14 @@ function filter_blueprints_2()
     $blueprint_id    = (isset($_POST['blueprint_id'])) ? $_POST['blueprint_id'] : 0;
 
     $args = array(
-        'post_type'      => 'blueprints',
+        'post_type'      => 'post',
         'posts_per_page' => -1,
     );
 
     if ($blueprint_id !== 'all') {
         $args['tax_query'] = array(
             array(
-                'taxonomy' => 'blueprint-category',
+                'taxonomy' => 'category',
                 'field'    => 'id',
                 'terms'    => $blueprint_id,
             ),
@@ -81,13 +81,13 @@ function filter_blueprints_2()
                     <img src="' . get_the_post_thumbnail_url() . '" class="aspect-[3/2] rounded-md" alt="" />
                 </div>
                 <div class="btn-tag">';
-        $terms = get_the_terms(get_the_ID(), 'blueprint-category');
+        $terms = get_the_terms(get_the_ID(), 'category');
         $out .= $terms[0]->name;
         $out .= '</div>
                 <h1 class="text-light font-medium text-xl uppercase">'. get_the_title() .'</h1>
                 <p class="text-light font-poppins text-sm">';
         $content = get_the_content();
-        $out .= wp_trim_words($content, 200);
+        $out .= wp_trim_words($content, 50);
         $out .= '</p>
             </article></a>';
 

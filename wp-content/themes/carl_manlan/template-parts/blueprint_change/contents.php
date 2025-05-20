@@ -3,15 +3,15 @@
         <div class="hexBg pattern1 bgEffect absolute inset-0 z-0 after:z-0 after:block after:inset-0 after:absolute after:bg-linear-to-b after:from-dark after:via-dark/40 after:via-20% after:via-dark/40 after:via-80% after:to-dark" data-gradX="0.9" data-gradY="0.5" data-gradSize="farthest-corner" data-box-dimension="180"></div>
         <!-- <div class="absolute inset-0 z-0 after:z-0 after:block after:inset-0 after:absolute after:bg-linear-to-l after:from-dark after:via-dark/40 after:via-10% after:to-dark/40" data-gradX="0.9" data-gradY="0.5" data-gradSize="farthest-corner" data-box-dimension="180"></div> -->
         <div class="container z-1 relative">
-            <div class="grid py-20 md:grid-cols-2 gap-x-24 gap-y-12 text-light font-medium">
+            <div class="grid py-20 md:grid-cols-1 gap-x-24 gap-y-12 text-light font-medium">
                 <h2
                     class="text-3xl/relaxed uppercase"
                     data-scrub-by=".word">
                     <?php echo get_field('change_description_left'); ?>
                 </h2>
-                <p class="font-poppins font-bold text-light/75" data-scrub-by=".word">
+                <!-- <p class="font-poppins font-bold text-light/75" data-scrub-by=".word">
                     <?php echo get_field('change_description_right'); ?>
-                </p>
+                </p> -->
             </div>
 
             <div class="btnGroup flex gap-4 flex-wrap w-full justify-center py-10 text-light uppercase font-medium">
@@ -19,10 +19,10 @@
                 <button class="btn-filter" <?php echo $slug; ?> data-id="all">All</button>
                 <?php
                 $terms = get_terms([
-                    'taxonomy'   => 'blueprint-category',
+                    'taxonomy'   => 'category',
                     'hide_empty' => false, // Set to true if you only want terms that are actually used
                     'object_ids' => get_posts([
-                        'post_type'      => 'blueprints',
+                        'post_type'      => 'post',
                         'posts_per_page' => -1,
                         'fields'         => 'ids',
                     ]),
@@ -47,7 +47,7 @@
     <div class="container blogGrid bg-dark mt-10" style="--grid-gap: 4rem" id="blueprint_blogGrid">
         <?php
         $wp_query = new WP_Query(array(
-            'post_type'      => 'blueprints', // Fetch regular WordPress posts
+            'post_type'      => 'post', // Fetch regular WordPress posts
             'posts_per_page' => 6, // Number of posts to display
         ));
         while ($wp_query->have_posts()) : $wp_query->the_post(); ?>
@@ -60,13 +60,13 @@
                             alt="" />
                     </div>
                     <div class="btn-tag">
-                        <?php $terms = get_the_terms(get_the_ID(), 'blueprint-category');
+                        <?php $terms = get_the_terms(get_the_ID(), 'category');
                         echo $terms[0]->name; ?>
                     </div>
                     <h1 class="text-light font-medium text-xl uppercase"><?php the_title(); ?></h1>
                     <p class="text-light font-poppins text-sm">
                         <?php $content = get_the_content();
-                        echo wp_trim_words($content, 200); ?>
+                        echo wp_trim_words($content, 50); ?>
                     </p>
                 </article>
             </a>
@@ -85,8 +85,8 @@
 
         <?php
         $wp_query = new WP_Query(array(
-            'post_type'      => 'blueprints', // Fetch regular WordPress posts
-            'posts_per_page' => 6, // Number of posts to display
+            'post_type'      => 'post', // Fetch regular WordPress posts
+            'posts_per_page' => 3, // Number of posts to display
         ));
         while ($wp_query->have_posts()) : $wp_query->the_post(); ?>
 
@@ -99,13 +99,13 @@
                             alt="" />
                     </div>
                     <div class="btn-tag">
-                        <?php $terms = get_the_terms(get_the_ID(), 'blueprint-category');
+                        <?php $terms = get_the_terms(get_the_ID(), 'category');
                         echo $terms[0]->name; ?>
                     </div>
                     <h1 class="text-light font-medium text-xl uppercase"><?php the_title(); ?></h1>
                     <p class="text-light font-poppins text-sm">
                         <?php $content = get_the_content();
-                        echo wp_trim_words($content, 200); ?>
+                        echo wp_trim_words($content, 50); ?>
                     </p>
                 </a>
             </article>

@@ -5,7 +5,7 @@
         data-gradY="0.5"
         data-gradSize="farthest-corner"
         data-box-dimension="180"></div>
-    <div class="container grid gap-x-24 gap-y-12 py-20 md:grid-cols-2 text-light font-medium">
+    <div class="container grid gap-x-24 gap-y-12 py-20 md:grid-cols-1 text-light font-medium">
         <h2 class="text-3xl/relaxed uppercase  z-1 relative">
             <?php echo get_field('success_description_left'); ?>
         </h2>
@@ -29,13 +29,13 @@
             </div>
         </div>
         <div class="img-wrapper flex">
-            <img
-                loading="eager"
-                src="<?php echo get_field('mission_image'); ?>"
-                class="max-h-[80vh] mx-auto mt-auto object-scale-down"
-                width="500"
-                height="500"
-                alt="" />
+            <?php $video_url = get_field('mission_video');
+            if ($video_url): ?>
+            <video width="640" height="360" controls>
+                <source src="<?php echo esc_url($video_url); ?>" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <?php endif; ?>
         </div>
     </div>
 </section>
