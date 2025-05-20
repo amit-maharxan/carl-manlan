@@ -2,9 +2,11 @@ $(document).ready(function () {
   $('.lghidden').each(function () {
     $(this).removeClass('lghidden').addClass('lg:!hidden');
   });
+
   $('.max-lghidden').each(function () {
     $(this).removeClass('max-lghidden').addClass('max-lg:!hidden');
   });
+  
   $('li#menu-item-122 a').addClass('btn-primary');
 
   $('.bg-white25').addClass('bg-white/25');

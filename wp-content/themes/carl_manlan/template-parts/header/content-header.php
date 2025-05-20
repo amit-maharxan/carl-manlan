@@ -83,7 +83,9 @@
           </a>
         </div>
         <div class="menuBlock px-(--menu-padding-x)">
-          <a href="<?php echo site_url('get-in-touch'); ?>" class="btn-primary mt-4">Get In Touch</a>
+          <button class="btn-primary mx-auto mt-4" popovertarget="getintouch">
+              Get In Touch
+          </button>
         </div>
       </div>
     </div>
