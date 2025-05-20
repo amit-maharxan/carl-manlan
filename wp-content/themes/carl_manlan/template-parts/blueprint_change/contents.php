@@ -150,7 +150,6 @@
     </button>
 
     <!-- Dialog content -->
-    <!-- <div class="klaviyo-form-SBjQQY"></div> -->
     <div class="klaviyo-form-Su23ES"></div>
 </dialog>
 
