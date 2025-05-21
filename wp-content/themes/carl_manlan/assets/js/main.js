@@ -451,36 +451,70 @@ function InitializeSliders() {
 
   const newsSlider = document.querySelector('.newsSlider') ?? false;
   if (newsSlider) {
-    const prevBtn = newsSlider.parentElement.querySelector('button[data-prev]');
-    const nextBtn = newsSlider.parentElement.querySelector('button[data-next]');
-    const sliderOptions = {
-      arrows: false,
-      pagination: false,
-      perPage: 3,
-      updateOnMove: true,
-      focus: 'center',
-      gap: '3rem',
-      start: 2,
-      padding: { left: padingUnits, right: padingUnits },
-      breakpoints: {
-        800: {
-          perPage: 2,
+      const prevBtn = newsSlider.parentElement.querySelector('button[data-prev]');
+      const nextBtn = newsSlider.parentElement.querySelector('button[data-next]');
+      const sliderOptions = {
+        arrows: false,
+        pagination: false,
+        perPage: 3,
+        updateOnMove: true,
+        focus: 'center',
+        gap: '3rem',
+        start: 2,
+        padding: { left: padingUnits, right: padingUnits },
+        breakpoints: {
+          800: {
+            perPage: 2,
+          },
+          600: {
+            perPage: 1,
+          },
         },
-        600: {
-          perPage: 1,
-        },
-      },
-    };
+      };
 
-    const slider = new Splide(newsSlider, sliderOptions);
-    slider.mount();
-    prevBtn.addEventListener('click', () => {
-      slider.go('<');
-    });
-    nextBtn.addEventListener('click', () => {
-      slider.go('>');
-    });
-  }
+      const slider = new Splide(newsSlider, sliderOptions);
+      slider.mount();
+      prevBtn.addEventListener('click', () => {
+        slider.go('<');
+      });
+      nextBtn.addEventListener('click', () => {
+        slider.go('>');
+      });
+    }
+
+    const podcastSlider = document.querySelector('.podcastSlider') ?? false;
+    if (podcastSlider) {
+      const prevBtn = podcastSlider.parentElement.querySelector('button[data-prev]');
+      const nextBtn = podcastSlider.parentElement.querySelector('button[data-next]');
+      const sliderOptions = {
+        arrows: false,
+        pagination: false,
+        perPage: 3,
+        updateOnMove: true,
+        focus: 'center',
+        gap: '3rem',
+        start: 2,
+        padding: { left: padingUnits, right: padingUnits },
+        breakpoints: {
+          800: {
+            perPage: 2,
+          },
+          600: {
+            perPage: 1,
+          },
+        },
+      };
+
+      const slider = new Splide(podcastSlider, sliderOptions);
+      slider.mount();
+      prevBtn.addEventListener('click', () => {
+        slider.go('<');
+      });
+      nextBtn.addEventListener('click', () => {
+        slider.go('>');
+      });
+    }
+
   const bgImgSlider = document.querySelector('.bgImgSlider') ?? false;
   if (bgImgSlider) {
     const sliderOptions = {

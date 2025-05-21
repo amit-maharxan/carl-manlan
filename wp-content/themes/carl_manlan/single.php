@@ -1,7 +1,7 @@
 <?php do_action('carl_header');
 
-$blogID = get_the_ID();
-$post_type = get_post_type(); ?>
+$blogID     = get_the_ID();
+$post_type  = get_post_type(); ?>
 
 <section class="relative">
   <div
@@ -18,14 +18,14 @@ $post_type = get_post_type(); ?>
   <div class="content container text-light z-1">
     <div class="left__part">
 
-      <div id="blog-image" class="">
-        <?php $url = wp_get_attachment_url(get_post_thumbnail_id($post->ID), 'thumbnail'); ?>
-        <img src="<?php echo $url; ?>" alt="image">
-      </div>
+      <!-- <div id="blog-image" class="">
+        <?php //$url = wp_get_attachment_url(get_post_thumbnail_id($blogID), 'thumbnail'); ?>
+        <img src="<?php //echo $url; ?>" alt="image">
+      </div> -->
       <div class="blog-details pb-10">
 
         <div class="flex flex-wrap justify-between w-full">
-          <p class="added-on"><?php if (get_field("organization_post")) { ?>Originally Published on the <?php echo the_field("organization_post"); ?>,<?php } ?> <?php echo get_the_date(); ?></p>
+          <p class="added-on"><?php echo get_field('originally_posted_on'); ?></p>
           <p class="flex gap-2 shareSocials">SHARE 
             <a id="fb-share" class="contents" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=<?php echo urlencode( get_permalink( get_the_ID() ) ); ?>&text=<?php echo urlencode( get_the_title() );?>&summary=<?php echo urlencode( get_the_title() );?>&source=<?php echo 'Carl_Manlan';?>">
               <img class="!my-auto" src="<?php echo DK_ASSEST_URI . '/icons/fb.svg'; ?>" alt="facebook">
@@ -41,7 +41,7 @@ $post_type = get_post_type(); ?>
             </a>
           </p>
         </div>
-        <p class="desc"><?php the_content(); ?></p>
+        <p class="desc"><?php echo get_the_content($blogID); ?></p>
         <a class="btn-primary view-all uppercase" href="">Back To All</a>
       </div>
     </div>
