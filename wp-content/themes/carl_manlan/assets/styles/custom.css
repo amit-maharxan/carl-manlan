@@ -44,6 +44,6 @@ li.current-menu-item {
     background-position: 0 100% !important;
 }
 
-a {
+a:hover {
     color: #f78104;
 }
