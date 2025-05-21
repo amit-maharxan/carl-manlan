@@ -43,3 +43,7 @@ dialog#myDialog {
 li.current-menu-item {
     background-position: 0 100% !important;
 }
+
+a {
+    color: #f78104;
+}

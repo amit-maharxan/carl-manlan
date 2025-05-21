@@ -30,9 +30,9 @@
 </section>
 
 <section class="container my-20">
-    <div class="flex justify-between mb-10 text-light">
+    <div class="text-light">
         <h1 class="uppercase text-3xl"><?php the_field('hp_podcast_title');?></h1>
-        <h4 class="uppercase description"><?php the_field('hp_podcast_desc');?></h4>
+        <h1 class="uppercase text-3xl description text-primary"><?php the_field('hp_podcast_desc');?></h1>
     </div>
     <div class="cardWrapper pb-8 uppercase font-medium">
         <div class="splide podcastSlider pt-10 pb-20">

@@ -24,4 +24,7 @@ $(document).ready(function () {
   $('input[name="last-name"]').removeAttr('size');
   $('input[name="email"]').removeAttr('size');
   $('textarea[name="message"]').removeAttr('cols');
+
+  $('li#menu-item-721 a').addClass('text-primary');
+  $('li#menu-item-824 a').addClass('text-primary');
 });

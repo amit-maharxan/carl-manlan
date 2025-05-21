@@ -454,6 +454,9 @@ function InitializeSliders() {
       const prevBtn = newsSlider.parentElement.querySelector('button[data-prev]');
       const nextBtn = newsSlider.parentElement.querySelector('button[data-next]');
       const sliderOptions = {
+        type: 'loop',
+        autoplay: true,
+        speed: 1000,
         arrows: false,
         pagination: false,
         perPage: 3,
@@ -487,14 +490,16 @@ function InitializeSliders() {
       const prevBtn = podcastSlider.parentElement.querySelector('button[data-prev]');
       const nextBtn = podcastSlider.parentElement.querySelector('button[data-next]');
       const sliderOptions = {
+        type: 'loop',
         arrows: false,
         pagination: false,
         perPage: 3,
         updateOnMove: true,
         focus: 'center',
         gap: '3rem',
-        start: 2,
-        padding: { left: padingUnits, right: padingUnits },
+        autoplay: true,
+        speed: 1000,
+        start: 1,
         breakpoints: {
           800: {
             perPage: 2,
@@ -507,12 +512,6 @@ function InitializeSliders() {
 
       const slider = new Splide(podcastSlider, sliderOptions);
       slider.mount();
-      prevBtn.addEventListener('click', () => {
-        slider.go('<');
-      });
-      nextBtn.addEventListener('click', () => {
-        slider.go('>');
-      });
     }
 
   const bgImgSlider = document.querySelector('.bgImgSlider') ?? false;

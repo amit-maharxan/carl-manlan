@@ -1,7 +1,10 @@
 <?php do_action('carl_header');
 
 $blogID     = get_the_ID();
-$post_type  = get_post_type(); ?>
+$post_type  = get_post_type();
+if($post_type == 'post'){
+  $page_url = site_url('blueprint-for-change');
+} ?>
 
 <section class="relative">
   <div
@@ -41,7 +44,7 @@ $post_type  = get_post_type(); ?>
             </a>
           </p>
         </div>
-        <p class="desc"><?php echo get_the_content($blogID); ?></p>
+        <p class="desc"><?php the_content(); ?></p>
         <a class="btn-primary view-all uppercase" href="">Back To All</a>
       </div>
     </div>
@@ -50,17 +53,17 @@ $post_type  = get_post_type(); ?>
 
 <script>
   $(document).ready(function() {
-    var postype = '<?php echo $post_type; ?>';
+    var postype   = '<?php echo $post_type; ?>';
     var blueprint = '<?php echo site_url('blueprint-for-change') ?>';
-    var media = '<?php echo site_url('media') ?>';
+    var media     = '<?php echo site_url('media') ?>';
 
     if (postype == 'post') {
-      $('li#menu-item-120').addClass('active');
-      $('.view-all').attr('href', media);
-    }
-    if (postype == 'blueprints') {
       $('li#menu-item-119').addClass('active');
       $('.view-all').attr('href', blueprint);
+    }
+    if (postype == 'news-stories') {
+      $('li#menu-item-120').addClass('active');
+      $('.view-all').attr('href', media);
     }
   });
 </script>
