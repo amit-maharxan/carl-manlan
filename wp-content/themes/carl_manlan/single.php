@@ -28,7 +28,7 @@ if($post_type == 'post'){
       </div>
     <?php
       $organization_post = get_field('organization_post');
-      $link_to_post_post = get_field('link_to_post');
+      $link_to_post_post = get_field('link_to_post_post');
     } ?>
 
       <div class="blog-details pb-10">
@@ -38,7 +38,7 @@ if($post_type == 'post'){
           <p class="added-on"><?php echo get_field('originally_posted_on'); ?></p>
           <?php } if($post_type == 'post'){ 
             if($organization_post){ ?>
-          <p class="added-on"><?php echo 'Originally published on '.$organization_post; ?></p>
+          <p class="added-on"><?php echo 'Originally published on '.$organization_post.', '.get_the_date('F m, Y'); ?></p>
           <?php } } ?>
           <p class="flex gap-2 shareSocials">SHARE 
             <a id="fb-share" class="contents" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=<?php echo urlencode( get_permalink( get_the_ID() ) ); ?>&text=<?php echo urlencode( get_the_title() );?>&summary=<?php echo urlencode( get_the_title() );?>&source=<?php echo 'Carl_Manlan';?>">
@@ -59,7 +59,7 @@ if($post_type == 'post'){
         <p class="desc">
           <?php the_content(); ?>
           <?php if($post_type == 'post'){
-            echo $link_to_post_post;
+            echo '<a href="'.$link_to_post_post.'" target="_blank">'.$link_to_post_post.'</a>';
           } ?>
         </p>
         <a class="btn-primary view-all uppercase" href="">Back To All</a>
