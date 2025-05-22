@@ -31,35 +31,36 @@
 
 <section class="container my-20">
     <div class="text-light">
-        <h1 class="uppercase text-3xl"><?php the_field('hp_podcast_title');?></h1>
-        <h1 class="uppercase text-3xl description text-primary"><?php the_field('hp_podcast_desc');?></h1>
+        <h1 class="uppercase text-3xl"><?php the_field('hp_podcast_title'); ?></h1>
+        <h1 class="uppercase text-3xl description text-primary"><?php the_field('hp_podcast_desc'); ?></h1>
     </div>
     <div class="cardWrapper pb-8 uppercase font-medium">
         <div class="splide podcastSlider pt-10 pb-20">
             <div class="splide__track">
                 <ul class="splide__list">
-                    <?php if( have_rows('hp_podcast_playlists') ):
-                        while( have_rows('hp_podcast_playlists') ) : the_row();
-                        $url = get_sub_field('url');
-                        
-                        // Parse the URL and get the query string
-                        parse_str(parse_url($url, PHP_URL_QUERY), $params);
+                    <?php if (have_rows('hp_podcast_playlists')):
+                        while (have_rows('hp_podcast_playlists')) : the_row();
+                            $url = get_sub_field('url');
 
-                        // Extract the video ID
-                        $videoId = $params['v'] ?? null;
+                            // Parse the URL and get the query string
+                            parse_str(parse_url($url, PHP_URL_QUERY), $params);
 
-                        if ($videoId) {
-                            // Build the thumbnail URL
-                            $thumbnailUrl = "https://img.youtube.com/vi/{$videoId}/hqdefault.jpg";
-                        } ?>
-                        <li class="splide__slide">
-                            <a href="<?php the_sub_field('url'); ?>" target="_blank">
-                                <div class="imgWrapper">
-                                    <img loading="lazy" src="<?php echo $thumbnailUrl; ?>" alt=""/>
-                                </div>
-                            </a>
-                        </li>
-                    <?php endwhile; endif; ?>
+                            // Extract the video ID
+                            $videoId = $params['v'] ?? null;
+
+                            if ($videoId) {
+                                // Build the thumbnail URL
+                                $thumbnailUrl = "https://img.youtube.com/vi/{$videoId}/hqdefault.jpg";
+                            } ?>
+                            <li class="splide__slide">
+                                <a href="<?php the_sub_field('url'); ?>" target="_blank">
+                                    <div class="imgWrapper">
+                                        <img loading="lazy" src="<?php echo $thumbnailUrl; ?>" alt="" />
+                                    </div>
+                                </a>
+                            </li>
+                    <?php endwhile;
+                    endif; ?>
                 </ul>
             </div>
         </div>
@@ -75,7 +76,7 @@
         <?php if (have_rows('hp_cards')):
             while (have_rows('hp_cards')): the_row(); ?>
                 <!-- <div class="card w-full flex flex-col border <?php echo get_sub_field('color_codes'); ?> p-8 min-h-[350px] md:min-h-[500px] max-w-[min(100%,400px)] mx-auto"> -->
-                <div class="card w-full flex flex-col border rounded-xl p-8 min-h-[350px] md:min-h-[500px] max-w-[100%] mx-auto <?php echo get_sub_field('color_codes'); ?>">
+                <div class="card w-full flex flex-col border rounded-xl p-8 min-h-[350px] md:min-h-[380px] max-w-[100%] mx-auto <?php echo get_sub_field('color_codes'); ?>">
                     <img
                         loading="lazy"
                         src="<?php echo get_sub_field('image'); ?>"

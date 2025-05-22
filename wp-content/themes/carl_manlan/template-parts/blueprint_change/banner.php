@@ -1,7 +1,8 @@
 <section
     class="bannerSection font-medium relative flex h-screen w-screen">
+    <div class="hexBg pattern1 bgEffect absolute inset-0 z-0" data-gradX="0.8" data-gradY="0.6"></div>
     <div
-        class="content container max-lg:pb-6 gap-8 m-auto max-lg:text-center z-1">
+        class="content container max-lg:pb-6 gap-8 m-auto mb-[max(2rem,_5%)] max-lg:text-center z-1">
         <div
             class="bgWrapper absolute inset-0 after:absolute after:inset-0 after:bg-linear-to-b after:from-dark/10 after:via-dark/80 after:via-80% after:to-dark">
             <img
@@ -18,7 +19,7 @@
                 </h1>
             </div>
         </div>
-        <div
+        <!-- <div
             class="decorImg1 absolute inset-x-4 inset-y-4 my-auto h-max w-max opacity-50">
             <img
                 src="<?php echo DK_ASSEST_URI . '/icons/Circles.svg'; ?>"
@@ -30,6 +31,6 @@
             <img
                 src="<?php echo DK_ASSEST_URI . '/icons/squarePolka.svg'; ?>"
                 alt="" />
-        </div>
+        </div> -->
     </div>
 </section>

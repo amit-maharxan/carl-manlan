@@ -5,25 +5,24 @@
         data-gradY="0.5"
         data-gradSize="farthest-corner"
         data-box-dimension="180"></div>
-    <div class="container grid gap-x-24 gap-y-12 py-20 md:grid-cols-1 text-light font-medium">
+    <div class="container grid gap-x-24 gap-y-12 py-20 pb-0 md:grid-cols-1 text-light font-medium">
         <h2 class="text-3xl/relaxed uppercase  z-1 relative">
             <?php echo get_field('success_description_left'); ?>
         </h2>
-        <p
-            class="font-poppins font-bold text-light/75"
-            data-scrub-by=".word">
-            <?php echo get_field('success_description_right'); ?>
-        </p>
     </div>
     <div
         class="content container grid lg:grid-cols-2 gap-8 mt-auto max-lg:text-center z-1 relative">
         <div
             class="text-wrapper lg:py-8 text-light/75 items-end content-center">
+
             <div data-by=".word">
-                <h2 class="text-2xl uppercase font-medium">
+                <p class="font-poppins font-bold text-light/75">
+                    <?php echo get_field('success_description_right'); ?>
+                </p>
+                <h2 class="text-2xl uppercase font-medium my-10">
                     <?php echo get_field('mission_title'); ?>
                 </h2>
-                <p class="text-sm font-poppins font-bold py-10">
+                <p class="text-sm font-poppins font-bold">
                     <?php echo get_field('mission_description'); ?>
                 </p>
             </div>
@@ -31,10 +30,10 @@
         <div class="img-wrapper flex">
             <?php $video_url = get_field('mission_video');
             if ($video_url): ?>
-            <video width="640" height="360" controls>
-                <source src="<?php echo esc_url($video_url); ?>" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
+                <video width="640" height="360" controls>
+                    <source src="<?php echo esc_url($video_url); ?>" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
             <?php endif; ?>
         </div>
     </div>
