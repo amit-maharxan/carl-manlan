@@ -1446,9 +1446,19 @@
       width: 100%;
     }
   }
+  .md\:my-12 {
+    @media (width >= 48rem) {
+      margin-block: calc(var(--spacing) * 12);
+    }
+  }
   .md\:-mr-\[50\%\] {
     @media (width >= 48rem) {
       margin-right: calc(50% * -1);
+    }
+  }
+  .md\:mb-20 {
+    @media (width >= 48rem) {
+      margin-bottom: calc(var(--spacing) * 20);
     }
   }
   .md\:-ml-\[50\%\] {
