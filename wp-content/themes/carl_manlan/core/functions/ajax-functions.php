@@ -10,7 +10,7 @@ function filter_blueprints()
 
     $args = array(
         'post_type'      => 'post',
-        'posts_per_page' => 9,
+        'posts_per_page' => 6,
     );
 
     if ($blueprint_id !== 'all') {
@@ -35,7 +35,7 @@ function filter_blueprints()
         $out .= $terms[0]->name;
         $out .= '</div>
                 <h1 class="text-light font-medium text-xl uppercase">'. get_the_title() .'</h1>
-                <p class="text-light font-poppins text-sm">';
+                <p class="text-light font-poppins text-sm line-clamp-2">';
         $content = get_the_content();
         $out .= wp_trim_words($content, 50);
         $out .= '</p>
@@ -85,7 +85,7 @@ function filter_blueprints_2()
         $out .= $terms[0]->name;
         $out .= '</div>
                 <h1 class="text-light font-medium text-xl uppercase">'. get_the_title() .'</h1>
-                <p class="text-light font-poppins text-sm">';
+                <p class="text-light font-poppins text-sm line-clamp-2">';
         $content = get_the_content();
         $out .= wp_trim_words($content, 50);
         $out .= '</p>

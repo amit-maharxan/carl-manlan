@@ -64,7 +64,7 @@
                         echo $terms[0]->name; ?>
                     </div>
                     <h1 class="text-light font-medium text-xl uppercase"><?php the_title(); ?></h1>
-                    <p class="text-light font-poppins text-sm">
+                    <p class="text-light font-poppins text-sm line-clamp-2">
                         <?php $content = get_the_content();
                         echo wp_trim_words($content, 50); ?>
                     </p>
@@ -103,7 +103,7 @@
                         echo $terms[0]->name; ?>
                     </div>
                     <h1 class="text-light font-medium text-xl uppercase"><?php the_title(); ?></h1>
-                    <p class="text-light font-poppins text-sm">
+                    <p class="text-light font-poppins text-sm line-clamp-2">
                         <?php $content = get_the_content();
                         echo wp_trim_words($content, 50); ?>
                     </p>

@@ -9,13 +9,19 @@
                 <ul class="splide__list btnGroup">
                     <?php
                     if (have_rows('hp_logos')):
-                        while (have_rows('hp_logos')) : the_row(); ?>
+                        while (have_rows('hp_logos')) : the_row();
+                        $url = get_sub_field('url');
+                        if($url){ ?>
                             <li class="splide__slide">
-                                <a href="<?php the_sub_field('url'); ?>" class="rounded-[8px] px-10 py-6 uppercase text-xl font-medium">
-                                    <img src="<?php the_sub_field('logo'); ?>" alt="" class="max-h-20 max-w-max" />
+                                <a href="<?php the_sub_field('url'); ?>" class="contents">
+                                    <img src="<?php the_sub_field('logo'); ?>" alt="" class="max-h-20 max-w-max rounded-[8px] uppercase text-xl font-medium" />
                                 </a>
                             </li>
-                    <?php endwhile;
+                    <?php } else { ?>
+                            <li class="splide__slide">
+                                <img src="<?php the_sub_field('logo'); ?>" alt="" class="max-h-20 max-w-max rounded-[8px] uppercase text-xl font-medium" />
+                            </li>
+                        <?php } endwhile;
                     endif; ?>
                 </ul>
             </div>

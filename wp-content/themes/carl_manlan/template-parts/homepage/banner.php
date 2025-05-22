@@ -38,9 +38,14 @@
         <div class="splide podcastSlider pt-10 pb-20">
             <div class="splide__track">
                 <ul class="splide__list">
-                    <?php if (have_rows('hp_podcast_playlists')):
-                        while (have_rows('hp_podcast_playlists')) : the_row();
-                            $url = get_sub_field('url');
+                    <?php
+                        $wp_query = new WP_Query(array(
+                            'post_type'      => 'podcasts', // Fetch regular WordPress posts
+                            'posts_per_page' => 20, // Number of posts to display
+                            'orderby'        => 'date', // Order by date
+                        ));
+                        while ($wp_query->have_posts()) : $wp_query->the_post();
+                            $url = get_field('podcasts_url');
 
                             // Parse the URL and get the query string
                             parse_str(parse_url($url, PHP_URL_QUERY), $params);
@@ -56,11 +61,13 @@
                                 <a href="<?php the_sub_field('url'); ?>" target="_blank">
                                     <div class="imgWrapper">
                                         <img loading="lazy" src="<?php echo $thumbnailUrl; ?>" alt="" />
+                                        <h1 class="text-light font-medium text-xl uppercase">
+                                            <?php the_title();?>
+                                        </h1>
                                     </div>
                                 </a>
                             </li>
-                    <?php endwhile;
-                    endif; ?>
+                    <?php endwhile; wp_reset_query(); ?>
                 </ul>
             </div>
         </div>
