@@ -451,68 +451,70 @@ function InitializeSliders() {
 
   const newsSlider = document.querySelector('.newsSlider') ?? false;
   if (newsSlider) {
-      const prevBtn = newsSlider.parentElement.querySelector('button[data-prev]');
-      const nextBtn = newsSlider.parentElement.querySelector('button[data-next]');
-      const sliderOptions = {
-        type: 'loop',
-        autoplay: true,
-        speed: 1000,
-        arrows: false,
-        pagination: false,
-        perPage: 3,
-        updateOnMove: true,
-        focus: 'center',
-        gap: '3rem',
-        start: 2,
-        padding: { left: padingUnits, right: padingUnits },
-        breakpoints: {
-          800: {
-            perPage: 2,
-          },
-          600: {
-            perPage: 1,
-          },
+    const prevBtn = newsSlider.parentElement.querySelector('button[data-prev]');
+    const nextBtn = newsSlider.parentElement.querySelector('button[data-next]');
+    const sliderOptions = {
+      type: 'loop',
+      autoplay: true,
+      speed: 1000,
+      arrows: false,
+      pagination: false,
+      perPage: 3,
+      updateOnMove: true,
+      focus: 'center',
+      gap: '3rem',
+      start: 2,
+      padding: { left: padingUnits, right: padingUnits },
+      breakpoints: {
+        800: {
+          perPage: 2,
         },
-      };
-
-      const slider = new Splide(newsSlider, sliderOptions);
-      slider.mount();
-      prevBtn.addEventListener('click', () => {
-        slider.go('<');
-      });
-      nextBtn.addEventListener('click', () => {
-        slider.go('>');
-      });
-    }
-
-    const podcastSlider = document.querySelector('.podcastSlider') ?? false;
-    if (podcastSlider) {
-      const prevBtn = podcastSlider.parentElement.querySelector('button[data-prev]');
-      const nextBtn = podcastSlider.parentElement.querySelector('button[data-next]');
-      const sliderOptions = {
-        type: 'loop',
-        arrows: false,
-        pagination: false,
-        perPage: 3,
-        updateOnMove: true,
-        focus: 'center',
-        gap: '3rem',
-        autoplay: true,
-        speed: 1000,
-        start: 1,
-        breakpoints: {
-          800: {
-            perPage: 2,
-          },
-          600: {
-            perPage: 1,
-          },
+        600: {
+          perPage: 1,
         },
-      };
+      },
+    };
 
-      const slider = new Splide(podcastSlider, sliderOptions);
-      slider.mount();
-    }
+    const slider = new Splide(newsSlider, sliderOptions);
+    slider.mount();
+    prevBtn.addEventListener('click', () => {
+      slider.go('<');
+    });
+    nextBtn.addEventListener('click', () => {
+      slider.go('>');
+    });
+  }
+
+  const podcastSlider = document.querySelector('.podcastSlider') ?? false;
+  if (podcastSlider) {
+    const prevBtn =
+      podcastSlider.parentElement.querySelector('button[data-prev]');
+    const nextBtn =
+      podcastSlider.parentElement.querySelector('button[data-next]');
+    const sliderOptions = {
+      type: 'loop',
+      arrows: false,
+      pagination: false,
+      perPage: 3,
+      updateOnMove: true,
+      focus: 'center',
+      gap: '3rem',
+      autoplay: true,
+      speed: 1000,
+      start: 1,
+      breakpoints: {
+        800: {
+          perPage: 2,
+        },
+        600: {
+          perPage: 1,
+        },
+      },
+    };
+
+    const slider = new Splide(podcastSlider, sliderOptions);
+    slider.mount();
+  }
 
   const bgImgSlider = document.querySelector('.bgImgSlider') ?? false;
   if (bgImgSlider) {
@@ -541,9 +543,10 @@ function InitializeSliders() {
   const logosSlider = document.querySelector('.logos-slider');
   if (logosSlider) {
     const logosSliderr = new Splide(logosSlider, {
-      type: 'slide',
+      type: 'loop',
       autoWidth: true,
       gap: '1rem',
+      autoplay: '600',
       pagination: false,
       arrows: false,
     });
@@ -697,28 +700,53 @@ function boxReveal() {
   const cards = document.querySelectorAll('.mediaGrid .card');
   if (!cards.length) return;
 
-  // Create a controller for batch processing
+  // Set initial state for all cards
+  gsap.set(cards, { opacity: 0, y: 100 });
+
   ScrollTrigger.batch(cards, {
     start: 'top 80%',
+    end: 'bottom 20%',
     onEnter: (batch) => {
-      // Create a timeline for cards that enter the viewport
       gsap.to(batch, {
         opacity: 1,
         y: 0,
         duration: 1,
         ease: 'back.out',
-        stagger: 0.25, // 0.25 second stagger between cards in the same batch
-        onStart: function () {
-          // Make sure elements are properly set up for animation
-          gsap.set(batch, { opacity: 0, y: 100 });
-        },
+        stagger: 0.25,
+      });
+    },
+    onLeave: (batch) => {
+      // Hide cards again when they scroll out downward
+      gsap.to(batch, {
+        opacity: 0,
+        y: 100,
+        duration: 0.5,
+        ease: 'power1.inOut',
+        stagger: 0.1,
+      });
+    },
+    onEnterBack: (batch) => {
+      // Show cards again when scrolling back up
+      gsap.to(batch, {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        ease: 'back.out',
+        stagger: 0.25,
+      });
+    },
+    onLeaveBack: (batch) => {
+      // Hide cards again when they scroll out upward
+      gsap.to(batch, {
+        opacity: 0,
+        y: 100,
+        duration: 0.5,
+        ease: 'power1.inOut',
+        stagger: 0.1,
       });
     },
     markers: false,
   });
-
-  // Set initial state for all cards
-  gsap.set(cards, { opacity: 0, y: 100 });
 }
 
 function masonry() {

@@ -5,16 +5,16 @@
         data-gradY="0.5"
         data-gradSize="farthest-corner"
         data-box-dimension="180"></div>
-    <div class="container grid gap-x-24 gap-y-12 py-20 pb-10 md:grid-cols-1 text-light font-medium">
-        <h2 class="text-3xl/relaxed uppercase  z-1 relative">
-            <?php echo get_field('success_description_left'); ?>
-        </h2>
-    </div>
+    <!-- <div class="container grid gap-x-24 gap-y-12 py-20 pb-10 md:grid-cols-1 text-light font-medium">
+
+    </div> -->
     <div
         class="content container grid lg:grid-cols-2 gap-8 mt-auto max-lg:text-center z-1 relative">
         <div
             class="text-wrapper lg:py-8 text-light/75 items-end content-center">
-
+            <h2 class="text-3xl/relaxed uppercase z-1 relative font-medium mb-10">
+                <?php echo get_field('success_description_left'); ?>
+            </h2>
             <div data-by=".word">
                 <p class="font-poppins font-bold text-light/75">
                     <?php echo get_field('success_description_right'); ?>
