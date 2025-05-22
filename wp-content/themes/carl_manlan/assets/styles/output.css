@@ -1530,9 +1530,9 @@
       inset-block: 60%;
     }
   }
-  .lg\:my-16 {
+  .lg\:mt-20 {
     @media (width >= 64rem) {
-      margin-block: calc(var(--spacing) * 16);
+      margin-top: calc(var(--spacing) * 20);
     }
   }
   .lg\:mb-20 {
