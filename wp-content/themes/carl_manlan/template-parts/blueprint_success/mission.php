@@ -19,7 +19,7 @@
                 <p class="font-poppins font-bold text-light/75">
                     <?php echo get_field('success_description_right'); ?>
                 </p>
-                <h2 class="text-2xl uppercase font-medium my-6 md:my-12">
+                <h2 class="text-2xl uppercase font-medium my-6 md:my-16">
                     <?php echo get_field('mission_title'); ?>
                 </h2>
                 <p class="text-sm font-poppins font-bold">

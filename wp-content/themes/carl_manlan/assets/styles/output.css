@@ -1446,9 +1446,9 @@
       width: 100%;
     }
   }
-  .md\:my-12 {
+  .md\:my-16 {
     @media (width >= 48rem) {
-      margin-block: calc(var(--spacing) * 12);
+      margin-block: calc(var(--spacing) * 16);
     }
   }
   .md\:-mr-\[50\%\] {
