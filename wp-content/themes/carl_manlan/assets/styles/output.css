@@ -1446,19 +1446,9 @@
       width: 100%;
     }
   }
-  .md\:my-16 {
-    @media (width >= 48rem) {
-      margin-block: calc(var(--spacing) * 16);
-    }
-  }
   .md\:-mr-\[50\%\] {
     @media (width >= 48rem) {
       margin-right: calc(50% * -1);
-    }
-  }
-  .md\:mb-20 {
-    @media (width >= 48rem) {
-      margin-bottom: calc(var(--spacing) * 20);
     }
   }
   .md\:-ml-\[50\%\] {
@@ -1538,6 +1528,16 @@
   .lg\:inset-y-\[60\%\] {
     @media (width >= 64rem) {
       inset-block: 60%;
+    }
+  }
+  .lg\:my-16 {
+    @media (width >= 64rem) {
+      margin-block: calc(var(--spacing) * 16);
+    }
+  }
+  .lg\:mb-20 {
+    @media (width >= 64rem) {
+      margin-bottom: calc(var(--spacing) * 20);
     }
   }
   .lg\:\!hidden {
