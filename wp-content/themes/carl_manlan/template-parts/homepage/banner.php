@@ -31,43 +31,49 @@
 
 <section class="container my-20">
     <div class="text-light">
-        <h1 class="uppercase text-3xl"><?php the_field('hp_podcast_title'); ?></h1>
-        <h1 class="uppercase text-3xl description text-primary"><?php the_field('hp_podcast_desc'); ?></h1>
+        <h1 class="uppercase text-3xl font-medium"><?php the_field('hp_podcast_title'); ?></h1>
+        <h2 class="uppercase text-2xl description font-medium text-primary"><?php the_field('hp_podcast_desc'); ?></h2>
     </div>
     <div class="cardWrapper pb-8 uppercase font-medium">
         <div class="splide podcastSlider pt-10 pb-20">
             <div class="splide__track">
                 <ul class="splide__list">
                     <?php
-                        $wp_query = new WP_Query(array(
-                            'post_type'      => 'podcasts', // Fetch regular WordPress posts
-                            'posts_per_page' => 20, // Number of posts to display
-                            'orderby'        => 'date', // Order by date
-                        ));
-                        while ($wp_query->have_posts()) : $wp_query->the_post();
-                            $url = get_field('podcasts_url');
+                    $wp_query = new WP_Query(array(
+                        'post_type'      => 'podcasts', // Fetch regular WordPress posts
+                        'posts_per_page' => 20, // Number of posts to display
+                        'orderby'        => 'date', // Order by date
+                    ));
+                    while ($wp_query->have_posts()) : $wp_query->the_post();
+                        $url = get_field('podcasts_url');
 
-                            // Parse the URL and get the query string
-                            parse_str(parse_url($url, PHP_URL_QUERY), $params);
+                        // Parse the URL and get the query string
+                        parse_str(parse_url($url, PHP_URL_QUERY), $params);
 
-                            // Extract the video ID
-                            $videoId = $params['v'] ?? null;
+                        // Extract the video ID
+                        $videoId = $params['v'] ?? null;
 
-                            if ($videoId) {
-                                // Build the thumbnail URL
-                                $thumbnailUrl = "https://img.youtube.com/vi/{$videoId}/hqdefault.jpg";
-                            } ?>
-                            <li class="splide__slide">
-                                <a href="<?php the_sub_field('url'); ?>" target="_blank">
-                                    <div class="imgWrapper">
-                                        <img loading="lazy" src="<?php echo $thumbnailUrl; ?>" alt="" />
-                                        <h1 class="text-light font-medium text-xl uppercase">
-                                            <?php the_title();?>
-                                        </h1>
+                        if ($videoId) {
+                            // Build the thumbnail URL
+                            $thumbnailUrl = "https://img.youtube.com/vi/{$videoId}/mqdefault.jpg";
+                        } ?>
+                        <li class="splide__slide">
+                            <a href="<?php the_sub_field('url'); ?>" target="_blank">
+                                <div class="imgWrapper relative group">
+                                    <div class="playBtn absolute inset-0 max-h-16 max-w-16 rounded-full grid place-content-center-safe m-auto bg-secondary/75 group-hover:bg-secondary transition duration-600">
+                                        <svg width="17" height="25" viewBox="0 0 17 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M0.441408 1.56712C0.441408 0.930879 1.16555 0.565559 1.67726 0.943643L16.3837 11.8096C16.8031 12.1195 16.8031 12.7467 16.3837 13.0565L1.67728 23.9235C1.16558 24.3016 0.441406 23.9363 0.441406 23.3L0.441408 1.56712Z" fill="#F5F5F5" />
+                                        </svg>
                                     </div>
-                                </a>
-                            </li>
-                    <?php endwhile; wp_reset_query(); ?>
+                                    <img loading="lazy" src="<?php echo $thumbnailUrl; ?>" alt="" class="object-cover w-full h-auto rounded-xl" />
+                                </div>
+                                <h1 class="font-medium text-xl uppercase text-secondary mt-2">
+                                    <?php the_title(); ?>
+                                </h1>
+                            </a>
+                        </li>
+                    <?php endwhile;
+                    wp_reset_query(); ?>
                 </ul>
             </div>
         </div>

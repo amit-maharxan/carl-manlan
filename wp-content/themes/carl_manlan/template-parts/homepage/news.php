@@ -10,18 +10,19 @@
                     <?php
                     if (have_rows('hp_logos')):
                         while (have_rows('hp_logos')) : the_row();
-                        $url = get_sub_field('url');
-                        if($url){ ?>
-                            <li class="splide__slide">
-                                <a href="<?php the_sub_field('url'); ?>" class="contents">
+                            $url = get_sub_field('url');
+                            if ($url) { ?>
+                                <li class="splide__slide">
+                                    <a href="<?php the_sub_field('url'); ?>" class="contents">
+                                        <img src="<?php the_sub_field('logo'); ?>" alt="" class="max-h-20 max-w-max rounded-[8px] uppercase text-xl font-medium" />
+                                    </a>
+                                </li>
+                            <?php } else { ?>
+                                <li class="splide__slide">
                                     <img src="<?php the_sub_field('logo'); ?>" alt="" class="max-h-20 max-w-max rounded-[8px] uppercase text-xl font-medium" />
-                                </a>
-                            </li>
-                    <?php } else { ?>
-                            <li class="splide__slide">
-                                <img src="<?php the_sub_field('logo'); ?>" alt="" class="max-h-20 max-w-max rounded-[8px] uppercase text-xl font-medium" />
-                            </li>
-                        <?php } endwhile;
+                                </li>
+                    <?php }
+                        endwhile;
                     endif; ?>
                 </ul>
             </div>
@@ -66,12 +67,12 @@
                     'posts_per_page' => 20, // Number of posts to display
                 ));
                 while ($wp_query->have_posts()) : $wp_query->the_post(); ?>
-                    <li class="splide__slide">
+                    <li class="splide__slide group">
                         <a href="<?php the_permalink(); ?>">
                             <div class="imgWrapper">
                                 <img loading="lazy" src="<?php echo get_the_post_thumbnail_url(); ?>" alt="" />
                             </div>
-                            <p class="text-start text-xl">
+                            <p class="text-start text-xl text-dark group-hover:text-primary transition duration-600">
                                 <?php the_title(); ?>
                             </p>
                         </a>

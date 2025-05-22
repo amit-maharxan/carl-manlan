@@ -30,7 +30,7 @@
         <div class="img-wrapper flex">
             <?php $video_url = get_field('mission_video');
             if ($video_url): ?>
-                <video width="640" height="360" controls class="rounded-lg max-md:mx-auto md:ml-auto mb-10">
+                <video width="640" height="360" controls class="rounded-lg max-md:mx-auto md:ml-auto mb-10 max-h-[50rem] w-auto">
                     <source src="<?php echo esc_url($video_url); ?>" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>

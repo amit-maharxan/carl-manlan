@@ -457,6 +457,7 @@ function InitializeSliders() {
       type: 'loop',
       autoplay: true,
       speed: 1000,
+      interval: 3000,
       arrows: false,
       pagination: false,
       perPage: 3,
@@ -500,6 +501,7 @@ function InitializeSliders() {
       focus: 'center',
       gap: '3rem',
       autoplay: true,
+      interval: 3000,
       speed: 1000,
       start: 1,
       breakpoints: {
@@ -527,6 +529,7 @@ function InitializeSliders() {
       gap: '1.5rem',
       type: 'loop',
       autoplay: true,
+      interval: 3000,
       padding: { left: padingUnits, right: padingUnits },
       breakpoints: {
         800: {
@@ -546,7 +549,8 @@ function InitializeSliders() {
       type: 'loop',
       autoWidth: true,
       gap: '1rem',
-      autoplay: '600',
+      autoplay: true,
+      interval: 3000,
       pagination: false,
       arrows: false,
     });

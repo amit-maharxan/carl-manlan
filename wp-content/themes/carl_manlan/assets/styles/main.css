@@ -339,11 +339,16 @@ main > section:first-child {
 
 .newsSlider :is(.imgWrapper, img) {
   display: block;
-  background-color: var(--color-gray);
   width: 100%;
   aspect-ratio: 1.4;
   border-radius: 12px;
+  background-color: var(--color-gray);
+  &:has(img) {
+    background-color: transparent;
+    border: 1px solid var(--color-gray);
+  }
 }
+
 .bgImgSlider img {
   border-radius: 12px;
 }
