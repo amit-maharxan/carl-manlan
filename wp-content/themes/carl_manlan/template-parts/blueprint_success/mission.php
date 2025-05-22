@@ -5,7 +5,7 @@
         data-gradY="0.5"
         data-gradSize="farthest-corner"
         data-box-dimension="180"></div>
-    <div class="container grid gap-x-24 gap-y-12 py-20 pb-0 md:grid-cols-1 text-light font-medium">
+    <div class="container grid gap-x-24 gap-y-12 py-20 pb-10 md:grid-cols-1 text-light font-medium">
         <h2 class="text-3xl/relaxed uppercase  z-1 relative">
             <?php echo get_field('success_description_left'); ?>
         </h2>
@@ -19,7 +19,7 @@
                 <p class="font-poppins font-bold text-light/75">
                     <?php echo get_field('success_description_right'); ?>
                 </p>
-                <h2 class="text-2xl uppercase font-medium my-10">
+                <h2 class="text-2xl uppercase font-medium my-6">
                     <?php echo get_field('mission_title'); ?>
                 </h2>
                 <p class="text-sm font-poppins font-bold">
@@ -30,7 +30,7 @@
         <div class="img-wrapper flex">
             <?php $video_url = get_field('mission_video');
             if ($video_url): ?>
-                <video width="640" height="360" controls>
+                <video width="640" height="360" controls class="rounded-md max-md:mx-auto md:ml-auto mb-10">
                     <source src="<?php echo esc_url($video_url); ?>" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
