@@ -47,14 +47,18 @@
                     while ($wp_query->have_posts()) : $wp_query->the_post();
                         $url = get_field('podcasts_url');
 
+                        // Parse the URL and get the query string
                         parse_str(parse_url($url, PHP_URL_QUERY), $params);
+
+                        // Extract the video ID
                         $videoId = $params['v'] ?? null;
 
                         if ($videoId) {
+                            // Build the thumbnail URL
                             $thumbnailUrl = "https://img.youtube.com/vi/{$videoId}/mqdefault.jpg";
                         } ?>
                         <li class="splide__slide group">
-                            <a href="<?php the_permalink(); ?>" target="_blank">
+                            <a href="<?php the_field('podcasts_url'); ?>" target="_blank">
                                 <div class="imgWrapper relative">
                                     <div class="playBtn absolute inset-0 max-h-16 max-w-16 rounded-full grid place-content-center-safe m-auto bg-secondary/75 group-hover:bg-secondary transition duration-600">
                                         <svg width="17" height="25" viewBox="0 0 17 25" fill="none" xmlns="http://www.w3.org/2000/svg">
