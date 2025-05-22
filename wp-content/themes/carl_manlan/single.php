@@ -21,14 +21,25 @@ if($post_type == 'post'){
   <div class="content container text-light z-1">
     <div class="left__part">
 
-      <!-- <div id="blog-image" class="">
-        <?php //$url = wp_get_attachment_url(get_post_thumbnail_id($blogID), 'thumbnail'); ?>
-        <img src="<?php //echo $url; ?>" alt="image">
-      </div> -->
+    <?php if($post_type == 'post'){ ?>
+      <div id="blog-image" class="">
+        <?php $url = wp_get_attachment_url(get_post_thumbnail_id($blogID), 'thumbnail'); ?>
+        <img src="<?php echo $url; ?>" alt="image">
+      </div>
+    <?php
+      $organization_post = get_field('organization_post');
+      $link_to_post_post = get_field('link_to_post');
+    } ?>
+
       <div class="blog-details pb-10">
 
         <div class="flex flex-wrap justify-between w-full">
+          <?php if($post_type == 'news-stories'){ ?>
           <p class="added-on"><?php echo get_field('originally_posted_on'); ?></p>
+          <?php } if($post_type == 'post'){ 
+            if($organization_post){ ?>
+          <p class="added-on"><?php echo 'Originally published on '.$organization_post; ?></p>
+          <?php } } ?>
           <p class="flex gap-2 shareSocials">SHARE 
             <a id="fb-share" class="contents" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=<?php echo urlencode( get_permalink( get_the_ID() ) ); ?>&text=<?php echo urlencode( get_the_title() );?>&summary=<?php echo urlencode( get_the_title() );?>&source=<?php echo 'Carl_Manlan';?>">
               <img class="!my-auto" src="<?php echo DK_ASSEST_URI . '/icons/fb.svg'; ?>" alt="facebook">
@@ -44,7 +55,13 @@ if($post_type == 'post'){
             </a>
           </p>
         </div>
-        <p class="desc"><?php the_content(); ?></p>
+
+        <p class="desc">
+          <?php the_content(); ?>
+          <?php if($post_type == 'post'){
+            echo $link_to_post_post;
+          } ?>
+        </p>
         <a class="btn-primary view-all uppercase" href="">Back To All</a>
       </div>
     </div>
