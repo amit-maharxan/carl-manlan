@@ -27,10 +27,15 @@
                 </p>
             </div>
         </div>
-        <div class="img-wrapper flex">
+        <div class="img-wrapper flex relative group">
+            <div class="playBtn absolute z-1 inset-0 max-h-16 max-w-16 rounded-full grid place-content-center-safe m-auto bg-secondary/75 group-hover:bg-secondary transition duration-600">
+                <svg width="17" height="25" viewBox="0 0 17 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M0.441408 1.56712C0.441408 0.930879 1.16555 0.565559 1.67726 0.943643L16.3837 11.8096C16.8031 12.1195 16.8031 12.7467 16.3837 13.0565L1.67728 23.9235C1.16558 24.3016 0.441406 23.9363 0.441406 23.3L0.441408 1.56712Z" fill="#F5F5F5" />
+                </svg>
+            </div>
             <?php $video_url = get_field('mission_video');
             if ($video_url): ?>
-                <video width="640" height="360" controls class="rounded-lg max-md:mx-auto md:ml-auto mb-10 max-h-[50rem] w-auto">
+                <video width="640" height="360" class="rounded-lg max-md:mx-auto md:ml-auto mb-10 max-h-[50rem] w-auto">
                     <source src="<?php echo esc_url($video_url); ?>" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>

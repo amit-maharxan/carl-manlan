@@ -35,7 +35,7 @@
         <h2 class="uppercase text-2xl description font-medium text-primary"><?php the_field('hp_podcast_desc'); ?></h2>
     </div>
     <div class="cardWrapper pb-8 uppercase font-medium">
-        <div class="splide podcastSlider pt-10 pb-20">
+        <div class="splide podcastSlider py-10">
             <div class="splide__track">
                 <ul class="splide__list">
                     <?php
@@ -57,9 +57,9 @@
                             // Build the thumbnail URL
                             $thumbnailUrl = "https://img.youtube.com/vi/{$videoId}/mqdefault.jpg";
                         } ?>
-                        <li class="splide__slide">
+                        <li class="splide__slide group">
                             <a href="<?php the_sub_field('url'); ?>" target="_blank">
-                                <div class="imgWrapper relative group">
+                                <div class="imgWrapper relative">
                                     <div class="playBtn absolute inset-0 max-h-16 max-w-16 rounded-full grid place-content-center-safe m-auto bg-secondary/75 group-hover:bg-secondary transition duration-600">
                                         <svg width="17" height="25" viewBox="0 0 17 25" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <path d="M0.441408 1.56712C0.441408 0.930879 1.16555 0.565559 1.67726 0.943643L16.3837 11.8096C16.8031 12.1195 16.8031 12.7467 16.3837 13.0565L1.67728 23.9235C1.16558 24.3016 0.441406 23.9363 0.441406 23.3L0.441408 1.56712Z" fill="#F5F5F5" />

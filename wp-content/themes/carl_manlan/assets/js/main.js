@@ -26,6 +26,7 @@ window.addEventListener('load', async () => {
   GsapImgParallax();
   verticalTimelineInit();
   boxReveal();
+  playVideo();
   setTimeout(masonry, 1000);
   window.addEventListener('resize', setHeaderHeight);
   window.addEventListener('resize', BannerBgEffect.init);
@@ -758,5 +759,23 @@ function masonry() {
   if (masonryItems.length == 0) return;
   masonryItems.forEach((item, index) => {
     item.style.setProperty('--height', Math.ceil(item.clientHeight / 4 + 4));
+  });
+}
+
+function playVideo() {
+  document.querySelectorAll('.playBtn').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const video = btn.nextElementSibling; // Assumes video is the next sibling
+      if (video && video.tagName.toLowerCase() === 'video') {
+        // Optional fade-out
+        btn.style.transition = 'opacity 0.3s ease';
+        btn.style.opacity = 0;
+        setTimeout(() => {
+          btn.style.display = 'none';
+        }, 300);
+        video.controls = true;
+        video.play();
+      }
+    });
   });
 }
