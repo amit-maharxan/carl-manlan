@@ -1540,6 +1540,11 @@
       margin-bottom: calc(var(--spacing) * 20);
     }
   }
+  .lg\:ml-auto {
+    @media (width >= 64rem) {
+      margin-left: auto;
+    }
+  }
   .lg\:\!hidden {
     @media (width >= 64rem) {
       display: none !important;
