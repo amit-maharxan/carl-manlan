@@ -486,6 +486,12 @@
   .max-h-\[80vh\] {
     max-height: 80vh;
   }
+  .max-h-\[calc\(1svh_-_2rem\)\] {
+    max-height: calc(1svh - 2rem);
+  }
+  .max-h-\[calc\(100svh_-_2rem\)\] {
+    max-height: calc(100svh - 2rem);
+  }
   .max-h-full {
     max-height: 100%;
   }
@@ -494,6 +500,9 @@
   }
   .max-h-screen {
     max-height: 100vh;
+  }
+  .max-h-svh {
+    max-height: 100svh;
   }
   .min-h-\[12rem\] {
     min-height: 12rem;
@@ -703,6 +712,9 @@
   }
   .gap-y-12 {
     row-gap: calc(var(--spacing) * 12);
+  }
+  .overflow-auto {
+    overflow: auto;
   }
   .overflow-hidden {
     overflow: hidden;

@@ -30,20 +30,23 @@ li.active {
 }
 
 dialog#myDialog h2 {
-    font-size: 30px;
-    padding: 10%;
-    color: #f78104;
-    background-color: #000;
+  font-size: 30px;
+  padding: 10%;
+  color: #f78104;
+  background-color: #000;
 }
 
 dialog#myDialog {
-    min-height: 200px;
+  min-height: 200px;
 }
 
 li.current-menu-item {
-    background-position: 0 100% !important;
+  background-position: 0 100% !important;
 }
 
+a {
+  transition: color 400ms ease;
+}
 a:hover {
-    color: #f78104;
+  color: #f78104;
 }

@@ -46,11 +46,11 @@
       class="container flex flex-wrap gap-x-8 gap-y-4 justify-between font-medium text-xs uppercase">
       <nav class="grid place-content-center">
         <?php
-          wp_nav_menu(array(
-            'theme_location' => 'footer-menu',
-            'container' => '',
-            'menu_class' => 'flex gap-6'
-          ));
+        wp_nav_menu(array(
+          'theme_location' => 'footer-menu',
+          'container' => '',
+          'menu_class' => 'flex gap-6'
+        ));
         ?>
       </nav>
       <div class="social-links max-md:w-full">
@@ -98,24 +98,24 @@
 
 <!-- Dialog with popover -->
 <dialog
-    id="getintouch"
-    popover
-    class="rounded-lg w-full max-w-[min(1200px,calc(100%_-_2rem))] shadow-xl m-auto border border-gray">
-    <!-- Close button -->
-    <!-- Dialog with popover -->
+  id="getintouch"
+  popover
+  class="rounded-lg w-full max-w-[min(1200px,calc(100%_-_2rem))] shadow-xl m-auto border border-gray max-h-[calc(100svh_-_2rem)] overflow-auto">
+  <!-- Close button -->
+  <!-- Dialog with popover -->
 
-    <button
-        popovertarget="getintouch"
-        class="absolute top-4 right-2 text-primary text-xl z-1">
-        <i data-feather="x"></i>
-    </button>
+  <button
+    popovertarget="getintouch"
+    class="absolute top-4 right-2 text-primary text-xl z-1">
+    <i data-feather="x"></i>
+  </button>
 
-    <!-- Dialog content -->
-    <section class="uppercase font-medium bg-dark text-light/75 py-20">
-        <div class="container">
-            <?php echo do_shortcode('[contact-form-7 id="d712fe3" title="Contact Page Form"]'); ?>
-        </div>
-    </section>
+  <!-- Dialog content -->
+  <section class="uppercase font-medium bg-dark text-light/75 py-20">
+    <div class="container">
+      <?php echo do_shortcode('[contact-form-7 id="d712fe3" title="Contact Page Form"]'); ?>
+    </div>
+  </section>
 </dialog>
 
 <script async type='text/javascript' src='https://static.klaviyo.com/onsite/js/klaviyo.js?company_id=RWzyRy'></script>
