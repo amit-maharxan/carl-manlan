@@ -35,7 +35,7 @@
         <h2 class="uppercase text-2xl description font-medium text-primary"><?php the_field('hp_podcast_desc'); ?></h2>
     </div>
     <div class="cardWrapper uppercase font-medium">
-        <div class="splide podcastSlider py-10">
+        <div class="splide podcastSlider pt-10">
             <div class="splide__track">
                 <ul class="splide__list">
                     <?php
