@@ -3,9 +3,8 @@
         <div class="headingWrapper exclude" data-scrub-by=".word">
             <?php echo get_field('hp_news_title'); ?>
         </div>
-        <div class="splide logos-slider mt-10 !visible">
+        <!-- <div class="splide logos-slider mt-10 !visible">
             <div class="splide__track">
-                <!-- <ul class="splide__list btnGroup flex justify-around gap-6 mx-auto flex-wrap"> -->
                 <ul class="splide__list btnGroup">
                     <?php
                     if (have_rows('hp_logos')):
@@ -26,7 +25,7 @@
                     endif; ?>
                 </ul>
             </div>
-        </div>
+        </div> -->
     </div>
     <div class="container mt-10">
         <div class="flex justify-between">
