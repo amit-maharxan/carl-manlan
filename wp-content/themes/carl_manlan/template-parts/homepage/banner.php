@@ -58,7 +58,7 @@
                             $thumbnailUrl = "https://img.youtube.com/vi/{$videoId}/mqdefault.jpg";
                         } ?>
                         <li class="splide__slide group">
-                            <a href="<?php the_sub_field('url'); ?>" target="_blank">
+                            <a href="<?php the_field('podcasts_url'); ?>" target="_blank">
                                 <div class="imgWrapper relative">
                                     <div class="playBtn absolute inset-0 max-h-16 max-w-16 rounded-full grid place-content-center-safe m-auto bg-secondary/75 group-hover:bg-secondary transition duration-600">
                                         <svg width="17" height="25" viewBox="0 0 17 25" fill="none" xmlns="http://www.w3.org/2000/svg">
