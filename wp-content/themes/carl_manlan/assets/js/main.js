@@ -421,9 +421,12 @@ function InitializeSliders() {
     const sliderOptions = {
       arrows: false,
       pagination: false,
+      autoplay: true,
+      interval: 3000,
       perPage: 4,
       updateOnMove: true,
       focus: 'center',
+      rewind: true,
       padding: { right: padingUnits },
       breakpoints: {
         800: {
