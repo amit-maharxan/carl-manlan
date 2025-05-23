@@ -29,7 +29,7 @@
     </div>
 </section>
 
-<section class="container my-20">
+<section class="container mt-20">
     <div class="text-light">
         <h1 class="uppercase text-3xl font-medium"><?php the_field('hp_podcast_title'); ?></h1>
         <h2 class="uppercase text-2xl description font-medium text-primary"><?php the_field('hp_podcast_desc'); ?></h2>
