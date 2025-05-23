@@ -393,9 +393,6 @@
   .mt-10 {
     margin-top: calc(var(--spacing) * 10);
   }
-  .mt-20 {
-    margin-top: calc(var(--spacing) * 20);
-  }
   .mt-auto {
     margin-top: auto;
   }
@@ -489,9 +486,6 @@
   .max-h-\[80vh\] {
     max-height: 80vh;
   }
-  .max-h-\[calc\(1svh_-_2rem\)\] {
-    max-height: calc(1svh - 2rem);
-  }
   .max-h-\[calc\(100svh_-_2rem\)\] {
     max-height: calc(100svh - 2rem);
   }
@@ -503,9 +497,6 @@
   }
   .max-h-screen {
     max-height: 100vh;
-  }
-  .max-h-svh {
-    max-height: 100svh;
   }
   .min-h-\[12rem\] {
     min-height: 12rem;
@@ -1817,23 +1808,23 @@
 }
 .bannerTopTxt {
   z-index: 1;
-  --tw-translate-y: calc(var(--spacing) * 4);
+  --tw-translate-y: calc(var(--spacing) * 7);
   translate: var(--tw-translate-x) var(--tw-translate-y);
   rotate: calc(5deg * -1);
   text-align: center;
   font-family: var(--font-splash);
   color: var(--color-secondary);
   @media (width >= 48rem) {
-    font-size: var(--text-5xl);
-    line-height: var(--tw-leading, var(--text-5xl--line-height));
+    font-size: var(--text-6xl);
+    line-height: var(--tw-leading, var(--text-6xl--line-height));
   }
   @media (width >= 64rem) {
-    font-size: var(--text-7xl);
-    line-height: var(--tw-leading, var(--text-7xl--line-height));
-  }
-  @media (width >= 80rem) {
     font-size: var(--text-8xl);
     line-height: var(--tw-leading, var(--text-8xl--line-height));
+  }
+  @media (width >= 80rem) {
+    font-size: var(--text-9xl);
+    line-height: var(--tw-leading, var(--text-9xl--line-height));
   }
 }
 .bannerBottomTxt {
@@ -1847,12 +1838,12 @@
     line-height: var(--tw-leading, var(--text-5xl--line-height));
   }
   @media (width >= 64rem) {
-    font-size: var(--text-7xl);
-    line-height: var(--tw-leading, var(--text-7xl--line-height));
+    font-size: var(--text-6xl);
+    line-height: var(--tw-leading, var(--text-6xl--line-height));
   }
   @media (width >= 80rem) {
-    font-size: var(--text-8xl);
-    line-height: var(--tw-leading, var(--text-8xl--line-height));
+    font-size: var(--text-7xl);
+    line-height: var(--tw-leading, var(--text-7xl--line-height));
   }
 }
 .btn-tag {

@@ -131,11 +131,11 @@
 }
 
 .bannerTopTxt {
-  @apply text-center font-splash text-secondary md:text-5xl lg:text-7xl xl:text-8xl -rotate-5 translate-y-4 z-1;
+  @apply text-center font-splash text-secondary md:text-6xl lg:text-8xl xl:text-9xl -rotate-5 translate-y-7 z-1;
 }
 
 .bannerBottomTxt {
-  @apply text-center text-light md:text-5xl lg:text-7xl xl:text-8xl font-poppins font-bold;
+  @apply text-center text-light md:text-5xl lg:text-6xl xl:text-7xl font-poppins font-bold;
 }
 
 .btn-tag {

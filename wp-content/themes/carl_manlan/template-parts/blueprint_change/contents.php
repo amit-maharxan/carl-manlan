@@ -5,7 +5,7 @@
         <div class="container z-1 relative">
             <div class="grid py-20 md:grid-cols-1 gap-x-24 gap-y-12 text-light font-medium">
                 <h2
-                    class="text-3xl/relaxed uppercase"
+                    class="text-3xl/relaxed uppercase text-center"
                     data-scrub-by=".word">
                     <?php echo get_field('change_description_left'); ?>
                 </h2>
@@ -171,7 +171,7 @@
     $(document).ready(function() {
         $('#loader_icon').hide();
     });
-    
+
     $(document).ready(function() {
         var $form = $('.klaviyo-form-Su23ES');
         setTimeout(function() {
