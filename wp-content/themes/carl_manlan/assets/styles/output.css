@@ -1299,17 +1299,6 @@
       --tw-gradient-stops: var(--tw-gradient-via-stops);
     }
   }
-  .after\:via-dark\/80 {
-    &::after {
-      content: var(--tw-content);
-      --tw-gradient-via: color-mix(in srgb, #000 80%, transparent);
-      @supports (color: color-mix(in lab, red, red)) {
-        --tw-gradient-via: color-mix(in oklab, var(--color-dark) 80%, transparent);
-      }
-      --tw-gradient-via-stops: var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-via) var(--tw-gradient-via-position), var(--tw-gradient-to) var(--tw-gradient-to-position);
-      --tw-gradient-stops: var(--tw-gradient-via-stops);
-    }
-  }
   .after\:via-transparent {
     &::after {
       content: var(--tw-content);
@@ -1808,42 +1797,25 @@
 }
 .bannerTopTxt {
   z-index: 1;
-  --tw-translate-y: calc(var(--spacing) * 7);
+  --tw-translate-y: calc(var(--spacing) * 15);
   translate: var(--tw-translate-x) var(--tw-translate-y);
-  rotate: calc(5deg * -1);
+  rotate: calc(1.32deg * -1);
   text-align: center;
   font-family: var(--font-splash);
+  font-size: calc(65rem / 16);
   color: var(--color-secondary);
-  @media (width >= 48rem) {
-    font-size: var(--text-6xl);
-    line-height: var(--tw-leading, var(--text-6xl--line-height));
-  }
-  @media (width >= 64rem) {
-    font-size: var(--text-8xl);
-    line-height: var(--tw-leading, var(--text-8xl--line-height));
-  }
-  @media (width >= 80rem) {
-    font-size: var(--text-9xl);
-    line-height: var(--tw-leading, var(--text-9xl--line-height));
-  }
 }
 .bannerBottomTxt {
   text-align: center;
   font-family: var(--font-poppins);
+  font-size: var(--text-5xl);
+  line-height: var(--tw-leading, var(--text-5xl--line-height));
   --tw-font-weight: var(--font-weight-bold);
   font-weight: var(--font-weight-bold);
   color: var(--color-light);
-  @media (width >= 48rem) {
-    font-size: var(--text-5xl);
-    line-height: var(--tw-leading, var(--text-5xl--line-height));
-  }
-  @media (width >= 64rem) {
-    font-size: var(--text-6xl);
-    line-height: var(--tw-leading, var(--text-6xl--line-height));
-  }
-  @media (width >= 80rem) {
-    font-size: var(--text-7xl);
-    line-height: var(--tw-leading, var(--text-7xl--line-height));
+  text-transform: uppercase;
+  br {
+    display: none;
   }
 }
 .btn-tag {

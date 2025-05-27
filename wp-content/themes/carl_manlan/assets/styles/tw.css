@@ -131,11 +131,14 @@
 }
 
 .bannerTopTxt {
-  @apply text-center font-splash text-secondary md:text-6xl lg:text-8xl xl:text-9xl -rotate-5 translate-y-7 z-1;
+  @apply text-center font-splash text-secondary text-[calc(65rem_/_16)] -rotate-[1.32deg] translate-y-15 z-1;
 }
 
 .bannerBottomTxt {
-  @apply text-center text-light md:text-5xl lg:text-6xl xl:text-7xl font-poppins font-bold;
+  @apply text-center text-light text-5xl font-poppins font-bold uppercase;
+  br {
+    @apply hidden;
+  }
 }
 
 .btn-tag {
