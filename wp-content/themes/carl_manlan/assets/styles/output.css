@@ -1705,8 +1705,9 @@
   border-radius: calc(infinity * 1px);
   padding-inline: calc(var(--spacing) * 6);
   padding-block: calc(var(--spacing) * 2);
+  text-align: center;
   text-transform: uppercase;
-  min-width: max-content;
+  min-width: fit-content;
   height: max-content;
 }
 .btn-primary {
