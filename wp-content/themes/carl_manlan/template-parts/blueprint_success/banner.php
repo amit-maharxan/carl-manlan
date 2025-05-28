@@ -4,7 +4,7 @@
     <div
         class="content container max-lg:pb-6 gap-8 m-auto mb-[max(2rem,_5%)] max-lg:text-center z-1">
         <div
-            class="bgWrapper absolute inset-0 after:absolute after:inset-0 after:bg-linear-to-b after:from-dark/10 after:via-dark/60 after:via-80% after:to-dark">
+            class="bgWrapper absolute inset-0 after:absolute after:inset-0 after:bg-linear-to-b after:from-dark/5 after:via-dark/60 after:via-80% after:to-dark">
             <img
                 src="<?php echo get_field('success_image'); ?>"
                 alt=""
