@@ -1858,6 +1858,10 @@
   --tw-font-weight: var(--font-weight-medium);
   font-weight: var(--font-weight-medium);
   color: var(--color-light);
+  @media (width < 64rem) {
+    font-size: var(--text-xs) !important;
+    line-height: var(--tw-leading, var(--text-xs--line-height)) !important;
+  }
 }
 .klaviyo-form input {
   border-radius: calc(infinity * 1px) !important;
