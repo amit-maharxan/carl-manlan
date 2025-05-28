@@ -79,7 +79,7 @@
 }
 
 [class*='btn-'] {
-  @apply px-6 py-2 rounded-full uppercase max-w-max cursor-pointer text-center;
+  @apply px-6 py-2 rounded-full uppercase max-w-max cursor-pointer;
   min-width: fit-content;
   height: max-content;
 }
