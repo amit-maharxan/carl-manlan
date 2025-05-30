@@ -1,5 +1,4 @@
-<section class="container gap-4 text-light pt-10 ">
-    <!-- todo: dynamic -->
+<!-- <section class="container gap-4 text-light pt-10 ">
     <h1 class="uppercase text-3xl">Digital Scrapbook</h1>
     <div class="masonry pt-10 pb-20 font-over-the-rainbow">
         <?php
@@ -16,4 +15,4 @@
         <?php endwhile;
         endif; ?>
     </div>
-</section>
+</section> -->

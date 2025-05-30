@@ -83,7 +83,7 @@
     </div>
 </section>
 
-<!-- bp 4 success -->
+<!--
 <section class="font-medium uppercase text-light pt-40 max-[800px]:pt-20">
     <div class="relative flex flex-col">
         <div class="splide bgImgSlider max-lg:order-1 max-lg:mt-10">
@@ -114,4 +114,4 @@
             <?php endif; ?>
         </div>
     </div>
-</section>
+</section> -->

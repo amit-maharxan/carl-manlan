@@ -71,7 +71,7 @@
             </p>
           </a>
         </div>
-        <div class="menuBlock px-(--menu-padding-x)">
+        <!-- <div class="menuBlock px-(--menu-padding-x)">
           <a
             href="<?php echo site_url('blueprint-for-success'); ?>"
             class="contents">
@@ -81,7 +81,7 @@
               Blueprint For Success
             </p>
           </a>
-        </div>
+        </div> -->
         <div class="menuBlock px-(--menu-padding-x)">
           <button class="btn-primary mx-auto mt-4" popovertarget="getintouch">
               Get In Touch
