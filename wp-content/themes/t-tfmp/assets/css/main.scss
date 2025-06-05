@@ -1,0 +1,100 @@
+@font-face {
+  font-family: 'england_signatureregular';
+  src: url('../fonts/england_signature-webfont.woff2') format('woff2'),
+  url('../fonts/england_signature-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+.typo_1{
+  font-family: 'england_signatureregular';
+  font-size: 50px !important;
+}
+.goback{
+  padding: 40px 0;
+  .button-4{
+    margin: 0 auto;
+    cursor: pointer;
+  }
+}
+
+.btn-add-to-cart{
+  border: 2px solid #fff;
+  &:hover{
+    border: 2px solid #000;
+    color: #000 !important;
+    background: #fff;
+  }
+}
+
+.menu-title {
+  background-color: #fff;
+  z-index: 999999;
+  position: fixed;
+}
+
+.no-pa-bo{
+  padding-bottom: 0;
+}
+
+.page-title{
+  h1{
+    span{
+      color: rgba(0, 0, 0, 0.6);
+      font-size: 40px;
+    }
+  }
+}
+
+#main-menu{
+  li{
+    a{
+      -webkit-transition: all .2s ease-in-out;
+      -moz-transition: all .2s ease-in-out;
+      -ms-transition: all .2s ease-in-out;
+      -o-transition: all .2s ease-in-out;
+      transition: all .2s ease-in-out;
+      &:hover{
+        color: rgba(0, 0, 0, 0.71) !important;
+      }
+    }
+    &.active{
+      a{
+        color: rgba(0, 0, 0, 0.71) !important;
+      }
+    }
+  }
+}
+
+.soical-icon-font{
+  a{
+    -webkit-transition: all .2s ease-in-out;
+    -moz-transition: all .2s ease-in-out;
+    -ms-transition: all .2s ease-in-out;
+    -o-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+    &:hover{
+      color: rgba(0, 0, 0, 0.71) !important;
+    }
+  }
+}
+
+.kl-about-main-title .page-title h1 {
+  font-family: "nimbus_roman_d_otregular";
+  font-size: 58px;
+  color: #242424;
+  margin: 0 0 88px;
+}
+.about-wrapper{
+  margin-top: -150px;
+}
+.moremore{
+  margin-top: 20px;
+}
+.entry-content-bottom{
+  margin-top: 20px;
+}
+
+.aligncenter{
+  text-align: center;
+  margin: 0 auto;
+}

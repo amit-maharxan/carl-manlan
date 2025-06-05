@@ -50,3 +50,22 @@ a {
 a:hover {
   color: #f78104;
 }
+
+a.scbtn-hover:hover { 
+    color: #000000; 
+}
+
+.instagram-gallery-feed .swiper-container .swiper-button-next, .instagram-gallery-feed .swiper-container .swiper-button-prev {
+    color: #ffffff !important;
+}
+
+.scbtn-hover{
+    padding: 0 !important;
+}
+
+@media(max-width: 768px){
+   .container:has(#menu-footer-menu){
+        justify-content: center;
+    }
+    
+}

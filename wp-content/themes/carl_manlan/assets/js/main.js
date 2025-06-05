@@ -497,12 +497,10 @@ function InitializeSliders() {
     const nextBtn =
       podcastSlider.parentElement.querySelector('button[data-next]');
     const sliderOptions = {
-      type: 'loop',
       arrows: false,
       pagination: false,
       perPage: 3,
       updateOnMove: true,
-      focus: 'center',
       gap: '3rem',
       autoplay: true,
       interval: 3000,

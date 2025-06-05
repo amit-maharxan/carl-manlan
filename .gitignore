@@ -29,6 +29,9 @@ wp-config.php
 # Uploads
 /wp-content/uploads/
 
+/wp-content/cache/
+/wp-content/ai1wm-backups/
+
 # Log files
 *.log
 *.exe

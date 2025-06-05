@@ -37,44 +37,62 @@
     <div class="cardWrapper uppercase font-medium">
         <div class="splide podcastSlider pt-10">
             <div class="splide__track">
-                <ul class="splide__list">
-                    <?php
-                    $wp_query = new WP_Query(array(
-                        'post_type'      => 'podcasts', // Fetch regular WordPress posts
-                        'posts_per_page' => 20, // Number of posts to display
-                        'orderby'        => 'date', // Order by date
-                    ));
-                    while ($wp_query->have_posts()) : $wp_query->the_post();
-                        $url = get_field('podcasts_url');
-
-                        // Parse the URL and get the query string
-                        parse_str(parse_url($url, PHP_URL_QUERY), $params);
-
-                        // Extract the video ID
-                        $videoId = $params['v'] ?? null;
-
-                        if ($videoId) {
-                            // Build the thumbnail URL
+                <?php
+                    $apiKey = 'AIzaSyBxzwhcIk2lNUoY5Muec9XQKEkJYDTRhXI';
+                    $channelHandle = 'InsideTheBluePrintPodcast';
+                    
+                    // Step 1: Get Channel ID
+                    $channelResponse = file_get_contents("https://www.googleapis.com/youtube/v3/channels?part=id&forHandle={$channelHandle}&key={$apiKey}");
+                    $channelData = json_decode($channelResponse, true);
+                    
+                    if (empty($channelData['items'])) {
+                        die('Channel not found.');
+                    }
+                    
+                    $channelId = $channelData['items'][0]['id'];
+                    
+                    // Step 2: Get Uploads Playlist ID
+                    $playlistResponse = file_get_contents("https://www.googleapis.com/youtube/v3/channels?part=contentDetails&id={$channelId}&key={$apiKey}");
+                    $playlistData = json_decode($playlistResponse, true);
+                    $uploadsPlaylistId = $playlistData['items'][0]['contentDetails']['relatedPlaylists']['uploads'];
+                    
+                    // Step 3: Fetch Videos from Uploads Playlist
+                    $videos = [];
+                    $nextPageToken = '';
+                    do {
+                        $playlistItemsResponse = file_get_contents("https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=50&playlistId={$uploadsPlaylistId}&key={$apiKey}&pageToken={$nextPageToken}");
+                        $playlistItemsData = json_decode($playlistItemsResponse, true);
+                    
+                        foreach ($playlistItemsData['items'] as $item) {
+                            $videoId = $item['snippet']['resourceId']['videoId'];
+                            $title = $item['snippet']['title'];
                             $thumbnailUrl = "https://img.youtube.com/vi/{$videoId}/mqdefault.jpg";
-                        } ?>
+                            $videos[] = ['id' => $videoId, 'title' => $title, 'thumbnail' => $thumbnailUrl];
+                        }
+                    
+                        $nextPageToken = $playlistItemsData['nextPageToken'] ?? '';
+                    } while (!empty($nextPageToken));
+                    
+                    // Step 4: Display Videos
+                    echo "<ul class='splide__list'>";
+                    foreach ($videos as $video) { ?>
                         <li class="splide__slide group">
-                            <a href="<?php the_field('podcasts_url'); ?>" target="_blank">
+                            <a href="https://www.youtube.com/watch?v=<?php echo $video['id'];?>" target="_blank">
                                 <div class="imgWrapper relative">
                                     <div class="playBtn absolute inset-0 max-h-16 max-w-16 rounded-full grid place-content-center-safe m-auto bg-secondary/75 group-hover:bg-secondary transition duration-600">
                                         <svg width="17" height="25" viewBox="0 0 17 25" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <path d="M0.441408 1.56712C0.441408 0.930879 1.16555 0.565559 1.67726 0.943643L16.3837 11.8096C16.8031 12.1195 16.8031 12.7467 16.3837 13.0565L1.67728 23.9235C1.16558 24.3016 0.441406 23.9363 0.441406 23.3L0.441408 1.56712Z" fill="#F5F5F5" />
                                         </svg>
                                     </div>
-                                    <img loading="lazy" src="<?php echo $thumbnailUrl; ?>" alt="" class="object-cover w-full h-auto rounded-xl" />
+                                    <img loading="lazy" src="<?php echo $video['thumbnail']; ?>" alt="" class="object-cover w-full h-auto rounded-xl" />
                                 </div>
                                 <h1 class="font-medium text-xl uppercase text-secondary mt-2">
-                                    <?php the_title(); ?>
+                                    <?php echo $video['title']; ?>
                                 </h1>
                             </a>
                         </li>
-                    <?php endwhile;
-                    wp_reset_query(); ?>
-                </ul>
+                    <?php }
+                    echo "</ul>"; ?>
             </div>
         </div>
     </div>

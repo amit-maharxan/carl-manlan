@@ -46,3 +46,11 @@ add_filter( 'show_admin_bar', '__return_false' );
 @ini_set( 'upload_max_size' , '64M' );
 @ini_set( 'post_max_size', '64M');
 @ini_set( 'max_execution_time', '300' );
+
+function redirect_404_to_homepage() {
+    if (is_404()) {
+        wp_redirect(home_url(), 301);
+        exit;
+    }
+}
+add_action('template_redirect', 'redirect_404_to_homepage');

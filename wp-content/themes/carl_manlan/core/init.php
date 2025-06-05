@@ -45,7 +45,7 @@ require_once ( DK_FUNCTION.'/ajax-functions.php' );
 
 
 require_once ( DK_CORE.'/post_types/type_blueprints.php' );
-require_once ( DK_CORE.'/post_types/type_podcasts.php' );
+// require_once ( DK_CORE.'/post_types/type_podcasts.php' );
 
 /**
  * Theme Hooks

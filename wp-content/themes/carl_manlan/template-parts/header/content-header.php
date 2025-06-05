@@ -38,6 +38,17 @@
 
     <div class="body grow relative overflow-x-clip">
       <div class="content flex flex-col gap-4">
+          <div class="menuBlock px-(--menu-padding-x)">
+          <a
+            href="<?php echo site_url('home'); ?>"
+            class="contents">
+            <p
+              class="text-xl  <?php if(is_page('104')){ echo 'text-primary';} if($post_type=='post'){ echo 'text-primary';}?>"
+              role="heading">
+              Home
+            </p>
+        </a>
+        </div>
         <div class="menuBlock px-(--menu-padding-x)">
           <a
             href="<?php echo site_url('about'); ?>"
@@ -49,6 +60,7 @@
             </p>
           </a>
         </div>
+        
         <div class="menuBlock px-(--menu-padding-x)">
           <a
             href="<?php echo site_url('media'); ?>"
@@ -93,6 +105,21 @@
     <div class="foot px-(--menu-padding-x)">
       <div class="social-links">
         <ul class="flex gap-6 justify-around">
+        <?php $instagram  = get_field('instagram', 'option');
+                $linkedin   = get_field('linkedin', 'option');
+                $x          = get_field('x', 'option');
+                $facebook   = get_field('facebook', 'option');
+                $youtube    = get_field('youtube', 'option');
+                
+            if($instagram){ ?>
+             <li>
+            <a href="<?php the_field('instagram'); ?>" target="_blank">
+              <img
+                loading="lazy"
+                src="<?php echo DK_ASSEST_URI . '/icons/Instagram.svg'; ?>" />
+            </a>
+          </li>
+          <?php } if($linkedin){ ?>
           <li>
             <a href="<?php the_field('linkedin'); ?>" target="_blank">
               <img
@@ -100,6 +127,7 @@
                 src="<?php echo DK_ASSEST_URI . '/icons/Linkedin.svg'; ?>" />
             </a>
           </li>
+          <?php } if($facebook){ ?>
           <li>
             <a href="<?php the_field('facebook'); ?>" target="_blank">
               <img
@@ -107,6 +135,7 @@
                 src="<?php echo DK_ASSEST_URI . '/icons/Facebook.svg'; ?>" />
             </a>
           </li>
+          <?php } if($x){ ?>
           <li>
             <a href="<?php the_field('x'); ?>" target="_blank">
               <img
@@ -114,6 +143,7 @@
                 src="<?php echo DK_ASSEST_URI . '/icons/X.svg'; ?>" />
             </a>
           </li>
+          <?php } if($youtube){ ?>
           <li>
             <a href="<?php the_field('youtube'); ?>" target="_blank">
               <img
@@ -121,13 +151,7 @@
                 src="<?php echo DK_ASSEST_URI . '/icons/Youtube.svg'; ?>" />
             </a>
           </li>
-          <li>
-            <a href="<?php the_field('instagram'); ?>" target="_blank">
-              <img
-                loading="lazy"
-                src="<?php echo DK_ASSEST_URI . '/icons/Instagram.svg'; ?>" />
-            </a>
-          </li>
+          <?php } ?>
         </ul>
       </div>
     </div>

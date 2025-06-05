@@ -1,0 +1,179 @@
+@import "livenexx-responsive";
+
+@font-face {
+  font-family: 'nimbus_roman_d_otregular';
+  src: url('../fonts/nimbus-roman-d-ot_regular-webfont.woff2') format('woff2'),
+  url('../fonts/nimbus-roman-d-ot_regular-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+@font-face {
+  font-family: 'nimbus_roman_d_otbold';
+  src: url('../fonts/nimbus-roman-d-ot-bold-webfont.woff2') format('woff2'),
+  url('../fonts/nimbus-roman-d-ot-bold-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+$nibusR : 'nimbus_roman_d_otregular';
+$nibusB : 'nimbus_roman_d_otbold';
+$poppins :  'Poppins', sans-serif;
+
+%img-cover{
+  min-width: 100%;
+  min-height: 100%;
+  object-fit: cover;
+}
+
+.kl-main{
+  background: url(../images/home_bg_pattern_2.png)no-repeat center top;
+  background-size: 100% auto;
+  padding: 142px 0 94px;
+  &--body{
+    padding: 0 42px;
+    .kl-rounded-img{
+      height: 593px;
+      border-radius: 30px 100px 30px 100px;
+      overflow: hidden;
+      img{
+        @extend %img-cover;
+      }
+    }
+    p{
+      font-size: 18px;
+      color: #000;
+      font-family: $poppins;
+      font-weight: 400;
+      margin-bottom: 27px;
+      line-height: 1.5rem;
+      b{
+        font-weight: 600 !important;
+      }
+    }
+  }
+}
+.kl-top-header{
+  margin-bottom: 20px;
+  h1{
+    font-family: $nibusB;
+    font-size: 58px;
+    margin-bottom: 20px;
+    color: #000;
+  }
+  p{
+    font-family: $nibusB;
+    font-size: 38px;
+    color: #000;
+  }
+  .kl-rounded-img{
+    width: 316px;
+    height: 316px;
+    overflow: hidden;
+    border-radius: 50%;
+    margin-top: 12px;
+  }
+  .kl-img-wrapper{
+    position: relative;
+    display: inline-block;
+    &:before{
+      content: "";
+      background: #fff;
+      height: 3px;
+      position: absolute;
+      right: 316px;
+      left: -1900px;
+      top: 50%;
+    }
+  }
+}
+
+.kl-blog-main-title{
+  padding: 197px 0 62px;
+  background: url("../images/bg_pattern_ideas-for-action.png")no-repeat center top;
+  background-size: 1438px auto;
+  .page-title{
+    h1{
+      font-family: $nibusR;
+      font-size: 58px;
+      color: #242424;
+      margin: 0 0 88px;
+    }
+    &:after{
+      display: none;
+    }
+  }
+}
+
+.kl-frm-search{
+  input{
+    padding: 20px 60px;
+    border: 1px solid #000;
+    border-radius: 5px;
+    background: transparent url("../images/icn-search.png")no-repeat center left 35px;
+    width: 100%;
+    &::placeholder{
+      color: #000;
+      font-size: 14px;
+      font-family: $poppins;
+      font-style: italic;
+    }
+  }
+}
+
+
+.kl-about-main-title{
+  background: url(../images/about_me_pattern_2.png) no-repeat center -150px;
+  background-size: 1438px auto;
+}
+
+.kl-portrait{
+  position: relative;
+  /*&::after{
+    content: "";
+    background: url("../images/form-img.png")no-repeat;
+    position: absolute;
+    right: -5px;
+    bottom: -5px;
+    width: 405px;
+    height: 73px;
+  }*/
+}
+
+.menu-title{
+  width: 100%;
+  #main-menu li{
+    a{
+      font-family: $poppins;
+      font-weight: 500;
+      color: #000;
+    }
+    &:after{
+      background-color: #000;
+      border-radius: 50%;
+      bottom: 16.8px;
+    }
+  }
+}
+.logo{
+  margin-top: 22px;
+}
+
+.about-wrapper h2 { font-family: "nimbus_roman_d_otregular";
+  font-size: 58px;
+  color: #242424;
+  margin: 0 0 30px;
+}
+
+.page-template-about{
+  background: url(../images/about_me_pattern_2.png) no-repeat center top;
+  background-size: 100%;
+  .meta-title .page-title:after {
+    display: none !important;
+  }
+  .kl-about-main-title {
+    background: none !important;
+  }
+}

@@ -54,42 +54,55 @@
         ?>
       </nav>
       <div class="social-links max-md:w-full">
-        <ul class="flex justify-around gap-6">
+        <ul class="flex justify-center gap-8">
+            <?php 
+                $instagram  = get_field('instagram', 'option');
+                $linkedin   = get_field('linkedin', 'option');
+                $x          = get_field('x', 'option');
+                $facebook   = get_field('facebook', 'option');
+                $youtube    = get_field('youtube', 'option');
+            
+            if($instagram){ ?>
           <li>
-            <a href="<?php the_field('linkedin'); ?>" target="_blank">
-              <img
-                loading="lazy"
-                src="<?php echo DK_ASSEST_URI . '/icons/Linkedin.svg'; ?>" />
-            </a>
-          </li>
-          <li>
-            <a href="<?php the_field('facebook'); ?>" target="_blank">
-              <img
-                loading="lazy"
-                src="<?php echo DK_ASSEST_URI . '/icons/Facebook.svg'; ?>" />
-            </a>
-          </li>
-          <li>
-            <a href="<?php the_field('x'); ?>" target="_blank">
-              <img
-                loading="lazy"
-                src="<?php echo DK_ASSEST_URI . '/icons/X.svg'; ?>" />
-            </a>
-          </li>
-          <li>
-            <a href="<?php the_field('youtube'); ?>" target="_blank">
-              <img
-                loading="lazy"
-                src="<?php echo DK_ASSEST_URI . '/icons/Youtube.svg'; ?>" />
-            </a>
-          </li>
-          <li>
-            <a href="<?php the_field('instagram'); ?>" target="_blank">
+            <a href="<?php the_field('instagram', 'option'); ?>" target="_blank">
               <img
                 loading="lazy"
                 src="<?php echo DK_ASSEST_URI . '/icons/Instagram.svg'; ?>" />
             </a>
           </li>
+          <?php } if($linkedin){ ?>
+          <li>
+            <a href="<?php the_field('linkedin', 'option'); ?>" target="_blank">
+              <img
+                loading="lazy"
+                src="<?php echo DK_ASSEST_URI . '/icons/Linkedin.svg'; ?>" />
+            </a>
+          </li>
+          <?php } if($facebook){ ?>
+          <li>
+            <a href="<?php the_field('facebook', 'option'); ?>" target="_blank">
+              <img
+                loading="lazy"
+                src="<?php echo DK_ASSEST_URI . '/icons/Facebook.svg'; ?>" />
+            </a>
+          </li>
+          <?php } if($x){ ?>
+          <li>
+            <a href="<?php the_field('x', 'option'); ?>" target="_blank">
+              <img
+                loading="lazy"
+                src="<?php echo DK_ASSEST_URI . '/icons/X.svg'; ?>" />
+            </a>
+          </li>
+          <?php } if($youtube){ ?>
+          <li>
+            <a href="<?php the_field('youtube', 'option'); ?>" target="_blank">
+              <img
+                loading="lazy"
+                src="<?php echo DK_ASSEST_URI . '/icons/Youtube.svg'; ?>" />
+            </a>
+          </li>
+          <?php } ?>
         </ul>
       </div>
     </div>
@@ -118,4 +131,4 @@
   </section>
 </dialog>
 
-<script async type='text/javascript' src='https://static.klaviyo.com/onsite/js/klaviyo.js?company_id=RWzyRy'></script>
+<script async type='text/javascript' src='https://static.klaviyo.com/onsite/js/klaviyo.js?company_id=Trcbgv'></script>
