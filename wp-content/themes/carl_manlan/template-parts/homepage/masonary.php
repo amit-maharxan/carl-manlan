@@ -6,7 +6,7 @@
             // Define generator outside the loop
             function aspectRatioPattern()
             {
-                $pattern = ['aspect-[0.75]', 'aspect-[1.25]', 'aspect-[1.25]'];
+                $pattern = ['aspect-[0.75]', 'aspect-[1.25]', 'aspect-[1.25]', 'aspect-[0.75]',];
                 $i = 0;
                 while (true) {
                     yield $pattern[$i % 3];
