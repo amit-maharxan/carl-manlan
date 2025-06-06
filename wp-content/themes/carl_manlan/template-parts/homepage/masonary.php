@@ -22,7 +22,7 @@
         ?>
                 <div class="masonry__item mb-6 <?php echo $aspect; ?> overflow-hidden">
                     <div class="imgWrapper w-full h-full bg-gray mb-4">
-                        <img loading="lazy" src="<?php the_sub_field('hp_snaps_select_image'); ?>" alt="" class="w-full h-full" />
+                        <img loading="lazy" src="<?php the_sub_field('hp_snaps_select_image'); ?>" alt="" class="w-full h-full object-cover" />
                         <div class="txtWrapper">
                             <?php the_sub_field('hp_snaps_description'); ?>
                         </div>
